@@ -59,13 +59,16 @@ export default {
         }
       })
 
-      // ─── Anti-DevTools: detect mở DevTools qua kích thước cửa sổ ─────────
-      const threshold = 160
-      const detectDevTools = () => {
-        if (
-          window.outerWidth - window.innerWidth > threshold ||
-          window.outerHeight - window.innerHeight > threshold
-        ) {
+      // ─── Anti-DevTools: detect bằng debugger timing (không false positive) ─
+      let devToolsOpen = false
+      const devToolsCheck = () => {
+        const start = performance.now()
+        // eslint-disable-next-line no-debugger
+        debugger
+        const elapsed = performance.now() - start
+        // Nếu debugger bị pause (DevTools đang mở), elapsed sẽ > 100ms
+        if (elapsed > 100 && !devToolsOpen) {
+          devToolsOpen = true
           document.body.innerHTML =
             '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;flex-direction:column;gap:16px;background:#1e1e2e;color:#cdd6f4;">' +
             '<span style="font-size:48px;">🚫</span>' +
@@ -74,8 +77,7 @@ export default {
             '</div>'
         }
       }
-      window.addEventListener('resize', detectDevTools)
-      setInterval(detectDevTools, 2000)
+      setInterval(devToolsCheck, 3000)
     })
   }
 }
