@@ -68,27 +68,7 @@ button,
   letter-spacing: 0.03em;
 }
 
-/* ── Watermark chìm trên nền trang ───────────────────────────────── */
-.VPContent::before {
-  content: "FIT HCMUE — Trịnh Minh Huy";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-35deg);
-  font-size: clamp(1.2rem, 4vw, 2.8rem);
-  color: rgba(142, 23, 40, 0.04);
-  font-weight: 900;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 9999;
-  letter-spacing: 0.1em;
-  user-select: none;
-}
-
-/* ── Dark mode watermark ─────────────────────────────────────────── */
-.dark .VPContent::before {
-  color: rgba(255, 255, 255, 0.04);
-}
+/* ── Watermark — đã bỏ theo yêu cầu ────────────────────────────── */
 
 /* ── Math (KaTeX) — chống chọn công thức ─────────────────────────── */
 .math,

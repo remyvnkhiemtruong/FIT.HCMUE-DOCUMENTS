@@ -2,67 +2,69 @@
 layout: home
 
 hero:
-  name: "Cổng Tài Liệu Khoa CNTT - HCMUE"
-  text: "Kho Học Liệu & Ôn Thi Theo Từng Khóa (K52, K51, K50, K49)"
-  tagline: "Khóa hiện tại: Khóa 52 (Năm nhất 2026 – 2030) • 100% số hóa không nhúng PDF • Dựa trên nguồn tư liệu Trịnh Minh Huy"
+  name: "Kho Tài Liệu Khoa CNTT"
+  text: "FIT — HCMUE"
+  tagline: "Tài liệu học tập số hóa 100% cho toàn bộ môn học theo từng Học kỳ — Không nhúng PDF"
   actions:
     - theme: brand
-      text: ⭐ Cổng Học Tập Khóa 52 (Năm 1)
-      link: /khoa/khoa-52
+      text: 📚 Kho Môn Học
+      link: /mon-hoc/
     - theme: alt
-      text: 🔎 Tra cứu toàn bộ môn học
+      text: 🔎 Tra cứu học phần
       link: /khoa/tra-cuu-hoc-phan
     - theme: alt
-      text: 📈 Cơ Sở Toán (COMP1800)
-      link: /calculus/01-gioi-han-day-va-ham
-    - theme: alt
-      text: 🧩 Toán Rời Rạc (COMP1801)
-      link: /discrete-math/buoi-1-logic-menh-de
+      text: ⭐ Khóa 52 (Năm 1)
+      link: /khoa/khoa-52
 
 features:
+  - icon: 📚
+    title: "Kho Môn Học Toàn Khoa"
+    details: "Tài liệu lý thuyết, bài tập và đề thi được số hóa cho toàn bộ môn học của Khoa CNTT — phân chia theo từng Học kỳ (HK1 → HK8)."
+    link: /mon-hoc/
   - icon: ⭐
-    title: "Khóa 52 (2026 – 2030) [Hiện tại]"
-    details: "Dành riêng cho tân sinh viên năm nhất đang học HK1 & chuẩn bị HK2: Cơ sở toán, Toán rời rạc, Lập trình C++, Thiết kế web, OOP."
+    title: "Khóa 52 (2026 – 2030) — Năm 1"
+    details: "HK1 & HK2: Cơ sở toán (COMP1800), Toán rời rạc (COMP1801), Lập trình cơ bản (COMP1010), Thiết kế web (COMP1802), OOP (COMP1017)."
     link: /khoa/khoa-52
   - icon: 🚀
-    title: "Khóa 51 (2025 – 2029) [Năm 2]"
-    details: "Chương trình năm hai (HK3 & HK4): Cấu trúc dữ liệu, Cơ sở dữ liệu, Lập trình Windows C#, Mạng máy tính, Hệ điều hành, Thiết kế giải thuật."
+    title: "Khóa 51 (2025 – 2029) — Năm 2"
+    details: "HK3 & HK4: Cấu trúc dữ liệu, Cơ sở dữ liệu, Mạng máy tính, Hệ điều hành, Phân tích giải thuật, Xác suất thống kê."
     link: /khoa/khoa-51
   - icon: 💡
-    title: "Khóa 50 (2024 – 2028) [Năm 3]"
-    details: "Chương trình năm ba (HK5 & HK6): Công nghệ phần mềm, OOAD, Trí tuệ nhân tạo (AI), Quy hoạch tuyến tính, Lập trình PHP/Laravel, Chuyên ngành."
+    title: "Khóa 50 (2024 – 2028) — Năm 3"
+    details: "HK5 & HK6: Công nghệ phần mềm, OOAD, Trí tuệ nhân tạo, Quy hoạch tuyến tính, Lập trình PHP và các môn tự chọn chuyên ngành."
     link: /khoa/khoa-50
   - icon: 🎓
-    title: "Khóa 49 (2023 – 2027) [Năm 4]"
-    details: "Chương trình năm cuối (HK7 & HK8): Thực tập nghề nghiệp 1 & 2, Thực tập sư phạm 1 & 2, Khóa luận tốt nghiệp và Hồ sơ tốt nghiệp."
+    title: "Khóa 49 (2023 – 2027) — Năm 4"
+    details: "HK7 & HK8: Thực tập nghề nghiệp, Thực hành nghề nghiệp, Khởi nghiệp và Hồ sơ tốt nghiệp."
     link: /khoa/khoa-49
-  - icon: 🏛️
-    title: "Khung Chương Trình 3 Ngành"
-    details: "Xem chi tiết khung đào tạo chuẩn của cả 3 ngành: Công nghệ Thông tin (7480201), Sư phạm Tin học (7140210) và Công nghệ Giáo dục (7140103)."
-    link: /khoa/
   - icon: 🔎
-    title: "Tra Cứu Học Phần Thông Minh"
-    details: "Công cụ tìm kiếm thời gian thực: lọc theo Khóa đào tạo (K52-K49), lọc theo ngành học, lọc theo học kỳ và tìm theo mã/tên môn."
+    title: "Tra Cứu Học Phần"
+    details: "Lọc theo Khóa (K52–K49), Ngành học (CNTT, SP Tin, CNGD), Học kỳ và tìm kiếm theo mã hoặc tên môn học."
     link: /khoa/tra-cuu-hoc-phan
 ---
 
 <div class="custom-home-content" style="max-width: 960px; margin: 40px auto; padding: 0 20px;">
 
-## 📌 Phân Bổ Tiến Độ Theo Từng Khóa (Năm Học 2026 - 2027)
+## 📌 Tiến Độ Theo Từng Khóa — Năm Học 2026 - 2027
 
-| Khóa | Niên khóa | Năm học | Học kỳ trong năm | Trọng tâm học tập chính | Liên kết nhanh |
+| Khóa | Niên khóa | Năm học | Học kỳ | Trọng tâm | Liên kết |
 | :---: | :---: | :---: | :---: | :--- | :---: |
-| **⭐ Khóa 52** | **2026 – 2030** | **Năm 1 (Hiện tại)** | **HK 1 & HK 2** | Toán cơ sở, Toán rời rạc, Lập trình C++, Web, OOP | 👉 **[Vào K52](/khoa/khoa-52)** |
-| **Khóa 51** | 2025 – 2029 | Năm 2 | HK 3 & HK 4 | CTDL, CSDL, WinForms, Mạng máy tính, HĐH, Giải thuật | 👉 **[Vào K51](/khoa/khoa-51)** |
-| **Khóa 50** | 2024 – 2028 | Năm 3 | HK 5 & HK 6 | CNPM, OOAD, AI, QHTT, PHP/Laravel, Tự chọn ngành | 👉 **[Vào K50](/khoa/khoa-50)** |
-| **Khóa 49** | 2023 – 2027 | Năm 4 (Cuối) | HK 7 & HK 8 | Thực tập 1 & 2, Khóa luận tốt nghiệp, Hồ sơ ra trường | 👉 **[Vào K49](/khoa/khoa-49)** |
+| **⭐ Khóa 52** | **2026 – 2030** | **Năm 1** | **HK1 & HK2** | Toán cơ sở, Toán rời rạc, Lập trình C++, Web, OOP | [→ K52](/khoa/khoa-52) |
+| **Khóa 51** | 2025 – 2029 | Năm 2 | HK3 & HK4 | CTDL, CSDL, WinForms, Mạng, HĐH, Giải thuật | [→ K51](/khoa/khoa-51) |
+| **Khóa 50** | 2024 – 2028 | Năm 3 | HK5 & HK6 | CNPM, OOAD, AI, QHTT, PHP, Tự chọn ngành | [→ K50](/khoa/khoa-50) |
+| **Khóa 49** | 2023 – 2027 | Năm 4 | HK7 & HK8 | Thực tập, Khóa luận tốt nghiệp | [→ K49](/khoa/khoa-49) |
 
 ---
 
-::: tip BẠN LÀ SINH VIÊN KHÓA 52?
-Hãy bắt đầu với hai môn học có khối lượng kiến thức lớn nhất học kỳ này:
-- 📈 **[Cơ sở toán trong CNTT (COMP1800)](/calculus/01-gioi-han-day-va-ham)**: 5 chuyên đề Giải tích + 6 chuyên đề Đại số tuyến tính & Dạng toàn phương + 4 bộ đề thi có lời giải.
-- 🧩 **[Toán rời rạc và ứng dụng (COMP1801)](/discrete-math/buoi-1-logic-menh-de)**: 7 buổi học trọng tâm + 5 bộ đề thi Giữa kỳ & Cuối kỳ có lời giải.
+## 📚 Môn Học Có Tài Liệu Đầy Đủ
+
+| Môn học | Mã HP | HK | Nội dung |
+|---------|-------|----|----------|
+| **Cơ sở Toán trong CNTT** | COMP1800 | 1 | 5 chuyên đề Giải tích + 6 chuyên đề Đại số + Đề thi 3 năm + Trắc nghiệm |
+| **Toán rời rạc và ứng dụng** | COMP1801 | 1 | 7 buổi lý thuyết + Đề GK & KTHP 3 năm kèm lời giải |
+
+::: tip Đóng góp tài liệu
+Bạn có tài liệu cho các môn khác? Hãy đóng góp qua [GitHub Issues](https://github.com/remyvnkhiemtruong/FIT.HCMUE-DOCUMENTS/issues) để cùng xây dựng kho học liệu toàn khoa.
 :::
 
 </div>

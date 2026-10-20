@@ -16,7 +16,7 @@ export default defineConfig({
   // Head: chống cache + thêm meta bảo vệ
   head: [
     ['meta', { name: 'robots', content: 'noindex, nofollow' }],
-    ['meta', { name: 'copyright', content: 'FIT HCMUE — Trịnh Minh Huy. All rights reserved.' }],
+    ['meta', { name: 'copyright', content: 'Khoa Công nghệ Thông tin - Trường ĐH Sư phạm TP.HCM (FIT HCMUE)' }],
     ['meta', { 'http-equiv': 'Cache-Control', content: 'no-store' }],
     ['link', { rel: 'icon', href: '/FIT.HCMUE-DOCUMENTS/favicon.ico' }]
   ],
@@ -50,7 +50,17 @@ export default defineConfig({
     nav: [
       { text: 'Trang chủ', link: '/' },
       {
-        text: '🏛️ Kho Tài Liệu Khoa',
+        text: '📚 Kho Môn Học',
+        items: [
+          { text: 'Toàn bộ môn học (HK1 - HK8)', link: '/mon-hoc/' },
+          { text: 'Năm 1: Học kỳ 1 & 2', link: '/mon-hoc/hk1/' },
+          { text: 'Năm 2: Học kỳ 3 & 4', link: '/mon-hoc/hk3/' },
+          { text: 'Năm 3: Học kỳ 5 & 6', link: '/mon-hoc/hk5/' },
+          { text: 'Năm 4: Học kỳ 7 & 8', link: '/mon-hoc/hk7/' },
+        ]
+      },
+      {
+        text: '🏛️ Khoa & Niên Khóa',
         items: [
           { text: 'Tổng quan Kho tài liệu', link: '/khoa/' },
           { text: '🔎 Tra cứu học phần toàn Khoa', link: '/khoa/tra-cuu-hoc-phan' },
@@ -141,6 +151,42 @@ export default defineConfig({
       { text: 'Sổ tay công thức', link: '/cheatsheet/cong-thuc-nhanh' }
     ],
     sidebar: {
+      '/mon-hoc/': [
+        {
+          text: 'Tổng quan Môn học',
+          items: [
+            { text: '📚 Toàn bộ môn học (HK1 - HK8)', link: '/mon-hoc/' },
+          ]
+        },
+        {
+          text: 'Năm 1: Học kỳ 1 & 2',
+          items: [
+            { text: 'Học kỳ 1 (COMP1010, 1800, 1801, 1802)', link: '/mon-hoc/hk1/' },
+            { text: 'Học kỳ 2 (COMP1013, 1017)', link: '/mon-hoc/hk2/' },
+          ]
+        },
+        {
+          text: 'Năm 2: Học kỳ 3 & 4',
+          items: [
+            { text: 'Học kỳ 3 (CTDL, CSDL, WinForms, XSTK)', link: '/mon-hoc/hk3/' },
+            { text: 'Học kỳ 4 (KTMT, Mạng, HĐH, Giải thuật, Agile)', link: '/mon-hoc/hk4/' },
+          ]
+        },
+        {
+          text: 'Năm 3: Học kỳ 5 & 6',
+          items: [
+            { text: 'Học kỳ 5 (CNPM, OOAD, AI)', link: '/mon-hoc/hk5/' },
+            { text: 'Học kỳ 6 (QHTT, PHP & Web)', link: '/mon-hoc/hk6/' },
+          ]
+        },
+        {
+          text: 'Năm 4: Học kỳ 7 & 8',
+          items: [
+            { text: 'Học kỳ 7 (Thực tập 1, Thực hành, Khởi nghiệp)', link: '/mon-hoc/hk7/' },
+            { text: 'Học kỳ 8 (Thực tập 2, Hồ sơ tốt nghiệp)', link: '/mon-hoc/hk8/' },
+          ]
+        }
+      ],
       '/khoa/': [
         {
           text: 'Tài liệu theo Khóa Đào Tạo',
