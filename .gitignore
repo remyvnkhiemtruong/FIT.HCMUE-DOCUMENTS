@@ -8,3 +8,7 @@ cache/
 *.log
 .DS_Store
 Thumbs.db
+
+# Không đẩy file PDF lên GitHub — chỉ lưu trên máy
+*.pdf
+*.PDF
