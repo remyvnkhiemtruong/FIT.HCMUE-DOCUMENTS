@@ -1,10 +1,14 @@
-# Chuyên Đề 3: Phép Tính Tích Phân & Tổng Riemann
+---
+title: "Chuyên đề 3: Phép tính tích phân và tổng Riemann"
+---
+
+# Chuyên đề 3: Phép tính tích phân và tổng Riemann {#chuyen-đe-3-phep-tinh-tich-phan-tong-riemann}
 
 Tích phân trong môn Cơ sở Toán CNTT đòi hỏi kỹ năng thành thạo về phân tích hữu tỉ, phương pháp từng phần, và đặc biệt là kỹ thuật chuyển giới hạn tổng dạng Riemann về tích phân xác định.
 
 ---
 
-## 1. Phương Pháp Tính Nguyên Hàm & Tích Phân
+## 1. Phương pháp tính nguyên hàm và tích phân {#_1-phuong-phap-tinh-nguyen-ham-tich-phan}
 
 ### 1.1. Công thức tích phân từng phần
 $$\int u \, dv = uv - \int v \, du$$
@@ -25,7 +29,7 @@ Khi phân tích mẫu $Q(x)$:
 
 ---
 
-## 2. Định Nghĩa Tích Phân Xác Định & Giới Hạn Tổng Riemann
+## 2. Định nghĩa tích phân xác định và giới hạn tổng Riemann {#_2-đinh-nghia-tich-phan-xac-đinh-gioi-han-tong-riemann}
 
 ### 2.1. Định lý tổng Riemann
 Cho $f(x)$ liên tục trên đoạn $[0, 1]$. Chia đoạn $[0, 1]$ thành $n$ phần bằng nhau, mỗi phần có độ dài $\Delta x = \frac{1}{n}$. Điểm chia $x_k = \frac{k}{n}$. Khi đó:
@@ -34,7 +38,7 @@ $$\lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n} f\left(\frac{k}{n}\right) = \in
 Tổng quát trên đoạn $[a, b]$:
 $$\lim_{n \to \infty} \frac{b - a}{n} \sum_{k=1}^{n} f\left(a + k \frac{b - a}{n}\right) = \int_a^b f(x) \, dx$$
 
-::: tip BÍ QUYẾT NHẬN DẠNG BÀI TOÁN TỔNG RIEMANN TRONG ĐỀ THI
+::: tip Nhận dạng tổng Riemann
 Khi gặp bài toán tính giới hạn của tổng gồm $n$ số hạng mà bậc của mẫu hơn bậc của tử đúng 1 bậc theo $n$:
 1. Đặt thừa số chung $\frac{1}{n}$ ra ngoài dấu ngoặc.
 2. Biến đổi biểu thức bên trong chỉ chứa cụm $\frac{k}{n}$.
@@ -43,18 +47,18 @@ Khi gặp bài toán tính giới hạn của tổng gồm $n$ số hạng mà b
 
 ---
 
-## 3. Các Ví Dụ Trọng Tâm Từ Đề Thi Thật
+## 3. Ví dụ trong đề thi {#_3-cac-vi-du-trong-tam-tu-đe-thi-that}
 
-### Ví dụ 1 (Đề thi KTHP 2022 - 2023):
+### Ví dụ 1 (đề thi KTHP 2022 - 2023): {#vi-du-1-đe-thi-kthp-2022-2023}
 Tính nguyên hàm:
 $$I = \int \frac{x^2 + 1}{x^3 - 5x^2 + 6x} \, dx$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Phân tích mẫu số thành nhân tử:
 $$x^3 - 5x^2 + 6x = x(x^2 - 5x + 6) = x(x - 2)(x - 3)$$
 Phân tích thành các phân thức đơn giản:
 $$\frac{x^2 + 1}{x(x - 2)(x - 3)} = \frac{A}{x} + \frac{B}{x - 2} + \frac{C}{x - 3}$$
-Dùng phương pháp che (Heaviside cover-up method):
+Dùng phương pháp che:
 - Tìm $A$: Nhân 2 vế với $x$ và cho $x = 0$:
   $$A = \frac{0^2 + 1}{(0 - 2)(0 - 3)} = \frac{1}{6}$$
 - Tìm $B$: Nhân 2 vế với $x - 2$ và cho $x = 2$:
@@ -67,11 +71,11 @@ $$I = \int \left( \frac{1}{6x} - \frac{5}{2(x - 2)} + \frac{10}{3(x - 3)} \right
 $$I = \frac{1}{6} \ln|x| - \frac{5}{2} \ln|x - 2| + \frac{10}{3} \ln|x - 3| + C$$
 :::
 
-### Ví dụ 2 (Đề thi KTHP 2024 - 2025):
+### Ví dụ 2 (đề thi KTHP 2024 - 2025): {#vi-du-2-đe-thi-kthp-2024-2025}
 Tính nguyên hàm:
 $$J = \int \frac{2x - 1}{(x^2 + 1)(x - 3)} \, dx$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Phân tích phân thức dưới dạng:
 $$\frac{2x - 1}{(x^2 + 1)(x - 3)} = \frac{A}{x - 3} + \frac{Bx + C}{x^2 + 1}$$
 Quy đồng mẫu số:
@@ -91,11 +95,11 @@ $$= \frac{1}{2} \ln|x - 3| - \frac{1}{4} \int \frac{2x}{x^2 + 1} dx + \frac{1}{2
 $$= \frac{1}{2} \ln|x - 3| - \frac{1}{4} \ln(x^2 + 1) + \frac{1}{2} \arctan x + C$$
 :::
 
-### Ví dụ 3 (Đề thi KTHP 2024 - 2025):
+### Ví dụ 3 (đề thi KTHP 2024 - 2025): {#vi-du-3-đe-thi-kthp-2024-2025}
 Tính giới hạn của tổng sau:
 $$L = \lim_{n \to \infty} \left( \frac{1}{\sqrt{4n^2 - 1^2}} + \frac{1}{\sqrt{4n^2 - 2^2}} + \dots + \frac{1}{\sqrt{4n^2 - n^2}} \right)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Số hạng thứ $k$ của tổng có dạng:
 $$u_k = \frac{1}{\sqrt{4n^2 - k^2}} = \frac{1}{\sqrt{n^2\left(4 - \left(\frac{k}{n}\right)^2\right)}} = \frac{1}{n} \frac{1}{\sqrt{4 - \left(\frac{k}{n}\right)^2}}$$
 Do đó, tổng được viết lại thành:

@@ -1,10 +1,14 @@
-# Chuyên Đề 3: Không Gian Vectơ, Cơ Sở & Đổi Tọa Độ
+---
+title: "Chuyên đề 3: Không gian vectơ, cơ sở và đổi tọa độ"
+---
 
-Không gian vectơ là khái niệm trừu tượng trung tâm của Đại số tuyến tính, làm cơ sở cho biểu diễn dữ liệu đa chiều, xử lý ngôn ngữ tự nhiên (Word Embeddings) và giảm chiều dữ liệu (PCA).
+# Chuyên đề 3: Không gian vectơ, cơ sở và đổi tọa độ {#chuyen-đe-3-khong-gian-vecto-co-so-đoi-toa-đo}
+
+Không gian vectơ là khái niệm trừu tượng trung tâm của Đại số tuyến tính, làm cơ sở cho biểu diễn dữ liệu đa chiều, xử lý ngôn ngữ tự nhiên và giảm chiều dữ liệu (PCA).
 
 ---
 
-## 1. Không Gian Con & Độc Lập Tuyến Tính
+## 1. Không gian con và độc lập tuyến tính {#_1-khong-gian-con-đoc-lap-tuyen-tinh}
 
 ### 1.1. Điều kiện kiểm tra không gian con
 Tập con không rỗng $W \subseteq V$ là không gian con của $V$ khi và chỉ khi:
@@ -13,13 +17,13 @@ Tập con không rỗng $W \subseteq V$ là không gian con của $V$ khi và ch
 3. $\forall u \in W, \; \forall k \in \mathbb{R} \implies ku \in W$ (đóng kín với phép nhân vô hướng).
 *(Gộp lại: $\forall u, v \in W, \; \forall \alpha, \beta \in \mathbb{R} \implies \alpha u + \beta v \in W$)*.
 
-### 1.2. Độc lập tuyến tính (ĐLTT) & Phụ thuộc tuyến tính (PTTT)
+### 1.2. Độc lập tuyến tính (ĐLTT) và phụ thuộc tuyến tính (PTTT) {#_1-2-đoc-lap-tuyen-tinh-đltt-phu-thuoc-tuyen-tinh-pttt}
 Cho hệ $k$ vectơ $S = \{v_1, v_2, \dots, v_k\} \subset V$. Xét phương trình:
 $$\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_k v_k = 0$$
 - Nếu phương trình **chỉ có nghiệm duy nhất** $\alpha_1 = \alpha_2 = \dots = \alpha_k = 0 \implies$ Hệ $S$ **độc lập tuyến tính**.
 - Nếu tồn tại ít nhất một số $\alpha_i \neq 0 \implies$ Hệ $S$ **phụ thuộc tuyến tính**.
 
-::: tip CÁCH KIỂM TRA ĐLTT TRONG $\mathbb{R}^n$
+::: tip Cách kiểm tra ĐLTT trong $\mathbb{R}^n$
 - Xếp các vectơ $v_1, v_2, \dots, v_k$ thành các dòng (hoặc các cột) của ma trận $A$.
 - Nếu $k = n$ (ma trận vuông):
   $$\det(A) \neq 0 \iff \text{Hệ ĐLTT; } \quad \det(A) = 0 \iff \text{Hệ PTTT}$$
@@ -29,9 +33,9 @@ $$\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_k v_k = 0$$
 
 ---
 
-## 2. Cơ Sở, Số Chiều & Tọa Độ Vectơ
+## 2. Cơ sở, số chiều và tọa độ vectơ {#_2-co-so-so-chieu-toa-đo-vecto}
 
-### 2.1. Định nghĩa cơ sở & số chiều
+### 2.1. Định nghĩa cơ sở và số chiều {#_2-1-đinh-nghia-co-so-so-chieu}
 Hệ vectơ $B = \{e_1, e_2, \dots, e_n\}$ là một **cơ sở** của không gian vectơ $V$ nếu:
 1. $B$ là hệ độc lập tuyến tính.
 2. $B$ là hệ sinh của $V$ ($\text{span}(B) = V$).
@@ -46,7 +50,7 @@ $$[v]_B = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}$$
 
 ---
 
-## 3. Ma Trận Chuyển Cơ Sở & Công Thức Đổi Tọa Độ
+## 3. Ma trận chuyển cơ sở và công thức đổi tọa độ {#_3-ma-tran-chuyen-co-so-cong-thuc-đoi-toa-đo}
 
 Cho hai cơ sở $E = \{e_1, e_2, \dots, e_n\}$ và $F = \{f_1, f_2, \dots, f_n\}$ trong $V$.
 
@@ -61,8 +65,8 @@ f_n = c_{1n} e_1 + c_{2n} e_2 + \dots + c_{nn} e_n
 Khi đó ma trận chuyển cơ sở $P_{E \to F}$ (ký hiệu gọn là $P$) có các **cột chính là tọa độ của các vectơ $f_j$ trong cơ sở $E$**:
 $$P_{E \to F} = \Big( [f_1]_E \;\; [f_2]_E \;\; \dots \;\; [f_n]_E \Big)$$
 
-::: warning ĐẶC BIỆT KHI $E$ LÀ CƠ SỞ CHÍNH TẮC CỦA $\mathbb{R}^n$
-Nếu $E$ là cơ sở chính tắc, thì ma trận chuyển cơ sở từ $E$ sang $F$ đơn giản chỉ là **xếp các vectơ $f_1, f_2, \dots, f_n$ thành các cột** của ma trận $P$!
+::: warning Đặc biệt khi $E$ là cơ sở chính tắc của $\mathbb{R}^n$
+Nếu $E$ là cơ sở chính tắc, thì ma trận chuyển cơ sở từ $E$ sang $F$ đơn giản chỉ là **xếp các vectơ $f_1, f_2, \dots, f_n$ thành các cột** của ma trận $P$.
 :::
 
 ### 3.2. Công thức đổi tọa độ
@@ -71,15 +75,15 @@ $$[v]_E = P_{E \to F} \cdot [v]_F \iff [v]_F = (P_{E \to F})^{-1} \cdot [v]_E$$
 
 ---
 
-## 4. Ví Dụ Bài Tập Từ Đề Thi Thật
+## 4. Ví dụ trong đề thi {#_4-vi-du-bai-tap-tu-đe-thi-that}
 
-### Ví dụ (Đề thi KTHP 2024 - 2025):
+### Ví dụ (đề thi KTHP 2024 - 2025): {#vi-du-đe-thi-kthp-2024-2025}
 Trong không gian $\mathbb{R}^3$, cho cơ sở chính tắc $E = \{e_1, e_2, e_3\}$ và họ vectơ:
 $$F = \{f_1 = (1, -1, 0), \; f_2 = (1, 2, 1), \; f_3 = (0, 3, -2)\}$$
 1. Tìm ma trận chuyển cơ sở từ $E$ sang $F$.
 2. Cho vectơ $v = (3, 4, 5)$. Tìm tọa độ của vectơ $v$ trong cơ sở $F$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Câu 1: Tìm ma trận chuyển cơ sở từ $E$ sang $F$ ($P_{E \to F}$):**
 Vì $E$ là cơ sở chính tắc của $\mathbb{R}^3$, tọa độ của các vectơ $f_1, f_2, f_3$ trong cơ sở $E$ chính là các thành phần tọa độ của chúng:
 $$[f_1]_E = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}, \quad [f_2]_E = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}, \quad [f_3]_E = \begin{pmatrix} 0 \\ 3 \\ -2 \end{pmatrix}$$

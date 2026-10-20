@@ -1,8 +1,8 @@
 ---
-title: Hướng dẫn & Đóng góp
+title: Hướng dẫn và đóng góp
 ---
 
-# Hướng dẫn & Đóng góp
+# Hướng dẫn và đóng góp {#huong-dan-đong-gop}
 
 ## Bắt đầu học
 
@@ -24,7 +24,7 @@ Chương trình từng ngành, tín chỉ, học kỳ và loại học phần l�
 
 Bạn có thể chọn chữ, sao chép công thức và mã nguồn, hoặc dùng chức năng in của trình duyệt để phục vụ học tập. Khi trích dẫn, ghi tên bài, liên kết và nguồn gốc nếu bài có nêu. Tôn trọng quyền của tác giả và điều kiện sử dụng của từng tài liệu; kho không tự cấp quyền đối với tài liệu của bên thứ ba.
 
-Checklist ôn tập chỉ lưu trên thiết bị và trình duyệt hiện tại. Nếu trình duyệt chặn lưu trữ, bạn vẫn dùng được checklist trong lần mở trang; trạng thái sẽ không được giữ khi tải lại.
+Danh sách ôn tập chỉ lưu trên thiết bị và trình duyệt hiện tại. Nếu trình duyệt chặn lưu trữ, bạn vẫn đánh dấu được các mục ôn tập trong lần mở trang; trạng thái sẽ không được giữ khi tải lại.
 
 ## Đóng góp và báo lỗi
 

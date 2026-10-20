@@ -1,16 +1,20 @@
-# Đề Thi Tham Khảo Kèm Barem Điểm Chi Tiết
+---
+title: "Đề thi tham khảo kèm barem điểm chi tiết"
+---
 
-- **Học phần:** Cơ sở Toán trong Công nghệ Thông tin (COMP1800)
-- **Đơn vị:** Khoa Công nghệ Thông tin — Trường ĐH Sư Phạm TP.HCM
+# Đề thi tham khảo kèm barem điểm chi tiết {#đe-thi-tham-khao-kem-barem-điem-chi-tiet}
+
+- **Học phần:** Cơ sở toán trong công nghệ thông tin (COMP1800)
+- **Đơn vị:** Khoa Công nghệ Thông tin — Trường Đại học Sư phạm TP. Hồ Chí Minh
 - **Thời gian làm bài:** 100 phút (Không sử dụng tài liệu)
 
-::: tip Ý NGHĨA CỦA ĐỀ THI NÀY
-Tài liệu này cung cấp **đáp án chính thức và thang điểm chấm chi tiết** của tổ bộ môn. Hãy đối chiếu từng bước lập luận để biết cách trình bày đạt điểm tối đa trong kỳ thi tự luận kết thúc học phần.
+::: tip Cách sử dụng
+Làm đề trước, sau đó đối chiếu lời giải và thang điểm bên dưới. Nguồn đáp án và thang điểm chưa được xác minh độc lập.
 :::
 
 ---
 
-## Bảng Đề Bài & Thang Điểm Chuẩn
+## Bảng đề bài và thang điểm {#bang-đe-bai-thang-điem-chuan}
 
 ### Câu 1 (4,0 điểm). Phép Tính Giải Tích
 
@@ -49,9 +53,9 @@ $$f(1, 1, 1) = (-6, -3, -3), \quad f(1, 1, 0) = (6, 5, 2), \quad f(1, 0, 1) = (6
 
 ---
 
-## Đáp Án & Hướng Dẫn Chấm Từng Bước
+## Đáp án và hướng dẫn chấm từng bước {#đap-an-huong-dan-cham-tung-buoc}
 
-::: details 📖 Xem đáp án chi tiết Câu 1 (4,0 điểm)
+::: details Đáp án câu 1 (4,0 điểm)
 **1a (1,0 đ):**
 Khi $x \to 0$, biểu thức có dạng vô định $\left[\frac{0}{0}\right]$.
 - Áp dụng L'Hospital lần 1:
@@ -82,7 +86,7 @@ Chuyển về tích phân Riemann trên $[0, 1]$ với $f(x) = \frac{1}{1 + x^2}
 $$L = \int_0^1 \frac{dx}{1 + x^2} = [\arctan x]_0^1 = \arctan(1) - \arctan(0) = \frac{\pi}{4} \quad (0.5\text{đ})$$
 :::
 
-::: details 📖 Xem đáp án chi tiết Câu 2 (3,0 điểm)
+::: details Đáp án câu 2 (3,0 điểm)
 **2a (1,0 đ):**
 Kiểm tra đầy đủ 4 tiên đề:
 - Đối xứng: $\langle x, y \rangle = \langle y, x \rangle$ $(0.25\text{đ})$
@@ -101,7 +105,7 @@ $$\|u\| = \sqrt{82} \quad (0.5\text{đ})$$
 - $\cos \theta = \frac{12}{\sqrt{186}} \implies \theta = \arccos\left(\frac{12}{\sqrt{186}}\right)$ $(0.25\text{đ})$
 :::
 
-::: details 📖 Xem đáp án chi tiết Câu 3 (3,0 điểm)
+::: details Đáp án câu 3 (3,0 điểm)
 **3a (1,0 đ):**
 Tìm ảnh của cơ sở chính tắc $\{e_1, e_2, e_3\}$:
 - $e_3 = (1, 1, 1) - (1, 1, 0) \implies f(e_3) = (-6, -3, -3) - (6, 5, 2) = (-12, -8, -5)$

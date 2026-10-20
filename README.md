@@ -43,7 +43,7 @@ npm run preview
 4. Nguồn phải mô tả đúng tài liệu thật. Không gắn nhãn đã xác minh nếu chưa đối chiếu.
 5. Trang môn, bộ lọc và sidebar tự cập nhật. `order` xác định thứ tự đọc và liên kết trước/sau trong cùng môn.
 
-`quiz.json` giữ nguyên câu hỏi, lựa chọn, đáp án và giải thích. `quiz.data.ts` chuyển công thức thành HTML toán học trong lúc dựng trang; trình duyệt chỉ tải quiz khi cần.
+`quiz.json` giữ nguyên câu hỏi, lựa chọn và đáp án. Có thể biên tập lời giải nhưng phải giữ công thức, dữ kiện và ý nghĩa chuyên môn. `quiz.data.ts` chuyển công thức thành HTML toán học trong lúc dựng trang; trình duyệt chỉ tải quiz khi cần.
 
 ## Khóa và năm học
 
@@ -53,7 +53,11 @@ Khi có chương trình chính thức mới, tạo phiên bản và gắn nguồ
 
 ## Bảo toàn nội dung và đường dẫn
 
-77 đường dẫn cũ còn được dựng. Trang cũ đã thay thế có trang chuyển tiếp cùng liên kết dự phòng khi không có JavaScript; query và fragment được giữ khi chuyển trang. Các bài học, bài tập và đề thi giữ nguyên nội dung gốc; quiz giữ toàn bộ dữ liệu câu hỏi.
+77 đường dẫn cũ còn được dựng. Trang cũ đã thay thế có trang chuyển tiếp cùng liên kết dự phòng khi không có JavaScript; query và fragment được giữ khi chuyển trang. Văn phong bài học và lời giải đã được biên tập; công thức, mã nguồn, dữ kiện và phần câu hỏi đề thi được đối chiếu với bản gốc.
+
+Khi sửa tiêu đề, dùng kiểu viết hoa đầu câu, giữ tên riêng và chữ viết tắt. Đồng bộ H1 với `resources.title`. Giữ mã đề mục cũ bằng `{#ma-cu}`; `editorial-anchors.json` lưu mốc trước biên tập và được kiểm tra sau build. Không sửa hồ sơ gốc để làm kiểm tra vượt qua. Các nghi vấn chuyên môn được ghi riêng trong `content-archive/editorial-review.md`.
+
+Các mục ôn tập trong `roadmap.md` có `data-task-key` ổn định, dùng lại khóa lưu tiến độ trước biên tập. Giữ khóa khi sửa chữ hoặc đổi thứ tự; tạo khóa mới cho mục mới và không dùng lại khóa của mục khác.
 
 Hai trang cũ COMP1808 ở HK8 và COMP1411 được giữ kèm cảnh báo, do mã hoặc tên không thống nhất với bảng ngành. Toán rời rạc trong lộ trình được sửa từ COMP1802 sang COMP1801 theo bảng hiện có; vẫn cần đối chiếu đề cương chính thức. Xem `content-archive/data-issues.json`.
 

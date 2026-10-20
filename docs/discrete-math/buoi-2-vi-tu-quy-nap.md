@@ -1,10 +1,14 @@
-# Buổi 2: Vị Từ, Quy Tắc Suy Diễn & Quy Nạp Toán Học
+---
+title: "Buổi 2: Vị từ, quy tắc suy diễn và quy nạp toán học"
+---
 
-Chuyên đề này mở rộng logic mệnh đề thành logic vị từ và trang bị các phương pháp chứng minh toán học chặt chẽ — kỹ năng then chốt để chứng minh tính đúng đắn của thuật toán (Algorithm Correctness).
+# Buổi 2: Vị từ, quy tắc suy diễn và quy nạp toán học {#buoi-2-vi-tu-quy-tac-suy-dien-quy-nap-toan-hoc}
+
+Chuyên đề này mở rộng logic mệnh đề thành logic vị từ và trang bị các phương pháp chứng minh toán học chặt chẽ — kỹ năng then chốt để chứng minh tính đúng đắn của thuật toán.
 
 ---
 
-## 1. Logic Vị Từ & Lượng Từ
+## 1. Logic vị từ và lượng từ {#_1-logic-vi-tu-luong-tu}
 
 ### 1.1. Vị từ
 - **Vị từ** $P(x)$ là một câu khẳng định có chứa một hoặc nhiều biến số $x$. Khi gán giá trị cụ thể cho $x$ trong không gian khảo sát $D$, vị từ trở thành một mệnh đề có giá trị chân lý xác định.
@@ -20,7 +24,7 @@ $$\neg (\exists x P(x)) \equiv \forall x \neg P(x)$$
 
 ---
 
-## 2. Các Quy Tắc Suy Diễn (Rules of Inference)
+## 2. Các quy tắc suy diễn {#_2-cac-quy-tac-suy-dien-rules-of-inference}
 
 | Tên quy tắc | Biểu diễn logic | Diễn giải |
 | :--- | :--- | :--- |
@@ -32,29 +36,29 @@ $$\neg (\exists x P(x)) \equiv \forall x \neg P(x)$$
 
 ---
 
-## 3. Nguyên Lý Quy Nạp Toán Học (Mathematical Induction)
+## 3. Nguyên lý quy nạp toán học {#_3-nguyen-ly-quy-nap-toan-hoc-mathematical-induction}
 
 Để chứng minh một mệnh đề $P(n)$ đúng với mọi số nguyên $n \ge n_0$:
 
 1. **Bước cơ sở (Base Step):** Kiểm tra mệnh đề đúng với giá trị đầu tiên: $n = n_0$ (thường là $n=0$ hoặc $n=1$).
-2. **Bước quy nạp (Inductive Step):**
+2. **Bước quy nạp:**
    - Giả thiết quy nạp (IH): Giả sử mệnh đề đúng với $n = k$ ($k \ge n_0$), tức là $P(k)$ đúng.
    - Cần chứng minh mệnh đề cũng đúng với $n = k + 1$, tức là chứng minh $P(k+1)$ đúng dựa trên giả thiết $P(k)$.
 3. **Kết luận:** Theo nguyên lý quy nạp toán học, $P(n)$ đúng với mọi $n \ge n_0$.
 
-::: tip NGUYÊN LÝ QUY NẠP MẠNH (STRONG INDUCTION)
-Ở bước quy nạp, thay vì chỉ giả sử $P(k)$ đúng, ta giả sử $P(n_0), P(n_0+1), \dots, P(k)$ đều đúng để chứng minh $P(k+1)$ đúng. Rất hữu ích cho các bài toán phân tích thừa số nguyên tố hoặc dãy Fibonacci!
+::: tip Nguyên lý quy nạp mạnh
+Ở bước quy nạp, thay vì chỉ giả sử $P(k)$ đúng, ta giả sử $P(n_0), P(n_0+1), \dots, P(k)$ đều đúng để chứng minh $P(k+1)$ đúng. Phương pháp này áp dụng cho các bài toán phân tích thừa số nguyên tố hoặc dãy Fibonacci.
 :::
 
 ---
 
-## 4. Bài Tập Mẫu
+## 4. Bài tập mẫu {#_4-bai-tap-mau}
 
 ### Bài 1:
 Dùng nguyên lý quy nạp toán học, chứng minh rằng với mọi số nguyên dương $n \ge 1$:
 $$1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Gọi $P(n)$ là mệnh đề: $\sum_{i=1}^n i = \frac{n(n+1)}{2}$.
 
 - **Bước 1: Bước cơ sở:**

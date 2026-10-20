@@ -1,10 +1,14 @@
-# Buổi 4: Quan Hệ Tương Đương, Thứ Tự & Đại Số Boole
+---
+title: "Buổi 4: Quan hệ tương đương, thứ tự và đại số Boole"
+---
+
+# Buổi 4: Quan hệ tương đương, thứ tự và đại số Boole {#buoi-4-quan-he-tuong-đuong-thu-tu-đai-so-boole}
 
 Quan hệ và Đại số Boole là hai chủ đề trọng tâm trong đề thi cuối kỳ. Quan hệ giúp tổ chức dữ liệu, còn Đại số Boole và bảng Karnaugh là công cụ tối thiểu hóa mạch điện tử trong thiết kế vi xử lý.
 
 ---
 
-## 1. Quan Hệ Hai Ngôi & 4 Tính Chất Cơ Bản
+## 1. Quan hệ hai ngôi và 4 tính chất cơ bản {#_1-quan-he-hai-ngoi-4-tinh-chat-co-ban}
 
 Cho quan hệ $R$ trên tập $A$ ($R \subseteq A \times A$). Ký hiệu $aRb$ nghĩa là $(a, b) \in R$.
 
@@ -17,7 +21,7 @@ Cho quan hệ $R$ trên tập $A$ ($R \subseteq A \times A$). Ký hiệu $aRb$ n
 
 ---
 
-## 2. Quan Hệ Tương Đương & Phân Hoạch
+## 2. Quan hệ tương đương và phân hoạch {#_2-quan-he-tuong-đuong-phan-hoach}
 
 Quan hệ $R$ là **quan hệ tương đương** nếu $R$ thỏa mãn 3 tính chất: **Phản xạ, Đối xứng, Bắc cầu**.
 
@@ -33,27 +37,27 @@ Các lớp tương đương của một quan hệ tương đương trên $A$ t�
 
 ---
 
-## 3. Quan Hệ Thứ Tự & Biểu Đồ Hasse
+## 3. Quan hệ thứ tự và biểu đồ Hasse {#_3-quan-he-thu-tu-bieu-đo-hasse}
 
 Quan hệ $R$ là **quan hệ thứ tự** nếu $R$ thỏa mãn: **Phản xạ, Phản xứng, Bắc cầu**.
 Tập $A$ cùng với quan hệ thứ tự $\le$ được gọi là một **tập sắp thứ tự bộ phận (Poset)** $(A, \le)$.
 
-### 3.1. Các phần tử đặc biệt trong Poset
+### 3.1. Các phần tử đặc biệt trong poset {#_3-1-cac-phan-tu-đac-biet-trong-poset}
 Cho tập con $B \subseteq A$:
 - **Phần tử tối đại (Maximal):** $m \in B$ là tối đại nếu trong $B$ không có phần tử nào lớn hơn $m$ ($\forall x \in B, m \le x \implies x = m$).
 - **Phần tử tối tiểu (Minimal):** $m \in B$ là tối tiểu nếu trong $B$ không có phần tử nào nhỏ hơn $m$.
 - **Phần tử lớn nhất (Greatest):** $M \in B$ thỏa mãn $x \le M$ với mọi $x \in B$.
 - **Phần tử nhỏ nhất (Least):** $m \in B$ thỏa mãn $m \le x$ với mọi $x \in B$.
 
-*(Chú ý: Phần tử lớn nhất/nhỏ nhất nếu tồn tại thì là DUY NHẤT. Còn phần tử tối đại/tối tiểu có thể có NHIỀU phần tử).*
+*(Chú ý: Phần tử lớn nhất/nhỏ nhất nếu tồn tại thì là duy nhất. Còn phần tử tối đại/tối tiểu có thể có nhiều phần tử).*
 
 ---
 
-## 4. Đại Số Boole & Bảng Karnaugh (K-map)
+## 4. Đại số Boole và bảng Karnaugh (K-map) {#_4-đai-so-boole-bang-karnaugh-k-map}
 
 Bảng Karnaugh là phương pháp trực quan để tối thiểu hóa hàm Boole, giúp giảm số cổng logic trong vi mạch phần cứng.
 
-### 4.1. Cấu trúc bảng Karnaugh (Thứ tự mã Gray)
+### 4.1. Cấu trúc bảng Karnaugh (thứ tự mã Gray) {#_4-1-cau-truc-bang-karnaugh-thu-tu-ma-gray}
 Các ô lân cận trong bảng Karnaugh chỉ khác nhau đúng 1 bit theo thứ tự mã Gray:
 $$00 \to 01 \to 11 \to 10$$
 
@@ -65,7 +69,7 @@ $$00 \to 01 \to 11 \to 10$$
 
 ---
 
-## 5. Bài Tập Mẫu
+## 5. Bài tập mẫu {#_5-bai-tap-mau}
 
 ### Bài 1:
 Cho quan hệ $R$ trên tập số nguyên $\mathbb{Z}$ xác định bởi:
@@ -73,7 +77,7 @@ $$aRb \iff a \equiv b \pmod 5 \quad (a - b \text{ chia hết cho } 5)$$
 1. Chứng minh $R$ là một quan hệ tương đương trên $\mathbb{Z}$.
 2. Tìm tất cả các lớp tương đương khác nhau.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 1. **Kiểm tra 3 tính chất:**
    - **Phản xạ:** $\forall a \in \mathbb{Z}, a - a = 0 = 5 \times 0 \implies a \equiv a \pmod 5 \implies aRa$.
    - **Đối xứng:** Giả sử $aRb \implies a - b = 5k (k \in \mathbb{Z}) \implies b - a = 5(-k) \implies bRa$.

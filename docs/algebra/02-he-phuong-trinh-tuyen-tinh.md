@@ -1,10 +1,14 @@
-# Chuyên Đề 2: Hệ Phương Trình Tuyến Tính
+---
+title: "Chuyên đề 2: Hệ phương trình tuyến tính"
+---
 
-Giải hệ phương trình tuyến tính là bài toán xuất hiện trong hầu hết các đề thi học kỳ. Nắm vững phương pháp Cramer và khử Gauss sẽ giúp bạn lấy trọn vẹn điểm phần này.
+# Chuyên đề 2: Hệ phương trình tuyến tính {#chuyen-đe-2-he-phuong-trinh-tuyen-tinh}
+
+Giải hệ phương trình tuyến tính là bài toán xuất hiện trong hầu hết các đề thi học kỳ. Bài này trình bày phương pháp Cramer và khử Gauss, cùng điều kiện áp dụng.
 
 ---
 
-## 1. Dạng Tổng Quát & Định Lý Kronecker - Capelli
+## 1. Dạng tổng quát và định lý Kronecker - Capelli {#_1-dang-tong-quat-đinh-ly-kronecker-capelli}
 
 Cho hệ $m$ phương trình tuyến tính $n$ ẩn:
 $$\begin{cases}
@@ -17,7 +21,7 @@ a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
 - $A$: Ma trận hệ số cấp $m \times n$.
 - $\overline{A} = [A \mid B]$: Ma trận mở rộng cấp $m \times (n+1)$.
 
-::: tip ĐỊNH LÝ KRONECKER - CAPELLI
+::: tip Định lý Kronecker - Capelli
 1. $\text{rank}(A) < \text{rank}(\overline{A}) \iff$ Hệ **vô nghiệm**.
 2. $\text{rank}(A) = \text{rank}(\overline{A}) = n \iff$ Hệ có **nghiệm duy nhất**.
 3. $\text{rank}(A) = \text{rank}(\overline{A}) = r < n \iff$ Hệ có **vô số nghiệm** phụ thuộc vào $n - r$ ẩn tự do.
@@ -25,7 +29,7 @@ a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
 
 ---
 
-## 2. Phương Pháp Cramer
+## 2. Phương pháp Cramer {#_2-phuong-phap-cramer}
 
 ### 2.1. Điều kiện áp dụng
 - Số phương trình bằng số ẩn ($m = n$, ma trận $A$ vuông cấp $n$).
@@ -37,7 +41,7 @@ Trong đó $D_j$ là định thức của ma trận thu được từ $A$ bằng
 
 ---
 
-## 3. Phương Pháp Khử Gauss & Gauss - Jordan
+## 3. Phương pháp khử Gauss và Gauss - Jordan {#_3-phuong-phap-khu-gauss-gauss-jordan}
 
 Phương pháp tổng quát áp dụng cho mọi hệ phương trình:
 1. Lập ma trận mở rộng $\overline{A} = [A \mid B]$.
@@ -48,7 +52,7 @@ Phương pháp tổng quát áp dụng cho mọi hệ phương trình:
 
 ---
 
-## 4. Hệ Phương Trình Thuần Nhất $AX = 0$
+## 4. Hệ phương trình thuần nhất $AX = 0$ {#_4-he-phuong-trinh-thuan-nhat}
 
 Hệ luôn luôn có ít nhất một nghiệm là nghiệm tầm thường: $X = (0, 0, \dots, 0)^T$.
 - Hệ có nghiệm không tầm thường (nghiệm khác 0) $\iff \text{rank}(A) < n$ (với ma trận vuông $\iff \det(A) = 0$).
@@ -59,9 +63,9 @@ Hệ luôn luôn có ít nhất một nghiệm là nghiệm tầm thường: $X 
 
 ---
 
-## 5. Ví Dụ Từ Đề Thi Thật
+## 5. Ví dụ trong đề thi {#_5-vi-du-tu-đe-thi-that}
 
-### Ví dụ (Đề thi KTHP 2023 - 2024):
+### Ví dụ (đề thi KTHP 2023 - 2024): {#vi-du-đe-thi-kthp-2023-2024}
 Kiểm chứng hệ phương trình sau có phải là hệ Cramer hay không. Nếu đúng là hệ Cramer thì giải hệ theo phương pháp Cramer, ngược lại thì giải bằng phương pháp Gauss:
 $$\begin{cases}
 x_1 + x_2 - 2x_3 = 6 \\
@@ -69,7 +73,7 @@ x_1 + x_2 - 2x_3 = 6 \\
 5x_1 + 2x_2 + x_3 = 16
 \end{cases}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Ma trận hệ số của hệ là:
 $$A = \begin{pmatrix} 1 & 1 & -2 \\ 2 & 3 & -7 \\ 5 & 2 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 6 \\ 16 \\ 16 \end{pmatrix}$$
 Số phương trình $m = 3$ bằng số ẩn $n = 3$.

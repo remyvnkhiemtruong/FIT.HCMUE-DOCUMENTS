@@ -1,10 +1,14 @@
-# Chuyên Đề 1: Dãy Số, Giới Hạn và Tính Liên Tục
+---
+title: "Chuyên đề 1: Dãy số, giới hạn và tính liên tục"
+---
 
-Học phần **COMP1800 - Cơ sở Toán trong CNTT** mở đầu bằng lý thuyết giải tích về giới hạn. Đây là nền tảng cho việc phân tích độ phức tạp thuật toán và phép tính vi tích phân.
+# Chuyên đề 1: Dãy số, giới hạn và tính liên tục {#chuyen-đe-1-day-so-gioi-han-va-tinh-lien-tuc}
+
+Học phần **COMP1800 - Cơ sở toán trong CNTT** mở đầu bằng lý thuyết giải tích về giới hạn. Đây là nền tảng cho việc phân tích độ phức tạp thuật toán và phép tính vi tích phân.
 
 ---
 
-## 1. Dãy Số & Giới Hạn Dãy Số
+## 1. Dãy số và giới hạn dãy số {#_1-day-so-gioi-han-day-so}
 
 ### 1.1. Các định nghĩa cơ bản
 - **Dãy số thực** là một ánh xạ từ tập số nguyên dương $\mathbb{N}^*$ vào tập số thực $\mathbb{R}$:
@@ -18,7 +22,7 @@ Học phần **COMP1800 - Cơ sở Toán trong CNTT** mở đầu bằng lý thu
   - Dãy bị chặn dưới nếu $\exists m \in \mathbb{R}: u_n \ge m, \; \forall n$.
   - Bị chặn: $\exists M > 0: |u_n| \le M, \; \forall n$.
 
-::: tip ĐỊNH LÝ WEIERSTRASS
+::: tip Định lý Weierstrass
 Mọi dãy số **đơn điệu và bị chặn** đều có giới hạn hữu hạn (hội tụ).
 - Dãy tăng và bị chặn trên thì hội tụ về $\sup \{u_n\}$.
 - Dãy giảm và bị chặn dưới thì hội tụ về $\inf \{u_n\}$.
@@ -37,9 +41,9 @@ $$\forall \varepsilon > 0, \; \exists n_0 \in \mathbb{N}^* : \forall n > n_0 \im
 
 ---
 
-## 2. Giới Hạn Hàm Số & Kỹ Thuật Khử Dạng Vô Định
+## 2. Giới hạn hàm số và kỹ thuật khử dạng vô định {#_2-gioi-han-ham-so-ky-thuat-khu-dang-vo-đinh}
 
-### 2.1. Bảng Vô Cùng Bé (VCB) tương đương khi $x \to 0$
+### 2.1. Bảng vô cùng bé (VCB) tương đương khi $x \to 0$ {#_2-1-bang-vo-cung-be-vcb-tuong-đuong-khi}
 Khi $x \to 0$, ta có các phép thế tương đương rất mạnh:
 
 | Biểu thức ban đầu | VCB tương đương ($x \to 0$) |
@@ -54,9 +58,9 @@ Khi $x \to 0$, ta có các phép thế tương đương rất mạnh:
 | $(1 + x)^\alpha - 1$ | $\sim \alpha x$ |
 | $\sqrt{1+x} - 1$ | $\sim \frac{x}{2}$ |
 
-::: warning LƯU Ý KHI DÙNG VCB TƯƠNG ĐƯƠNG
+::: warning Lưu ý khi dùng VCB tương đương
 - Chỉ được thay VCB tương đương trong **tích hoặc thương**: $\lim \frac{f \cdot g}{h} = \lim \frac{f_1 \cdot g_1}{h_1}$.
-- **KHÔNG ĐƯỢC** tùy tiện thay trong **tổng hoặc hiệu** trừ khi hiệu của hai VCB tương đương không triệt tiêu nhau về bậc thấp hơn!
+- **Không được** tùy tiện thay trong **tổng hoặc hiệu** trừ khi hiệu của hai VCB tương đương không triệt tiêu nhau về bậc thấp hơn.
 :::
 
 ### 2.2. Dạng vô định $1^\infty$ và công thức tính nhanh
@@ -69,7 +73,7 @@ $$\lim_{x \to x_0} \frac{f(x)}{g(x)} = \lim_{x \to x_0} \frac{f'(x)}{g'(x)}$$
 
 ---
 
-## 3. Tính Liên Tục Của Hàm Số
+## 3. Tính liên tục của hàm số {#_3-tinh-lien-tuc-cua-ham-so}
 
 ### 3.1. Định nghĩa
 Hàm số $f(x)$ xác định trên khoảng $(a, b)$ chứa $x_0$.
@@ -84,13 +88,13 @@ Hàm số $f(x)$ xác định trên khoảng $(a, b)$ chứa $x_0$.
 
 ---
 
-## 4. Các Ví Dụ Kinh Điển Trong Đề Thi
+## 4. Ví dụ trong đề thi {#_4-cac-vi-du-kinh-đien-trong-đe-thi}
 
-### Ví dụ 1 (Đề thi KTHP 2023 - 2024):
+### Ví dụ 1 (đề thi KTHP 2023 - 2024): {#vi-du-1-đe-thi-kthp-2023-2024}
 Tính giới hạn:
 $$L = \lim_{n \to \infty} \left( \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + \dots + \frac{1}{n(n+1)} \right)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Ta nhận xét số hạng tổng quát:
 $$\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$$
 Do đó, tổng riêng thứ $n$ là:
@@ -100,11 +104,11 @@ $$L = \lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1 - 0 = 1$$
 **Kết luận:** $L = 1$.
 :::
 
-### Ví dụ 2 (Đề thi KTHP 2022 - 2023):
+### Ví dụ 2 (đề thi KTHP 2022 - 2023): {#vi-du-2-đe-thi-kthp-2022-2023}
 Tính giới hạn:
 $$I = \lim_{x \to +\infty} \left( \frac{x+1}{x-5} \right)^{2x+3}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Khi $x \to +\infty$, ta có $\frac{x+1}{x-5} \to 1$ và $2x+3 \to +\infty$. Đây là dạng vô định $1^\infty$.
 
 Áp dụng công thức tính nhanh:
@@ -116,11 +120,11 @@ $$\lim_{x \to +\infty} \frac{12x+18}{x-5} = 12$$
 **Kết luận:** $I = e^{12}$.
 :::
 
-### Ví dụ 3 (Đề thi KTHP 2023 - 2024):
+### Ví dụ 3 (đề thi KTHP 2023 - 2024): {#vi-du-3-đe-thi-kthp-2023-2024}
 Tìm tham số $a$ để hàm số sau liên tục tại điểm $x = 0$:
 $$f(x) = \begin{cases} \dfrac{\sin x}{x} & \text{nếu } x \le 0 \\ 2x + a & \text{nếu } x > 0 \end{cases}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Để hàm số liên tục tại $x = 0$, ta cần:
 $$\lim_{x \to 0^-} f(x) = \lim_{x \to 0^+} f(x) = f(0)$$
 1. Giá trị tại $x = 0$:

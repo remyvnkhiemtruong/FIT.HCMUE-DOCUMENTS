@@ -43,7 +43,7 @@ export default defineConfig({
     nav: [
       {text:'Trang chủ',link:'/'}, {text:'Chương trình học',link:'/chuong-trinh/'},
       {text:'Kho học liệu',link:'/hoc-lieu/'}, {text:'Lộ trình ôn tập',link:'/roadmap'},
-      {text:'Hướng dẫn & Đóng góp',link:'/huong-dan'}
+      {text:'Hướng dẫn và đóng góp',link:'/huong-dan'}
     ],
     sidebar,
     outline: {label:'Trong trang này',level:[2,3]},

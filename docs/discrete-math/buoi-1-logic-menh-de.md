@@ -1,10 +1,14 @@
-# Buổi 1: Cơ Sở Logic Mệnh Đề & Bảng Chân Trị
+---
+title: "Buổi 1: Cơ sở logic mệnh đề và bảng chân trị"
+---
 
-Học phần **Toán rời rạc và Ứng dụng** (COMP1802) mở đầu bằng lý thuyết Logic mệnh đề — nền tảng cho lập trình điều kiện (if/else), thiết kế mạch số phần cứng và xây dựng cơ sở dữ liệu.
+# Buổi 1: Cơ sở logic mệnh đề và bảng chân trị {#buoi-1-co-so-logic-menh-đe-bang-chan-tri}
+
+Học phần **Toán rời rạc và ứng dụng** (COMP1802) mở đầu bằng lý thuyết logic mệnh đề, dùng cho lập trình điều kiện (if/else), thiết kế mạch số phần cứng và xây dựng cơ sở dữ liệu.
 
 ---
 
-## 1. Mệnh Đề & Các Phép Toán Logic Cơ Bản
+## 1. Mệnh đề và các phép toán logic cơ bản {#_1-menh-đe-cac-phep-toan-logic-co-ban}
 
 ### 1.1. Khái niệm mệnh đề
 - **Mệnh đề** là một câu khẳng định chỉ nhận một trong hai giá trị chân lý: **Đúng (1 / True)** hoặc **Sai (0 / False)**, không thể vừa đúng vừa sai.
@@ -19,14 +23,14 @@ Học phần **Toán rời rạc và Ứng dụng** (COMP1802) mở đầu bằn
 | 0 | 1 | 1 | 0 | 1 | 1 | **1** | 0 |
 | 0 | 0 | 1 | 0 | 0 | 0 | **1** | 1 |
 
-::: warning ĐẶC BIỆT CHÚ Ý PHÉP KÉO THEO $p \to q$
+::: warning Đặc biệt chú ý phép kéo theo $p \to q$
 $p \to q$ **chỉ sai duy nhất khi tiền đề $p$ đúng mà kết luận $q$ sai** (dòng 2: $1 \to 0 = 0$).
-Nếu tiền đề $p$ sai ($p = 0$) thì bất kể kết luận $q$ ra sao, mệnh đề $p \to q$ luôn luôn **ĐÚNG**!
+Nếu tiền đề $p$ sai ($p = 0$) thì bất kể kết luận $q$ ra sao, mệnh đề $p \to q$ luôn luôn **đúng**.
 :::
 
 ---
 
-## 2. Các Quy Luật Tương Đương Logic Quan Trọng
+## 2. Các quy luật tương đương logic quan trọng {#_2-cac-quy-luat-tuong-đuong-logic-quan-trong}
 
 Hai biểu thức logic $A$ và $B$ được gọi là **tương đương logic** (ký hiệu $A \equiv B$) nếu chúng có cùng bảng chân trị.
 
@@ -45,7 +49,7 @@ Hai biểu thức logic $A$ và $B$ được gọi là **tương đương logic*
 
 ---
 
-## 3. Dạng Chuẩn Tắc Tuyển (DNF) & Hội (CNF)
+## 3. Dạng chuẩn tắc tuyển (DNF) và hội (CNF) {#_3-dang-chuan-tac-tuyen-dnf-hoi-cnf}
 
 - **Dạng chuẩn tắc tuyển (DNF - Disjunctive Normal Form):** Tuyển của các hội (tổng của các tích minterm): $\bigvee (\bigwedge x_i)$.
   - Tìm DNF bằng cách gom tất cả các dòng trên bảng chân trị có giá trị bằng **1**.
@@ -54,13 +58,13 @@ Hai biểu thức logic $A$ và $B$ được gọi là **tương đương logic*
 
 ---
 
-## 4. Bài Tập & Lời Giải Mẫu
+## 4. Bài tập và lời giải mẫu {#_4-bai-tap-loi-giai-mau}
 
 ### Bài 1:
-Chứng minh bằng các phép biến đổi tương đương logic rằng biểu thức sau là một **hằng đúng (Tautology)**:
+Chứng minh bằng các phép biến đổi tương đương logic rằng biểu thức sau là một **hằng đúng**:
 $$(p \to q) \lor (q \to p)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Áp dụng công thức biến đổi phép kéo theo $a \to b \equiv \neg a \lor b$:
 $$(p \to q) \lor (q \to p) \equiv (\neg p \lor q) \lor (\neg q \lor p)$$
 Áp dụng tính chất giao hoán và kết hợp của phép tuyển $\lor$:
@@ -74,7 +78,7 @@ Vậy biểu thức luôn luôn nhận giá trị 1 (đúng) với mọi trườ
 Tìm dạng chuẩn tắc tuyển (DNF) của hàm logic sau:
 $$f(p, q, r) = (p \land q) \to (q \land r)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Biến đổi bằng các luật logic:
 $$f = \neg (p \land q) \lor (q \land r)$$
 Áp dụng luật De Morgan cho $\neg (p \land q)$:

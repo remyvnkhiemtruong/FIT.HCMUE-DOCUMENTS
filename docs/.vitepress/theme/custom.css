@@ -212,6 +212,7 @@ input[type="search"],select {border:1px solid var(--fit-control-border);border-r
   .pagination {gap:8px}.pagination button {padding:8px 10px}
   .quiz-question {padding:12px}.quiz-question legend {font-size:15px}
 }
+.VPDocAsideOutline .outline-link {white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;line-height:1.5;padding-top:5px;padding-bottom:5px}
 @media(prefers-reduced-motion:reduce) {*,*::before,*::after {scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print {
   .VPNav,.VPSidebar,.VPLocalNav,.VPDocAside,.VPDocFooter,.catalog-filters,.checklist-summary button,.quiz button,.skip-link {display:none!important}

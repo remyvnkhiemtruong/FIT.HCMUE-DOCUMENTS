@@ -17,7 +17,7 @@ function reset() {answers.value={};submitted.value=false}
       <label v-for="option in q.options" :key="option.id" class="quiz-option" :class="{selected:answers[q.id]===option.id}"><input v-model="answers[q.id]" type="radio" :name="'question-'+q.id" :value="option.id"><strong>{{option.id}}.</strong><span v-html="option.html"></span></label>
       <div v-if="submitted" class="quiz-explanation"><p><strong>{{answers[q.id]===q.answer ? 'Chính xác.' : 'Chưa chính xác.'}} Đáp án: {{q.answer}}.</strong></p><p v-html="q.explanationHtml"></p></div>
     </fieldset>
-    <button v-if="!submitted" type="submit" class="primary-button" :disabled="!ready">Nộp bài & Xem điểm</button>
+    <button v-if="!submitted" type="submit" class="primary-button" :disabled="!ready">Nộp bài và xem điểm</button>
     <div v-else><p role="status" class="quiz-score">Kết quả: {{score}} / {{questions.length}} câu đúng ({{(score/questions.length*10).toFixed(1)}} điểm).</p><button type="button" class="secondary-button" @click="reset">Làm lại bài thi</button></div>
   </form>
 </template>

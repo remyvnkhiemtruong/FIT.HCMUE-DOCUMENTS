@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { courses, majors, placements, resources, normalize, cohorts, cohortYear, academicYear } from '../docs/.vitepress/data/catalog.mts'
 import { filterCourses, filterResources } from '../docs/.vitepress/data/filtering.mts'
 import { courseContent, programContent } from '../docs/.vitepress/page-content.mts'
+import { protectedContent, numericData, examQuestions } from '../scripts/content-preservation.mjs'
 
 const originals=JSON.parse(readFileSync(new URL('../content-archive/original-pages.json',import.meta.url),'utf8'))
 const ledger=JSON.parse(readFileSync(new URL('../content-archive/migration.json',import.meta.url),'utf8'))
@@ -78,16 +79,51 @@ test('77 original pages are archived and every legacy route still exists',()=>{
     if(item.action==='redirect') {const text=readFileSync('docs/'+item.path,'utf8');assert.ok(text.includes('redirect:'));assert.ok(text.includes(item.target))}
   }
 })
-test('lesson bodies, exercises and exams are preserved exactly',()=>{
+test('editorial changes preserve formulas, code and numerical data',()=>{
   for(const [path,body] of Object.entries(originals)) {
-    if(/^(calculus|algebra|discrete-math|exams|exams-discrete|exercises|cheatsheet)\//.test(path)&&!path.includes('quiz-'))assert.equal(readFileSync('docs/'+path,'utf8'),body,path)
+    if(!/^(calculus|algebra|discrete-math|exams|exams-discrete|exercises|cheatsheet)\//.test(path)||path.includes('quiz-'))continue
+    const current=readFileSync('docs/'+path,'utf8')
+    assert.deepEqual(protectedContent(current),protectedContent(body),path+' formulas/code')
+    assert.deepEqual(numericData(current),numericData(body),path+' numeric data')
+    if(/^exams(?:-discrete)?\//.test(path))assert.equal(examQuestions(current),examQuestions(body),path+' questions')
   }
 })
-test('all quiz questions and solutions are preserved',()=>{
+test('quiz questions, choices, correct answers and solution mathematics are preserved',()=>{
   const source=originals['exams/quiz-giua-ky.md'].match(/const questions = (\[.*?\n\])/s)[1]
   const questions=Function('return ('+source+')')()
   const current=JSON.parse(readFileSync('docs/.vitepress/data/quiz.json','utf8'))
-  assert.deepEqual(current,questions)
+  assert.equal(current.length,questions.length)
+  current.forEach((q,i)=>{
+    const {explanation,...fixed}=q
+    const {explanation:originalExplanation,...originalFixed}=questions[i]
+    assert.deepEqual(fixed,originalFixed)
+    assert.deepEqual(protectedContent(explanation),protectedContent(originalExplanation))
+    assert.deepEqual(numericData(explanation),numericData(originalExplanation))
+  })
   unique(current.map(q=>q.id))
   for(const q of current)assert.ok(q.options.some(o=>o.id===q.answer))
+})
+
+test('resource titles match page headings in every catalog-driven view',()=>{
+  for(const r of resources){
+    const heading=readFileSync('docs'+r.path+'.md','utf8').match(/^# (.+?)(?: \{#[^}]+\})?\r?$/m)?.[1]
+    assert.equal(r.title,heading,r.path)
+    assert.ok(courseContent(r.course).includes(`[${r.title}](${r.path})`))
+  }
+})
+
+test('roadmap keeps its formulas and stable keys for existing saved progress',()=>{
+  const body=readFileSync('docs/roadmap.md','utf8')
+  assert.deepEqual(protectedContent(body),protectedContent(originals['roadmap.md']))
+  const keys=[...body.matchAll(/data-task-key="([^"]+)"/g)].map(m=>m[1])
+  const legacy=JSON.parse(readFileSync('docs/.vitepress/data/checklist-keys.json','utf8'))
+  unique(keys)
+  assert.deepEqual(new Set(keys),new Set(legacy))
+})
+
+test('preservation checks detect changed math, code, exercise data and exam answers',()=>{
+  assert.notDeepEqual(protectedContent('Giới hạn $x+1$'),protectedContent('Giới hạn $x+2$'))
+  assert.notDeepEqual(protectedContent('```js\nreturn 1\n```'),protectedContent('```js\nreturn 2\n```'))
+  assert.notDeepEqual(numericData('Có 50 sinh viên'),numericData('Có 51 sinh viên'))
+  assert.notEqual(examQuestions('## Đề bài\nA. Đúng\n## Lời giải\n'),examQuestions('## Đề bài\nA. Sai\n## Lời giải\n'))
 })

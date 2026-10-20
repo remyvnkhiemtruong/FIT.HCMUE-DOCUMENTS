@@ -25,7 +25,8 @@ async function setup() {
     const text=(li.textContent || '').replace(/^\[ \]\s/,'')
     first.textContent=first.textContent!.replace(/^\[ \]\s/,'')
     const input=document.createElement('input')
-    input.type='checkbox';input.dataset.checklistKey=key(text);input.setAttribute('aria-label',text)
+    // Keep the existing keys when wording changes, so saved progress survives.
+    input.type='checkbox';input.dataset.checklistKey=li.querySelector('[data-task-key]')?.getAttribute('data-task-key') || key(text);input.setAttribute('aria-label',text)
     li.prepend(input);input.checked=stored[input.dataset.checklistKey]===true
     li.classList.add('learning-task')
     inputs.push(input)

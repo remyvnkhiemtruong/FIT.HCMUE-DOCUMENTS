@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 const questions=JSON.parse(readFileSync('docs/.vitepress/data/quiz.json','utf8'))
+const checklistKeys=JSON.parse(readFileSync('docs/.vitepress/data/checklist-keys.json','utf8'))
 
 test('three majors lead through a semester to the shared course and lesson',async({page})=>{
   for(const major of ['cntt','sp-tin','cngd']) {
     await page.goto(`chuong-trinh/${major}/`)
     await page.locator('.semester-link').first().click()
     await expect(page).toHaveURL(new RegExp(`/chuong-trinh/${major}/hk-1/`))
-    await page.locator('.vp-doc table').getByRole('link',{name:'Cơ sở toán trong Công nghệ thông tin',exact:true}).click()
+    await page.locator('.vp-doc table').getByRole('link',{name:'Cơ sở toán trong công nghệ thông tin',exact:true}).click()
     await expect(page).toHaveURL(/\/mon-hoc\/comp1800\//)
-    await expect(page.locator('.vp-doc h1')).toHaveText('Cơ sở toán trong Công nghệ thông tin')
+    await expect(page.locator('.vp-doc h1')).toHaveText('Cơ sở toán trong công nghệ thông tin')
   }
   await page.locator('.vp-doc a[href$="/calculus/01-gioi-han-day-va-ham"]').first().click()
   await expect(page).toHaveURL(/\/calculus\/01-gioi-han-day-va-ham/)
@@ -25,8 +26,8 @@ test('early navigation waits for initial hydration on a slow connection',async({
   await page.goto('chuong-trinh/cngd/')
   await page.locator('.semester-link').first().click()
   await expect(page.locator('.vp-doc h1')).toContainText('Học kỳ 1')
-  await page.locator('.vp-doc table').getByRole('link',{name:'Cơ sở toán trong Công nghệ thông tin',exact:true}).click()
-  await expect(page.locator('.vp-doc h1')).toHaveText('Cơ sở toán trong Công nghệ thông tin')
+  await page.locator('.vp-doc table').getByRole('link',{name:'Cơ sở toán trong công nghệ thông tin',exact:true}).click()
+  await expect(page.locator('.vp-doc h1')).toHaveText('Cơ sở toán trong công nghệ thông tin')
 })
 
 test('URL filters support Vietnamese search, restore and empty state',async({page})=>{
@@ -72,12 +73,12 @@ test('quiz displays math, scores every question and resets',async({page})=>{
   await expect(page.locator('.quiz-question mjx-container').first()).toBeVisible()
   for(const q of questions)await page.locator(`input[name="question-${q.id}"][value="${q.answer}"]`).check()
   await expect(page.locator('input[type="radio"]:checked')).toHaveCount(questions.length)
-  await page.getByRole('button',{name:'Nộp bài & Xem điểm',exact:true}).click()
+  await page.getByRole('button',{name:'Nộp bài và xem điểm',exact:true}).click()
   await expect(page.locator('.quiz-score')).toContainText(`${questions.length} / ${questions.length}`)
   await expect(page.locator('.quiz-explanation')).toHaveCount(questions.length)
   await page.getByRole('button',{name:'Làm lại bài thi'}).click()
   await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0)
-  await page.getByRole('button',{name:'Nộp bài & Xem điểm',exact:true}).click()
+  await page.getByRole('button',{name:'Nộp bài và xem điểm',exact:true}).click()
   await expect(page.locator('.quiz-score')).toContainText(`0 / ${questions.length}`)
 })
 
@@ -86,7 +87,7 @@ test('roadmap saves progress, resets and survives blocked storage',async({page})
   const boxes=page.locator('.learning-task input')
   await expect(boxes.first()).toBeVisible()
   await boxes.first().check()
-  await page.locator('.VPNavBarMenu').getByRole('link',{name:'Hướng dẫn & Đóng góp',exact:true}).click()
+  await page.locator('.VPNavBarMenu').getByRole('link',{name:'Hướng dẫn và đóng góp',exact:true}).click()
   await expect(page).toHaveURL(/\/huong-dan/)
   await page.locator('.VPNavBarMenu').getByRole('link',{name:'Lộ trình ôn tập',exact:true}).click()
   await expect(boxes.first()).toBeChecked()
@@ -130,6 +131,11 @@ for (const width of [360,768,1280,1440]) for (const mode of ['light','dark']) te
     await expect(page.locator('h1').first()).toBeVisible()
     await expect(page.locator('.theme-toggle')).toHaveAttribute('aria-checked',String(mode==='dark'))
     await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true)
+    if(width>=1280 && route.startsWith('algebra/')){
+      const outline=page.locator('.VPDocAsideOutline .outline-link').first()
+      await expect(outline).toHaveCSS('white-space','normal')
+      expect(await page.locator('.VPDocAsideOutline .outline-link').evaluateAll(links=>links.every(link=>link.scrollWidth<=link.clientWidth+1))).toBe(true)
+    }
     if(route==='chuong-trinh/cntt/') {
       await expect(page.locator('.semester-grid > .semester-link')).toHaveCount(8)
       const first=await page.locator('.semester-link').nth(0).boundingBox()
@@ -238,4 +244,15 @@ test('copy, select, print and developer tools key actions remain usable',async({
     return {selected:selection.toString(),copy:document.dispatchEvent(new KeyboardEvent('keydown',{key:'c',ctrlKey:true,cancelable:true})),print:document.dispatchEvent(new KeyboardEvent('keydown',{key:'p',ctrlKey:true,cancelable:true})),context:el.dispatchEvent(new MouseEvent('contextmenu',{bubbles:true,cancelable:true}))}
   })
   expect(result.selected).toContain('Lập trình cơ bản');expect(result.copy&&result.print&&result.context).toBe(true)
+})
+
+
+test('existing saved checklist progress survives editorial changes',async({page})=>{
+  await page.addInitScript(keys=>localStorage.setItem('fit-hcmue:roadmap:v1',JSON.stringify({[keys[0]]:true,[keys[7]]:true})),checklistKeys)
+  await page.goto('roadmap')
+  const boxes=page.locator('.learning-task input')
+  await expect(boxes).toHaveCount(checklistKeys.length)
+  await expect(boxes.nth(0)).toBeChecked()
+  await expect(boxes.nth(7)).toBeChecked()
+  expect(await boxes.evaluateAll(inputs=>inputs.map(input=>(input as HTMLInputElement).dataset.checklistKey))).toEqual(checklistKeys)
 })

@@ -1,10 +1,14 @@
-# 📚 Tuyển Tập Bài Tập Đại Số Tuyến Tính (Kèm Lời Giải)
+---
+title: "Tuyển tập bài tập đại số tuyến tính (kèm lời giải)"
+---
+
+# Tuyển tập bài tập đại số tuyến tính (kèm lời giải) {#📚-tuyen-tap-bai-tap-đai-so-tuyen-tinh-kem-loi-giai}
 
 Các bài tập được chọn lọc bám sát nội dung kiểm tra giữa kỳ và thi cuối kỳ môn Đại số tuyến tính trong học phần COMP1800.
 
 ---
 
-## Dạng 1: Định Thức & Biến Đổi Sơ Cấp
+## Dạng 1: Định thức và biến đổi sơ cấp {#dang-1-đinh-thuc-bien-đoi-so-cap}
 
 ### Bài 1.1:
 Tính định thức cấp 4 sau bằng cách đưa về ma trận tam giác:
@@ -15,7 +19,7 @@ $$D = \begin{vmatrix}
 1 & 1 & 1 & 4
 \end{vmatrix}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Lấy các dòng $2, 3, 4$ trừ đi dòng 1 ($d_2 \leftarrow d_2 - d_1; \; d_3 \leftarrow d_3 - d_1; \; d_4 \leftarrow d_4 - d_1$):
 $$D = \begin{vmatrix}
 1 & 1 & 1 & 1 \\
@@ -29,7 +33,7 @@ $$D = 1 \cdot 1 \cdot 2 \cdot 3 = 6$$
 
 ---
 
-## Dạng 2: Biện Luận Hệ Phương Trình Tuyến Tính
+## Dạng 2: Biện luận hệ phương trình tuyến tính {#dang-2-bien-luan-he-phuong-trinh-tuyen-tinh}
 
 ### Bài 2.1:
 Biện luận số nghiệm của hệ phương trình theo tham số $m$:
@@ -39,7 +43,7 @@ x + 2y + 3z = 2 \\
 2x + 3y + mz = 3
 \end{cases}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Lập ma trận mở rộng $\overline{A} = [A \mid B]$:
 $$\overline{A} = \begin{pmatrix}
 1 & 1 & 1 & \bigm| & 1 \\
@@ -77,13 +81,13 @@ $$\begin{pmatrix}
 
 ---
 
-## Dạng 3: Hệ Vectơ, Cơ Sở & Không Gian Con
+## Dạng 3: Hệ vectơ, cơ sở và không gian con {#dang-3-he-vecto-co-so-khong-gian-con}
 
 ### Bài 3.1:
 Trong $\mathbb{R}^3$, cho hệ vectơ $S = \{v_1 = (1, 2, 3), \; v_2 = (2, 3, 4), \; v_3 = (3, 5, 7)\}$.
 Tìm một cơ sở và số chiều của không gian con $W = \text{span}(S)$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Xếp các vectơ thành các dòng của ma trận $A$:
 $$A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 5 & 7 \end{pmatrix}$$
 Biến đổi sơ cấp đưa về ma trận bậc thang:
@@ -100,13 +104,13 @@ $$\mathcal{B}_W = \{(1, 2, 3), \; (0, -1, -2)\} \quad \text{hoặc} \quad \{v_1 
 
 ---
 
-## Dạng 4: Trực Chuẩn Hóa Gram - Schmidt
+## Dạng 4: Trực chuẩn hóa Gram - Schmidt {#dang-4-truc-chuan-hoa-gram-schmidt}
 
 ### Bài 4.1:
 Trong $\mathbb{R}^3$ với tích vô hướng chính tắc, trực chuẩn hóa hệ vectơ độc lập tuyến tính sau:
 $$v_1 = (1, 1, 0), \quad v_2 = (1, 0, 1)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Trực giao hóa:**
 - $u_1 = v_1 = (1, 1, 0)$.
 - Tính $\langle v_2, u_1 \rangle = 1(1) + 0(1) + 1(0) = 1$.
@@ -123,13 +127,13 @@ $$v_1 = (1, 1, 0), \quad v_2 = (1, 0, 1)$$
 
 ---
 
-## Dạng 5: Chéo Hóa Ma Trận
+## Dạng 5: Chéo hóa ma trận {#dang-5-cheo-hoa-ma-tran}
 
 ### Bài 5.1:
 Chéo hóa ma trận đối xứng sau:
 $$A = \begin{pmatrix} 1 & 3 \\ 3 & 1 \end{pmatrix}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Tìm trị riêng:**
 $$\det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 3 \\ 3 & 1 - \lambda \end{vmatrix} = (1 - \lambda)^2 - 9 = 0$$
 $$\iff (1 - \lambda - 3)(1 - \lambda + 3) = 0 \iff (-\lambda - 2)(4 - \lambda) = 0 \iff \begin{cases} \lambda_1 = 4 \\ \lambda_2 = -2 \end{cases}$$

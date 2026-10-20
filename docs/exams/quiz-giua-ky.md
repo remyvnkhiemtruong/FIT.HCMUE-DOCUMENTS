@@ -1,12 +1,16 @@
-# 📝 Trắc Nghiệm Ôn Thi Giữa Kỳ (Interactive Quiz)
+---
+title: "Trắc nghiệm ôn thi giữa kỳ"
+---
 
-Bài kiểm tra giữa kỳ học phần **COMP1800** có hình thức **trắc nghiệm 60 phút (20% điểm số)**. Dưới đây là bộ câu hỏi trắc nghiệm tương tác giúp bạn tự luyện tập và chấm điểm tức thì.
+# Trắc nghiệm ôn thi giữa kỳ {#📝-trac-nghiem-on-thi-giua-ky-interactive-quiz}
+
+Bộ câu hỏi ôn tập giữa kỳ học phần **COMP1800**. Chọn đáp án rồi nộp bài để xem điểm và lời giải. Thông tin hình thức thi trong bản gốc là **trắc nghiệm 60 phút (20% điểm số)**; cần đối chiếu với thông báo của giảng viên.
 
 ---
 
 <Quiz />
 
-::: tip LƯU Ý KHI LÀM BÀI TRẮC NGHIỆM GIỮA KỲ
-- Khi tính các giới hạn vô định $\left[\frac{0}{0}\right]$ hoặc $[1^\infty]$, ưu tiên sử dụng **Vô cùng bé tương đương** hoặc công thức tính nhanh dạng mũ để tiết kiệm thời gian bấm máy.
-- Với bài toán ma trận vuông, nhớ kiểm tra nhanh $\det(kA) = k^n \det(A)$ để tránh bẫy nhân nhầm cấp của ma trận.
+::: tip Lưu ý khi làm bài trắc nghiệm giữa kỳ
+- Khi tính các giới hạn vô định $\left[\frac{0}{0}\right]$ hoặc $[1^\infty]$, có thể dùng **vô cùng bé tương đương** hoặc công thức dạng mũ khi đủ điều kiện áp dụng.
+- Với ma trận vuông, kiểm tra cấp ma trận khi áp dụng $\det(kA) = k^n \det(A)$.
 :::

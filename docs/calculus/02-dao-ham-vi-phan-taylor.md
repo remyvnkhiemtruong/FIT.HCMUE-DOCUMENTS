@@ -1,10 +1,14 @@
-# Chuyên Đề 2: Phép Tính Vi Phân, Đạo Hàm Cấp Cao & Khai Triển Taylor
+---
+title: "Chuyên đề 2: Phép tính vi phân, đạo hàm cấp cao và khai triển Taylor"
+---
+
+# Chuyên đề 2: Phép tính vi phân, đạo hàm cấp cao và khai triển Taylor {#chuyen-đe-2-phep-tinh-vi-phan-đao-ham-cap-cao-khai-trien-taylor}
 
 Chuyên đề này tập trung vào các kỹ thuật vi phân, tính đạo hàm cấp cao bằng công thức Leibniz và khai triển hàm số thành đa thức xấp xỉ Taylor - Maclaurin — những dạng bài xuất hiện thường xuyên trong đề thi KTHP.
 
 ---
 
-## 1. Đạo Hàm & Vi Phân
+## 1. Đạo hàm và vi phân {#_1-đao-ham-vi-phan}
 
 ### 1.1. Khái niệm cơ bản
 - **Đạo hàm:**
@@ -16,7 +20,7 @@ Chuyên đề này tập trung vào các kỹ thuật vi phân, tính đạo hà
 
 ---
 
-## 2. Đạo Hàm Cấp Cao & Công Thức Leibniz
+## 2. Đạo hàm cấp cao và công thức Leibniz {#_2-đao-ham-cap-cao-cong-thuc-leibniz}
 
 ### 2.1. Đạo hàm cấp $n$ của một số hàm số cơ bản
 - $(e^{ax})^{(n)} = a^n e^{ax}$
@@ -30,13 +34,13 @@ Cho hai hàm số $u(x)$ và $v(x)$ khả vi đến cấp $n$, đạo hàm cấp
 $$(u \cdot v)^{(n)} = \sum_{k=0}^{n} C_n^k u^{(n-k)} v^{(k)}$$
 Trong đó $C_n^k = \frac{n!}{k!(n-k)!}$.
 
-::: tip MẸO ÁP DỤNG CÔNG THỨC LEIBNIZ TRONG ĐỀ THI
-Khi gặp dạng $f(x) = P(x) \cdot g(x)$ với $P(x)$ là đa thức bậc $m$ (ví dụ $x^2$ hay $x^3$), ta chọn $v(x) = P(x)$ vì đạo hàm $v^{(k)}(x) = 0$ với mọi $k > m$. Nhờ đó, tổng từ $0 \to n$ chỉ còn lại $m+1$ số hạng đầu tiên!
+::: tip Áp dụng công thức Leibniz
+Khi gặp dạng $f(x) = P(x) \cdot g(x)$ với $P(x)$ là đa thức bậc $m$ (ví dụ $x^2$ hay $x^3$), ta chọn $v(x) = P(x)$ vì đạo hàm $v^{(k)}(x) = 0$ với mọi $k > m$. Nhờ đó, tổng từ $0 \to n$ chỉ còn lại $m+1$ số hạng đầu tiên.
 :::
 
 ---
 
-## 3. Các Định Lý Về Giá Trị Trung Bình
+## 3. Các định lý về giá trị trung bình {#_3-cac-đinh-ly-ve-gia-tri-trung-binh}
 
 | Định lý | Giả thiết | Kết luận | Ý nghĩa hình học |
 | :--- | :--- | :--- | :--- |
@@ -46,7 +50,7 @@ Khi gặp dạng $f(x) = P(x) \cdot g(x)$ với $P(x)$ là đa thức bậc $m$ 
 
 ---
 
-## 4. Công Thức Taylor & Maclaurin
+## 4. Công thức Taylor và Maclaurin {#_4-cong-thuc-taylor-maclaurin}
 
 ### 4.1. Công thức tổng quát
 Nếu $f(x)$ khả vi đến cấp $n+1$ trong lân cận của $x_0$, ta có:
@@ -64,13 +68,13 @@ $$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + R_n(x)$$
 
 ---
 
-## 5. Ví Dụ Bài Tập Từ Đề Thi Thật
+## 5. Ví dụ trong đề thi {#_5-vi-du-bai-tap-tu-đe-thi-that}
 
-### Ví dụ 1 (Đề thi KTHP 2023 - 2024):
+### Ví dụ 1 (đề thi KTHP 2023 - 2024): {#vi-du-1-đe-thi-kthp-2023-2024}
 Cho hàm số $f(x) = x^2 \sin x$. Hãy tính đạo hàm cấp 50 tại điểm $x = \frac{\pi}{2}$:
 $$f^{(50)}\left(\frac{\pi}{2}\right)$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Đặt $u(x) = \sin x$ và $v(x) = x^2$.
 Ta có:
 - $v'(x) = 2x$, $v''(x) = 2$, và $v^{(k)}(x) = 0$ với mọi $k \ge 3$.
@@ -94,10 +98,10 @@ $$f^{(50)}\left(\frac{\pi}{2}\right) = \left(2450 - \frac{\pi^2}{4}\right) \cdot
 **Kết luận:** $f^{(50)}\left(\frac{\pi}{2}\right) = 2450 - \frac{\pi^2}{4}$.
 :::
 
-### Ví dụ 2 (Đề thi KTHP 2024 - 2025):
+### Ví dụ 2 (đề thi KTHP 2024 - 2025): {#vi-du-2-đe-thi-kthp-2024-2025}
 Cho hàm số $f(x) = x^3 \cos x$. Hãy tính $f^{(10)}(\pi)$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Đặt $u(x) = \cos x$ và $v(x) = x^3$.
 Ta có:
 - $v'(x) = 3x^2$, $v''(x) = 6x$, $v'''(x) = 6$, $v^{(k)}(x) = 0 \; (\forall k \ge 4)$.

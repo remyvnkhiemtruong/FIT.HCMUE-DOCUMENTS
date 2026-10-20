@@ -1,10 +1,14 @@
-# ⚡ Sổ Tay Tra Cứu Công Thức Thần Tốc
+---
+title: "Công thức nhanh"
+---
 
-Bảng tổng hợp tất cả công thức trọng tâm của học phần **COMP1800 - Cơ sở Toán trong CNTT** để tra cứu nhanh trước giờ thi.
+# Công thức nhanh {#⚡-so-tay-tra-cuu-cong-thuc-than-toc}
+
+Các công thức giải tích và đại số tuyến tính của học phần **COMP1800 - Cơ sở toán trong CNTT**.
 
 ---
 
-## 1. Giới Hạn & Vô Cùng Bé Tương Đương ($x \to 0$)
+## 1. Giới hạn và vô cùng bé tương đương ($x \to 0$) {#_1-gioi-han-vo-cung-be-tuong-đuong}
 
 $$\sin x \sim x, \quad \tan x \sim x, \quad \arcsin x \sim x, \quad \arctan x \sim x$$
 $$e^x - 1 \sim x, \quad a^x - 1 \sim x \ln a, \quad \ln(1 + x) \sim x$$
@@ -15,7 +19,7 @@ $$\lim_{x \to x_0} [u(x)]^{v(x)} = e^{\lim_{x \to x_0} [u(x) - 1] v(x)}$$
 
 ---
 
-## 2. Bảng Đạo Hàm Cấp Cao Thường Gặp
+## 2. Bảng đạo hàm cấp cao thường gặp {#_2-bang-đao-ham-cap-cao-thuong-gap}
 
 | Hàm số $f(x)$ | Đạo hàm cấp $n$: $f^{(n)}(x)$ |
 | :--- | :--- |
@@ -28,7 +32,7 @@ $$\lim_{x \to x_0} [u(x)]^{v(x)} = e^{\lim_{x \to x_0} [u(x) - 1] v(x)}$$
 
 ---
 
-## 3. Khai Triển Maclaurin Cốt Lõi
+## 3. Khai triển Maclaurin cốt lõi {#_3-khai-trien-maclaurin-cot-loi}
 
 $$e^x = \sum_{k=0}^n \frac{x^k}{k!} + o(x^n) = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots + \frac{x^n}{n!} + o(x^n)$$
 $$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + (-1)^n \frac{x^{2n+1}}{(2n+1)!} + o(x^{2n+2})$$
@@ -38,7 +42,7 @@ $$\frac{1}{1 - x} = 1 + x + x^2 + \dots + x^n + o(x^n)$$
 
 ---
 
-## 4. Tích Phân & Tổng Riemann
+## 4. Tích phân và tổng Riemann {#_4-tich-phan-tong-riemann}
 
 $$\int \frac{dx}{x^2 + a^2} = \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C$$
 $$\int \frac{dx}{x^2 - a^2} = \frac{1}{2a} \ln\left|\frac{x - a}{x + a}\right| + C$$
@@ -50,7 +54,7 @@ $$\lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) = \int_
 
 ---
 
-## 5. Tích Phân Suy Rộng & Chuỗi Số
+## 5. Tích phân suy rộng và chuỗi số {#_5-tich-phan-suy-rong-chuoi-so}
 
 | Loại | Tích phân / Chuỗi chuẩn | Điều kiện HỘI TỤ | Điều kiện PHÂN KỲ |
 | :--- | :--- | :---: | :---: |
@@ -58,12 +62,12 @@ $$\lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) = \int_
 | **Suy rộng loại 2** | $\int_a^b \frac{dx}{(b-x)^\alpha}$ | $\alpha < 1$ | $\alpha \ge 1$ |
 | **Chuỗi số Riemann** | $\sum_{n=1}^\infty \frac{1}{n^\alpha}$ | $\alpha > 1$ | $\alpha \le 1$ |
 
-**Tiêu chuẩn D'Alembert & Căn Cauchy:**
+**Tiêu chuẩn D'Alembert và căn Cauchy:**
 $$L = \lim_{n \to \infty} \frac{u_{n+1}}{u_n} \quad \text{hoặc} \quad L = \lim_{n \to \infty} \sqrt[n]{u_n} \implies \begin{cases} L < 1: \text{Hội tụ} \\ L > 1: \text{Phân kỳ} \\ L = 1: \text{Chưa kết luận} \end{cases}$$
 
 ---
 
-## 6. Ma Trận & Định Thức
+## 6. Ma trận và định thức {#_6-ma-tran-đinh-thuc}
 
 - $(AB)^T = B^T A^T$
 - $\det(AB) = \det(A) \det(B)$
@@ -73,7 +77,7 @@ $$L = \lim_{n \to \infty} \frac{u_{n+1}}{u_n} \quad \text{hoặc} \quad L = \lim
 
 ---
 
-## 7. Không Gian Vectơ & Ánh Xạ Tuyến Tính
+## 7. Không gian vectơ và ánh xạ tuyến tính {#_7-khong-gian-vecto-anh-xa-tuyen-tinh}
 
 - **Hệ Cramer:** Hệ $n$ PT, $n$ ẩn và $\det(A) \neq 0 \implies x_j = \frac{D_j}{D}$.
 - **Hệ thuần nhất $AX = 0$:** Số chiều không gian nghiệm $\dim(W) = n - \text{rank}(A)$.
@@ -81,5 +85,5 @@ $$L = \lim_{n \to \infty} \frac{u_{n+1}}{u_n} \quad \text{hoặc} \quad L = \lim
 - **Định lý số chiều:** $\dim(\ker f) + \dim(\text{Im} f) = \dim(V)$.
 - **Trực chuẩn hóa Gram-Schmidt:**
   $$u_1 = v_1, \quad u_k = v_k - \sum_{i=1}^{k-1} \frac{\langle v_k, u_i \rangle}{\|u_i\|^2} u_i, \quad e_k = \frac{u_k}{\|u_k\|}$$
-- **Trị riêng & Vectơ riêng:** $\det(A - \lambda I) = 0$, giải $(A - \lambda I)X = 0$.
+- **Trị riêng và Vectơ riêng:** $\det(A - \lambda I) = 0$, giải $(A - \lambda I)X = 0$.
 - **Chéo hóa:** $P^{-1} A P = D$ (cột của $P$ là $n$ vectơ riêng ĐLTT).

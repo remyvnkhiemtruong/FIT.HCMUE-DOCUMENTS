@@ -1,10 +1,14 @@
-# Buổi 3: Lý Thuyết Tập Hợp & Ánh Xạ
+---
+title: "Buổi 3: Lý thuyết tập hợp và ánh xạ"
+---
 
-Lý thuyết tập hợp và ánh xạ cung cấp ngôn ngữ chuẩn xác để mô hình hóa kiểu dữ liệu, quan hệ trong cơ sở dữ liệu quan hệ (RDBMS) và hàm trong lập trình hàm (Functional Programming).
+# Buổi 3: Lý thuyết tập hợp và ánh xạ {#buoi-3-ly-thuyet-tap-hop-anh-xa}
+
+Lý thuyết tập hợp và ánh xạ cung cấp ngôn ngữ chuẩn xác để mô hình hóa kiểu dữ liệu, quan hệ trong cơ sở dữ liệu quan hệ (RDBMS) và hàm trong lập trình hàm.
 
 ---
 
-## 1. Lý Thuyết Tập Hợp
+## 1. Lý thuyết tập hợp {#_1-ly-thuyet-tap-hop}
 
 ### 1.1. Các định nghĩa cơ bản
 - **Tập hợp con:** $A \subseteq B \iff (\forall x \in A \implies x \in B)$.
@@ -19,7 +23,7 @@ Lý thuyết tập hợp và ánh xạ cung cấp ngôn ngữ chuẩn xác để
 - **Hiệu:** $A \setminus B = \{x \mid x \in A \land x \notin B\}$.
 - **Phần bù:** $\overline{A} = U \setminus A$ với $U$ là tập vũ trụ.
 
-### 1.3. Nguyên lý bù trừ (Inclusion - Exclusion Principle)
+### 1.3. Nguyên lý bù trừ {#_1-3-nguyen-ly-bu-tru-inclusion-exclusion-principle}
 - Đối với 2 tập hợp:
   $$|A \cup B| = |A| + |B| - |A \cap B|$$
 - Đối với 3 tập hợp:
@@ -27,7 +31,7 @@ Lý thuyết tập hợp và ánh xạ cung cấp ngôn ngữ chuẩn xác để
 
 ---
 
-## 2. Ánh Xạ & Hàm Số
+## 2. Ánh xạ và hàm số {#_2-anh-xa-ham-so}
 
 Cho ánh xạ $f: A \to B$.
 - $A$: Tập nguồn (Tập xác định).
@@ -41,25 +45,25 @@ Cho ánh xạ $f: A \to B$.
 | **Toàn ánh (Surjective)** | $\forall y \in B, \; \exists x \in A : f(x) = y$ *(mọi phần tử của $B$ đều là ảnh)* | $|A| \ge |B|$ |
 | **Song ánh (Bijective)** | $f$ vừa là **đơn ánh**, vừa là **toàn ánh** | $|A| = |B|$ |
 
-::: tip ĐIỀU KIỆN TỒN TẠI HÀM NGƯỢC
+::: tip Điều kiện tồn tại hàm ngược
 Hàm số $f: A \to B$ có hàm ngược $f^{-1}: B \to A$ khi và chỉ khi $f$ là một **song ánh**.
 Khi đó: $f^{-1}(y) = x \iff f(x) = y$.
 :::
 
-### 2.2. Ánh xạ hợp thành (Composition)
+### 2.2. Ánh xạ hợp thành {#_2-2-anh-xa-hop-thanh-composition}
 Cho $f: A \to B$ và $g: B \to C$. Ánh xạ hợp thành $g \circ f: A \to C$ được xác định bởi:
 $$(g \circ f)(x) = g(f(x))$$
 
 ---
 
-## 3. Bài Tập Mẫu
+## 3. Bài tập mẫu {#_3-bai-tap-mau}
 
 ### Bài 1:
 Trong một lớp học CNTT gồm 50 sinh viên: có 30 bạn thích học Python, 25 bạn thích học C++, và 12 bạn thích cả hai ngôn ngữ.
 1. Có bao nhiêu sinh viên thích ít nhất một trong hai ngôn ngữ?
 2. Có bao nhiêu sinh viên không thích cả hai ngôn ngữ?
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Gọi $P$ là tập hợp sinh viên thích Python $\implies |P| = 30$.
 Gọi $C$ là tập hợp sinh viên thích C++ $\implies |C| = 25$.
 Tập sinh viên thích cả hai: $|P \cap C| = 12$.
@@ -75,7 +79,7 @@ Cho hàm số $f: \mathbb{R} \setminus \{2\} \to \mathbb{R} \setminus \{1\}$ xá
 $$f(x) = \frac{x + 1}{x - 2}$$
 Chứng minh $f$ là song ánh và tìm hàm ngược $f^{-1}(x)$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 - **Chứng minh đơn ánh:**
   Giả sử $f(x_1) = f(x_2)$:
   $$\frac{x_1 + 1}{x_1 - 2} = \frac{x_2 + 1}{x_2 - 2} \iff (x_1 + 1)(x_2 - 2) = (x_2 + 1)(x_1 - 2)$$

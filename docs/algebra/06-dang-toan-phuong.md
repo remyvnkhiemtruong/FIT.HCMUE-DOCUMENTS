@@ -1,10 +1,14 @@
-# Chuyên Đề 6: Dạng Toàn Phương (Quadratic Forms)
+---
+title: "Chuyên đề 6: Dạng toàn phương"
+---
 
-Dạng toàn phương là một đa thức thuần nhất bậc hai nhiều biến, có vai trò cốt lõi trong hình học giải tích (nhận dạng mặt bậc hai), tối ưu hóa hàm nhiều biến và các thuật toán học máy (Machine Learning).
+# Chuyên đề 6: Dạng toàn phương {#chuyen-đe-6-dang-toan-phuong-quadratic-forms}
+
+Dạng toàn phương là một đa thức thuần nhất bậc hai nhiều biến, được dùng trong hình học giải tích (nhận dạng mặt bậc hai), tối ưu hóa hàm nhiều biến và các thuật toán học máy.
 
 ---
 
-## 1. Khái Niệm Dạng Toàn Phương
+## 1. Khái niệm dạng toàn phương {#_1-khai-niem-dang-toan-phuong}
 
 ### 1.1. Định nghĩa
 Một **dạng toàn phương** $\omega$ trên không gian $\mathbb{R}^n$ là một hàm số đa thức thuần nhất bậc 2 đối với $n$ biến số $X = (x_1, x_2, \dots, x_n)^T$:
@@ -19,7 +23,7 @@ Trong đó:
   - $a_{ii}$: hệ số của $x_i^2$ trên đường chéo chính.
   - $a_{ij} = a_{ji} = \frac{1}{2} \times (\text{hệ số của } x_i x_j)$ với $i \neq j$.
 
-::: tip VÍ DỤ XÁC ĐỊNH MA TRẬN ĐỐI XỨNG $A$
+::: tip Ví dụ xác định ma trận đối xứng $A$
 Cho $\omega(x_1, x_2, x_3) = x_1^2 + 4x_2^2 - 2x_3^2 + 6x_1 x_2 - 4x_1 x_3 + 2x_2 x_3$.
 - Đường chéo: $a_{11} = 1, a_{22} = 4, a_{33} = -2$.
 - Ngoài đường chéo:
@@ -31,7 +35,7 @@ $$A = \begin{pmatrix} 1 & 3 & -2 \\ 3 & 4 & 1 \\ -2 & 1 & -2 \end{pmatrix}$$
 
 ---
 
-## 2. Dạng Chính Tắc & Phương Pháp Lagrange
+## 2. Dạng chính tắc và phương pháp Lagrange {#_2-dang-chinh-tac-phuong-phap-lagrange}
 
 ### 2.1. Dạng chính tắc
 Dạng toàn phương được gọi là có **dạng chính tắc** nếu ma trận của nó là ma trận đường chéo (chỉ chứa các bình phương, không chứa tích chéo):
@@ -50,7 +54,7 @@ $$\omega(y) = c_1 y_1^2 + c_2 y_2^2 + \dots + c_n y_n^2$$
 
 ---
 
-## 3. Phép Biến Đổi Trực Giao (Chéo Hóa Ma Trận Đối Xứng)
+## 3. Phép biến đổi trực giao (chéo hóa ma trận đối xứng) {#_3-phep-bien-đoi-truc-giao-cheo-hoa-ma-tran-đoi-xung}
 
 Vì ma trận $A$ là đối xứng thực ($A = A^T$), luôn tồn tại một **ma trận trực giao** $P$ ($P^{-1} = P^T, \det P = \pm 1$) sao cho:
 $$P^T A P = D = \begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & \lambda_n \end{pmatrix}$$
@@ -61,7 +65,7 @@ $$\omega(Y) = \lambda_1 y_1^2 + \lambda_2 y_2^2 + \dots + \lambda_n y_n^2$$
 
 ---
 
-## 4. Dấu Của Dạng Toàn Phương & Tiêu Chuẩn Sylvester
+## 4. Dấu của dạng toàn phương và tiêu chuẩn Sylvester {#_4-dau-cua-dang-toan-phuong-tieu-chuan-sylvester}
 
 ### 4.1. Phân loại dấu
 - **Xác định dương:** $\omega(x) > 0, \; \forall X \neq 0$.
@@ -74,7 +78,7 @@ $$\omega(Y) = \lambda_1 y_1^2 + \lambda_2 y_2^2 + \dots + \lambda_n y_n^2$$
 Xét các định thức con chính dẫn đầu của ma trận $A$:
 $$\Delta_1 = a_{11}, \quad \Delta_2 = \begin{vmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{vmatrix}, \quad \dots, \quad \Delta_n = \det(A)$$
 
-::: tip TIÊU CHUẨN SYLVESTER XÉT DẤU
+::: tip Tiêu chuẩn Sylvester xét dấu
 1. $\omega$ **xác định dương** $\iff$ Tất cả các định thức con chính đều dương:
    $$\Delta_1 > 0, \; \Delta_2 > 0, \; \dots, \; \Delta_n > 0$$
 2. $\omega$ **xác định âm** $\iff$ Các định thức con chính đan dấu bắt đầu bằng dấu âm:
@@ -83,13 +87,13 @@ $$\Delta_1 = a_{11}, \quad \Delta_2 = \begin{vmatrix} a_{11} & a_{12} \\ a_{21} 
 
 ---
 
-## 5. Ví Dụ Bài Tập Mẫu
+## 5. Ví dụ bài tập mẫu {#_5-vi-du-bai-tap-mau}
 
 ### Ví dụ 1:
 Dùng phương pháp Lagrange đưa dạng toàn phương sau về dạng chính tắc và xét dấu:
 $$\omega(x_1, x_2, x_3) = x_1^2 + 5x_2^2 - 4x_3^2 + 2x_1 x_2 - 4x_1 x_3$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Gom biến $x_1$:**
 $$\omega = (x_1^2 + 2x_1 x_2 - 4x_1 x_3) + 5x_2^2 - 4x_3^2$$
 $$= \left[ x_1^2 + 2x_1(x_2 - 2x_3) + (x_2 - 2x_3)^2 \right] - (x_2 - 2x_3)^2 + 5x_2^2 - 4x_3^2$$

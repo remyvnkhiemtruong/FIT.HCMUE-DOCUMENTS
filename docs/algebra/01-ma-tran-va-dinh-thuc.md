@@ -1,10 +1,14 @@
-# Chuyên Đề 1: Ma Trận, Định Thức & Hạng Ma Trận
+---
+title: "Chuyên đề 1: Ma trận, định thức và hạng ma trận"
+---
 
-Ma trận và định thức là công cụ cơ bản nhất trong Đại số tuyến tính, làm nền móng cho xử lý ảnh, đồ họa máy tính và các thuật toán học máy (Machine Learning).
+# Chuyên đề 1: Ma trận, định thức và hạng ma trận {#chuyen-đe-1-ma-tran-đinh-thuc-hang-ma-tran}
+
+Ma trận và định thức là công cụ trong đại số tuyến tính, được dùng trong xử lý ảnh, đồ họa máy tính và các thuật toán học máy.
 
 ---
 
-## 1. Phép Toán Trên Ma Trận
+## 1. Phép toán trên ma trận {#_1-phep-toan-tren-ma-tran}
 
 ### 1.1. Nhân hai ma trận
 Cho $A = (a_{ij})_{m \times p}$ và $B = (b_{jk})_{p \times n}$. Tích $C = AB$ là ma trận cấp $m \times n$ với:
@@ -13,13 +17,13 @@ $$c_{ik} = \sum_{j=1}^{p} a_{ij} b_{jk}$$
 
 ### 1.2. Chuyển vị và tính chất
 - $(A + B)^T = A^T + B^T$
-- $(AB)^T = B^T A^T$ *(đảo thứ tự!)*
+- $(AB)^T = B^T A^T$ *(đảo thứ tự)*
 - $(A^T)^T = A$
 - $(kA)^T = k A^T$
 
 ---
 
-## 2. Định Thức (Determinant)
+## 2. Định thức {#_2-đinh-thuc-determinant}
 
 ### 2.1. Định nghĩa và cách tính
 Định thức chỉ áp dụng cho **ma trận vuông** cấp $n$: ký hiệu $\det(A)$ hoặc $|A|$.
@@ -41,7 +45,7 @@ $$c_{ik} = \sum_{j=1}^{p} a_{ij} b_{jk}$$
 
 ---
 
-## 3. Ma Trận Khả Nghịch & Ma Trận Nghịch Đảo $A^{-1}$
+## 3. Ma trận khả nghịch và ma trận nghịch đảo $A^{-1}$ {#_3-ma-tran-kha-nghich-ma-tran-nghich-đao}
 
 Ma trận vuông $A$ khả nghịch khi và chỉ khi $\det(A) \neq 0$.
 Khi đó:
@@ -54,7 +58,7 @@ $$[A \mid I_n] \xrightarrow{\text{BĐSC dòng}} [I_n \mid A^{-1}]$$
 
 ---
 
-## 4. Hạng Của Ma Trận (Rank)
+## 4. Hạng của ma trận {#_4-hang-cua-ma-tran-rank}
 
 Hạng của ma trận $A$, ký hiệu $\text{rank}(A)$ hoặc $r(A)$, là:
 - Cấp cao nhất của định thức con khác 0 của $A$.
@@ -62,15 +66,15 @@ Hạng của ma trận $A$, ký hiệu $\text{rank}(A)$ hoặc $r(A)$, là:
 
 ---
 
-## 5. Ví Dụ Bài Tập Từ Đề Thi Thật
+## 5. Ví dụ trong đề thi {#_5-vi-du-bai-tap-tu-đe-thi-that}
 
-### Ví dụ 1 (Đề thi KTHP 2022 - 2023):
+### Ví dụ 1 (đề thi KTHP 2022 - 2023): {#vi-du-1-đe-thi-kthp-2022-2023}
 Cho 2 ma trận:
 $$A = \begin{pmatrix} 2 & 2 & -1 \\ 1 & 3 & -1 \\ 1 & -1 & 0 \end{pmatrix}, \quad B = \begin{pmatrix} -1 & -2 & 0 \\ 5 & 4 & -2 \\ -3 & 1 & 6 \end{pmatrix}$$
 1. Tính $\det(A)$ và $\text{rank}(A)$.
 2. Tìm ma trận $X$ thỏa mãn phương trình: $2I + AX = B^T$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Câu 1: Tính $\det(A)$ và $\text{rank}(A)$:**
 Khai triển định thức của $A$:
 $$\det(A) = \begin{vmatrix} 2 & 2 & -1 \\ 1 & 3 & -1 \\ 1 & -1 & 0 \end{vmatrix}$$
@@ -107,11 +111,11 @@ Suy ra $\text{rank}(A) = 2 \neq \text{rank}([A \mid B^T - 2I]) = 3$.
 **Kết luận:** Phương trình ma trận **vô nghiệm** (không tồn tại ma trận $X$).
 :::
 
-### Ví dụ 2 (Đề thi KTHP 2023 - 2024):
+### Ví dụ 2 (đề thi KTHP 2023 - 2024): {#vi-du-2-đe-thi-kthp-2023-2024}
 Tìm ma trận nghịch đảo của:
 $$A = \begin{pmatrix} 0 & 2 & 3 \\ 1 & 0 & -1 \\ 4 & 5 & 0 \end{pmatrix}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Tính định thức $\det(A)$:**
 Khai triển theo dòng 1:
 $$\det(A) = 0 - 2 \begin{vmatrix} 1 & -1 \\ 4 & 0 \end{vmatrix} + 3 \begin{vmatrix} 1 & 0 \\ 4 & 5 \end{vmatrix}$$
@@ -135,5 +139,5 @@ $$A^* = \begin{pmatrix} 5 & 15 & -2 \\ -4 & -12 & 3 \\ 5 & 8 & -2 \end{pmatrix}$
 
 **Bước 3: Ma trận nghịch đảo:**
 $$A^{-1} = \frac{1}{7} \begin{pmatrix} 5 & 15 & -2 \\ -4 & -12 & 3 \\ 5 & 8 & -2 \end{pmatrix} = \begin{pmatrix} 5/7 & 15/7 & -2/7 \\ -4/7 & -12/7 & 3/7 \\ 5/7 & 8/7 & -2/7 \end{pmatrix}$$
-*(Thử lại: $A \cdot A^{-1} = I_3$, chính xác 100%)*.
+*(Thử lại: $A \cdot A^{-1} = I_3$)*.
 :::

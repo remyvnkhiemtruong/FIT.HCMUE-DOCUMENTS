@@ -33,5 +33,13 @@ for(const file of files) {
 }
 const ledger=JSON.parse(await readFile('content-archive/migration.json','utf8'))
 for(const old of ledger)if(!await existing(resolve(root,old.path.replace(/\.md$/,'.html'))))errors.push(`Legacy route lost: ${old.path}`)
+const oldAnchors=JSON.parse(await readFile('content-archive/editorial-anchors.json','utf8'))
+for(const [path,ids] of Object.entries(oldAnchors)){
+  if(path.includes('['))continue
+  const target=resolve(root,path.replace(/\.md$/,'.html'))
+  if(!fileSet.has(target)){errors.push(`Editorial route lost: ${path}`);continue}
+  const content=await html(target)
+  for(const id of ids)if(!content.includes(`id="${id}"`))errors.push(`Old heading anchor lost: ${path}#${id}`)
+}
 if(errors.length){console.error([...new Set(errors)].join('\n'));process.exitCode=1}
-else console.log(`Checked ${files.length} HTML pages, all internal links/assets/anchors and ${ledger.length} original routes.`)
+else console.log(`Checked ${files.length} HTML pages, all internal links/assets, archived heading anchors and ${ledger.length} original routes.`)

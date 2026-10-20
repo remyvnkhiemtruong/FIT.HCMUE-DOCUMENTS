@@ -1,0 +1,552 @@
+{
+  "algebra/01-ma-tran-va-dinh-thuc.md": [
+    "chuyen-đe-1-ma-tran-đinh-thuc-hang-ma-tran",
+    "_1-phep-toan-tren-ma-tran",
+    "_1-1-nhan-hai-ma-tran",
+    "_1-2-chuyen-vi-va-tinh-chat",
+    "_2-đinh-thuc-determinant",
+    "_2-1-đinh-nghia-va-cach-tinh",
+    "_2-2-tinh-chat-quan-trong-cua-đinh-thuc",
+    "_3-ma-tran-kha-nghich-ma-tran-nghich-đao",
+    "phuong-phap-tim-bang-bien-đoi-gauss-jordan",
+    "_4-hang-cua-ma-tran-rank",
+    "_5-vi-du-bai-tap-tu-đe-thi-that",
+    "vi-du-1-đe-thi-kthp-2022-2023",
+    "vi-du-2-đe-thi-kthp-2023-2024"
+  ],
+  "algebra/02-he-phuong-trinh-tuyen-tinh.md": [
+    "chuyen-đe-2-he-phuong-trinh-tuyen-tinh",
+    "_1-dang-tong-quat-đinh-ly-kronecker-capelli",
+    "_2-phuong-phap-cramer",
+    "_2-1-đieu-kien-ap-dung",
+    "_2-2-cong-thuc-nghiem",
+    "_3-phuong-phap-khu-gauss-gauss-jordan",
+    "_4-he-phuong-trinh-thuan-nhat",
+    "_5-vi-du-tu-đe-thi-that",
+    "vi-du-đe-thi-kthp-2023-2024"
+  ],
+  "algebra/03-khong-gian-vecto.md": [
+    "chuyen-đe-3-khong-gian-vecto-co-so-đoi-toa-đo",
+    "_1-khong-gian-con-đoc-lap-tuyen-tinh",
+    "_1-1-đieu-kien-kiem-tra-khong-gian-con",
+    "_1-2-đoc-lap-tuyen-tinh-đltt-phu-thuoc-tuyen-tinh-pttt",
+    "_2-co-so-so-chieu-toa-đo-vecto",
+    "_2-1-đinh-nghia-co-so-so-chieu",
+    "_2-2-toa-đo-cua-vecto-đoi-voi-co-so",
+    "_3-ma-tran-chuyen-co-so-cong-thuc-đoi-toa-đo",
+    "_3-1-ma-tran-chuyen-co-so-tu-sang",
+    "_3-2-cong-thuc-đoi-toa-đo",
+    "_4-vi-du-bai-tap-tu-đe-thi-that",
+    "vi-du-đe-thi-kthp-2024-2025"
+  ],
+  "algebra/04-khong-gian-euclide.md": [
+    "chuyen-đe-4-khong-gian-euclide-truc-chuan-hoa-gram-schmidt",
+    "_1-tich-vo-huong-cac-tien-đe",
+    "_2-chuan-đo-dai-goc-giua-hai-vecto",
+    "_2-1-chuan-đo-dai-cua-vecto",
+    "_2-2-bat-đang-thuc-cauchy-schwarz-goc",
+    "_3-thuat-toan-truc-chuan-hoa-gram-schmidt",
+    "buoc-1-truc-giao-hoa-tim-he-truc-giao",
+    "buoc-2-chuan-hoa-đua-đo-dai-ve-1",
+    "_4-vi-du-bai-tap-tu-đe-thi-that",
+    "vi-du-đe-thi-tham-khao-kthp-fit-hcmue"
+  ],
+  "algebra/05-anh-xa-tuyen-tinh-cheo-hoa.md": [
+    "chuyen-đe-5-anh-xa-tuyen-tinh-tri-rieng-cheo-hoa-ma-tran",
+    "_1-anh-xa-tuyen-tinh-ker-f-va-im-f",
+    "_1-1-đinh-nghia",
+    "_1-2-hat-nhan-va-anh",
+    "_2-ma-tran-cua-anh-xa-tuyen-tinh",
+    "_3-gia-tri-rieng-vecto-rieng",
+    "quy-trinh-tim-tri-rieng-vecto-rieng",
+    "_4-cheo-hoa-ma-tran",
+    "_5-vi-du-mau-tu-đe-thi-that",
+    "vi-du-1-đe-thi-kthp-2023-2024"
+  ],
+  "algebra/06-dang-toan-phuong.md": [
+    "chuyen-đe-6-dang-toan-phuong-quadratic-forms",
+    "_1-khai-niem-dang-toan-phuong",
+    "_1-1-đinh-nghia",
+    "_1-2-bieu-dien-ma-tran-cua-dang-toan-phuong",
+    "_2-dang-chinh-tac-phuong-phap-lagrange",
+    "_2-1-dang-chinh-tac",
+    "_2-2-phuong-phap-đua-ve-dang-chinh-tac-cua-lagrange",
+    "_3-phep-bien-đoi-truc-giao-cheo-hoa-ma-tran-đoi-xung",
+    "_4-dau-cua-dang-toan-phuong-tieu-chuan-sylvester",
+    "_4-1-phan-loai-dau",
+    "_4-2-tieu-chuan-sylvester",
+    "_5-vi-du-bai-tap-mau",
+    "vi-du-1"
+  ],
+  "calculus/01-gioi-han-day-va-ham.md": [
+    "chuyen-đe-1-day-so-gioi-han-va-tinh-lien-tuc",
+    "_1-day-so-gioi-han-day-so",
+    "_1-1-cac-đinh-nghia-co-ban",
+    "_1-2-đinh-nghia-gioi-han-day-so",
+    "_1-3-cac-gioi-han-co-ban-can-nho",
+    "_2-gioi-han-ham-so-ky-thuat-khu-dang-vo-đinh",
+    "_2-1-bang-vo-cung-be-vcb-tuong-đuong-khi",
+    "_2-2-dang-vo-đinh-va-cong-thuc-tinh-nhanh",
+    "_2-3-quy-tac-l-hospital",
+    "_3-tinh-lien-tuc-cua-ham-so",
+    "_3-1-đinh-nghia",
+    "_3-2-điem-gian-đoan",
+    "_4-cac-vi-du-kinh-đien-trong-đe-thi",
+    "vi-du-1-đe-thi-kthp-2023-2024",
+    "vi-du-2-đe-thi-kthp-2022-2023",
+    "vi-du-3-đe-thi-kthp-2023-2024"
+  ],
+  "calculus/02-dao-ham-vi-phan-taylor.md": [
+    "chuyen-đe-2-phep-tinh-vi-phan-đao-ham-cap-cao-khai-trien-taylor",
+    "_1-đao-ham-vi-phan",
+    "_1-1-khai-niem-co-ban",
+    "_2-đao-ham-cap-cao-cong-thuc-leibniz",
+    "_2-1-đao-ham-cap-cua-mot-so-ham-so-co-ban",
+    "_2-2-cong-thuc-leibniz-cho-tich-cua-hai-ham-so",
+    "_3-cac-đinh-ly-ve-gia-tri-trung-binh",
+    "_4-cong-thuc-taylor-maclaurin",
+    "_4-1-cong-thuc-tong-quat",
+    "_4-2-khai-trien-maclaurin-cua-cac-ham-chuan",
+    "_5-vi-du-bai-tap-tu-đe-thi-that",
+    "vi-du-1-đe-thi-kthp-2023-2024",
+    "vi-du-2-đe-thi-kthp-2024-2025"
+  ],
+  "calculus/03-tich-phan-va-ung-dung.md": [
+    "chuyen-đe-3-phep-tinh-tich-phan-tong-riemann",
+    "_1-phuong-phap-tinh-nguyen-ham-tich-phan",
+    "_1-1-cong-thuc-tich-phan-tung-phan",
+    "_1-2-tich-phan-ham-phan-thuc-huu-ti",
+    "_2-đinh-nghia-tich-phan-xac-đinh-gioi-han-tong-riemann",
+    "_2-1-đinh-ly-tong-riemann",
+    "_3-cac-vi-du-trong-tam-tu-đe-thi-that",
+    "vi-du-1-đe-thi-kthp-2022-2023",
+    "vi-du-2-đe-thi-kthp-2024-2025",
+    "vi-du-3-đe-thi-kthp-2024-2025"
+  ],
+  "calculus/04-tich-phan-suy-rong.md": [
+    "chuyen-đe-4-tich-phan-suy-rong-loai-1-loai-2",
+    "_1-tich-phan-suy-rong-loai-1-can-vo-han",
+    "_1-1-đinh-nghia",
+    "_1-2-tich-phan-mau-loai-1-chuan-so-sanh",
+    "_1-3-tieu-chuan-so-sanh-cho-ham-so-khong-am",
+    "_2-tich-phan-suy-rong-loai-2-ham-khong-bi-chan",
+    "_2-1-đinh-nghia",
+    "_2-2-tich-phan-mau-loai-2",
+    "_3-cac-vi-du-mau-phuong-phap-giai",
+    "vi-du-1",
+    "vi-du-2"
+  ],
+  "calculus/05-ly-thuyet-chuoi.md": [
+    "chuyen-đe-5-ly-thuyet-chuoi-so-chuoi-luy-thua",
+    "_1-chuoi-so-đieu-kien-hoi-tu-co-ban",
+    "_1-1-đinh-nghia",
+    "_2-cac-tieu-chuan-hoi-tu-cho-chuoi-so-duong",
+    "_2-1-chuoi-chuan-riemann-chuoi-series",
+    "_2-2-tieu-chuan-d-alembert-ti-so",
+    "_2-3-tieu-chuan-can-cauchy",
+    "_3-chuoi-đan-dau-chuoi-co-dau-bat-ky",
+    "_3-1-tieu-chuan-leibniz-cho-chuoi-đan-dau",
+    "_3-2-hoi-tu-tuyet-đoi-ban-hoi-tu",
+    "_4-chuoi-luy-thua",
+    "ban-kinh-hoi-tu",
+    "_5-vi-du-mau",
+    "vi-du-1",
+    "vi-du-2"
+  ],
+  "cheatsheet/cong-thuc-nhanh.md": [
+    "⚡-so-tay-tra-cuu-cong-thuc-than-toc",
+    "_1-gioi-han-vo-cung-be-tuong-đuong",
+    "_2-bang-đao-ham-cap-cao-thuong-gap",
+    "_3-khai-trien-maclaurin-cot-loi",
+    "_4-tich-phan-tong-riemann",
+    "_5-tich-phan-suy-rong-chuoi-so",
+    "_6-ma-tran-đinh-thuc",
+    "_7-khong-gian-vecto-anh-xa-tuyen-tinh"
+  ],
+  "cheatsheet/kien-thuc-thpt.md": [
+    "🎒-on-tap-kien-thuc-nen-tang-thpt",
+    "_1-cong-thuc-luong-giac-bat-buoc-nho",
+    "_1-1-he-thuc-co-ban",
+    "_1-2-cong-thuc-cong-nhan-đoi",
+    "_1-3-cong-thuc-ha-bac-rat-hay-dung-khi-tinh-tich-phan",
+    "_2-cong-thuc-luy-thua-logarit",
+    "_2-1-luy-thua",
+    "_2-2-logarit",
+    "_3-bang-nguyen-ham-co-ban"
+  ],
+  "chuong-trinh/index.md": [
+    "chuong-trinh-hoc",
+    "tra-cuu-theo-nhu-cau"
+  ],
+  "chuong-trinh/tra-cuu.md": [
+    "tra-cuu-hoc-phan"
+  ],
+  "chuong-trinh/[program].md": [],
+  "discrete-math/buoi-1-logic-menh-de.md": [
+    "buoi-1-co-so-logic-menh-đe-bang-chan-tri",
+    "_1-menh-đe-cac-phep-toan-logic-co-ban",
+    "_1-1-khai-niem-menh-đe",
+    "_1-2-bang-chan-tri-cac-phep-toan-logic",
+    "_2-cac-quy-luat-tuong-đuong-logic-quan-trong",
+    "_3-dang-chuan-tac-tuyen-dnf-hoi-cnf",
+    "_4-bai-tap-loi-giai-mau",
+    "bai-1",
+    "bai-2"
+  ],
+  "discrete-math/buoi-2-vi-tu-quy-nap.md": [
+    "buoi-2-vi-tu-quy-tac-suy-dien-quy-nap-toan-hoc",
+    "_1-logic-vi-tu-luong-tu",
+    "_1-1-vi-tu",
+    "_1-2-cac-luong-tu",
+    "_1-3-phu-đinh-menh-đe-chua-luong-tu-de-morgan-mo-rong",
+    "_2-cac-quy-tac-suy-dien-rules-of-inference",
+    "_3-nguyen-ly-quy-nap-toan-hoc-mathematical-induction",
+    "_4-bai-tap-mau",
+    "bai-1"
+  ],
+  "discrete-math/buoi-3-tap-hop-anh-xa.md": [
+    "buoi-3-ly-thuyet-tap-hop-anh-xa",
+    "_1-ly-thuyet-tap-hop",
+    "_1-1-cac-đinh-nghia-co-ban",
+    "_1-2-cac-phep-toan-tren-tap-hop",
+    "_1-3-nguyen-ly-bu-tru-inclusion-exclusion-principle",
+    "_2-anh-xa-ham-so",
+    "_2-1-phan-loai-anh-xa",
+    "_2-2-anh-xa-hop-thanh-composition",
+    "_3-bai-tap-mau",
+    "bai-1",
+    "bai-2"
+  ],
+  "discrete-math/buoi-4-quan-he-dai-so-boole.md": [
+    "buoi-4-quan-he-tuong-đuong-thu-tu-đai-so-boole",
+    "_1-quan-he-hai-ngoi-4-tinh-chat-co-ban",
+    "_2-quan-he-tuong-đuong-phan-hoach",
+    "_2-1-lop-tuong-đuong",
+    "_2-2-đinh-ly-phan-hoach",
+    "_3-quan-he-thu-tu-bieu-đo-hasse",
+    "_3-1-cac-phan-tu-đac-biet-trong-poset",
+    "_4-đai-so-boole-bang-karnaugh-k-map",
+    "_4-1-cau-truc-bang-karnaugh-thu-tu-ma-gray",
+    "_4-2-quy-tac-khoanh-nhom-k-map",
+    "_5-bai-tap-mau",
+    "bai-1"
+  ],
+  "discrete-math/buoi-5-to-hop-dem.md": [
+    "buoi-5-đai-so-to-hop-bai-toan-đem-nguyen-ly-dirichlet",
+    "_1-cac-quy-tac-đem-co-ban",
+    "_2-bang-phan-biet-cac-cau-hinh-to-hop",
+    "_3-nhi-thuc-newton-cac-đang-thuc-to-hop",
+    "_3-1-đinh-ly-nhi-thuc-newton",
+    "_3-2-mot-so-he-qua-kinh-đien",
+    "_4-nguyen-ly-long-chim-bo-cau-dirichlet",
+    "_4-1-dang-co-ban",
+    "_4-2-dang-mo-rong",
+    "_5-bai-tap-mau",
+    "bai-1",
+    "bai-2"
+  ],
+  "discrete-math/buoi-6-he-thuc-truy-hoi.md": [
+    "buoi-6-he-thuc-truy-hoi-phuong-trinh-sai-phan",
+    "_1-khai-niem-he-thuc-truy-hoi",
+    "_2-giai-he-thuc-tuyen-tinh-thuan-nhat-bac-2",
+    "_2-1-phuong-trinh-đac-trung",
+    "_2-2-cac-truong-hop-nghiem",
+    "_3-he-thuc-tuyen-tinh-khong-thuan-nhat",
+    "bang-du-đoan-nghiem-rieng-khi",
+    "_4-bai-tap-mau-tu-đe-thi-that",
+    "bai-1-đe-thi-kthp-toan-roi-rac",
+    "bai-2"
+  ],
+  "discrete-math/buoi-7-ly-thuyet-do-thi.md": [
+    "buoi-7-ly-thuyet-đo-thi-cac-thuat-toan-cot-loi",
+    "_1-cac-khai-niem-co-ban-ve-đo-thi",
+    "_1-1-bac-cua-đinh-bo-đe-bat-tay-handshaking-lemma",
+    "_1-2-bieu-dien-đo-thi",
+    "_2-đo-thi-euler-đo-thi-hamilton",
+    "_2-1-đo-thi-euler-đi-qua-moi-canh-đung-mot-lan",
+    "_2-2-đo-thi-hamilton-đi-qua-moi-đinh-đung-mot-lan",
+    "_3-cay-khung-nho-nhat-mst-minimum-spanning-tree",
+    "_3-1-thuat-toan-kruskal-uu-tien-canh-nho",
+    "_3-2-thuat-toan-prim-phat-trien-theo-cum-đinh",
+    "_4-thuat-toan-tim-đuong-đi-ngan-nhat-dijkstra",
+    "_5-bai-tap-mau",
+    "bai-1",
+    "bai-2"
+  ],
+  "exams/de-2022-2023.md": [
+    "đe-thi-ket-thuc-hoc-phan-nam-hoc-2022-–-2023",
+    "đe-bai-chinh-thuc",
+    "cau-1-4-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-4-0-điem",
+    "loi-giai-chi-tiet",
+    "loi-giai-cau-1",
+    "loi-giai-cau-2",
+    "loi-giai-cau-3"
+  ],
+  "exams/de-2023-2024.md": [
+    "đe-thi-ket-thuc-hoc-phan-nam-hoc-2023-–-2024",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-1-0-điem",
+    "cau-4-1-0-điem",
+    "cau-5-2-0-điem",
+    "cau-6-2-0-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams/de-2024-2025.md": [
+    "đe-thi-ket-thuc-hoc-phan-nam-hoc-2024-–-2025",
+    "đe-bai-chinh-thuc",
+    "cau-1-4-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-4-0-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams/de-tham-khao-co-dap-an.md": [
+    "đe-thi-tham-khao-kem-barem-điem-chi-tiet",
+    "bang-đe-bai-thang-điem-chuan",
+    "cau-1-4-0-điem-phep-tinh-giai-tich",
+    "cau-2-3-0-điem-khong-gian-euclide",
+    "cau-3-3-0-điem-anh-xa-tuyen-tinh-tri-rieng",
+    "đap-an-huong-dan-cham-tung-buoc"
+  ],
+  "exams/quiz-giua-ky.md": [
+    "📝-trac-nghiem-on-thi-giua-ky-interactive-quiz"
+  ],
+  "exams-discrete/gk-2022-2023.md": [
+    "đe-thi-giua-ky-toan-roi-rac-nam-hoc-2022-–-2023",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-5-điem",
+    "cau-2-2-5-điem",
+    "cau-3-2-5-điem",
+    "cau-4-2-5-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams-discrete/gk-2023-2024.md": [
+    "đe-thi-giua-ky-toan-roi-rac-nam-hoc-2023-–-2024",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-5-điem",
+    "cau-2-2-5-điem",
+    "cau-3-2-5-điem",
+    "cau-4-2-5-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams-discrete/kthp-2022-2023.md": [
+    "đe-thi-ket-thuc-hoc-phan-toan-roi-rac-2022-–-2023",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-2-0-điem",
+    "cau-4-2-0-điem",
+    "cau-5-2-0-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams-discrete/kthp-2023-2024.md": [
+    "đe-thi-ket-thuc-hoc-phan-toan-roi-rac-2023-–-2024",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-2-0-điem",
+    "cau-4-2-0-điem",
+    "cau-5-2-0-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exams-discrete/kthp-2024-2025.md": [
+    "đe-thi-ket-thuc-hoc-phan-toan-roi-rac-2024-–-2025",
+    "đe-bai-chinh-thuc",
+    "cau-1-2-0-điem",
+    "cau-2-2-0-điem",
+    "cau-3-2-0-điem",
+    "cau-4-2-0-điem",
+    "cau-5-2-0-điem",
+    "loi-giai-chi-tiet"
+  ],
+  "exercises/algebra.md": [
+    "📚-tuyen-tap-bai-tap-đai-so-tuyen-tinh-kem-loi-giai",
+    "dang-1-đinh-thuc-bien-đoi-so-cap",
+    "bai-1-1",
+    "dang-2-bien-luan-he-phuong-trinh-tuyen-tinh",
+    "bai-2-1",
+    "dang-3-he-vecto-co-so-khong-gian-con",
+    "bai-3-1",
+    "dang-4-truc-chuan-hoa-gram-schmidt",
+    "bai-4-1",
+    "dang-5-cheo-hoa-ma-tran",
+    "bai-5-1"
+  ],
+  "exercises/calculus.md": [
+    "📚-tuyen-tap-bai-tap-giai-tich-kem-loi-giai",
+    "dang-1-gioi-han-vo-cung-be-tuong-đuong",
+    "bai-1-1",
+    "bai-1-2",
+    "dang-2-đao-ham-cap-cao-cong-thuc-leibniz",
+    "bai-2-1",
+    "dang-3-tich-phan-tich-phan-suy-rong",
+    "bai-3-1",
+    "bai-3-2",
+    "dang-4-chuoi-so-ban-kinh-hoi-tu",
+    "bai-4-1"
+  ],
+  "exercises/index.md": [
+    "🎯-ngan-hang-bai-tap-phan-dang",
+    "🗂️-lua-chon-phan-luyen-tap",
+    "📈-bai-tap-giai-tich",
+    "🧮-bai-tap-đai-so-tuyen-tinh"
+  ],
+  "hoc-lieu/index.md": [
+    "kho-hoc-lieu"
+  ],
+  "huong-dan.md": [
+    "huong-dan-đong-gop",
+    "bat-đau-hoc",
+    "nguon-tai-lieu",
+    "ghi-chep-va-su-dung-tai-lieu",
+    "đong-gop-va-bao-loi",
+    "nhung-điem-đang-can-đoi-chieu"
+  ],
+  "index.md": [],
+  "khoa/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "khoa/khoa-49.md": [
+    "khoa-49"
+  ],
+  "khoa/khoa-50.md": [
+    "khoa-50"
+  ],
+  "khoa/khoa-51.md": [
+    "khoa-51"
+  ],
+  "khoa/khoa-52.md": [
+    "khoa-52"
+  ],
+  "khoa/nganh-cngd.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "khoa/nganh-cntt.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "khoa/nganh-sp-tin.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "khoa/tra-cuu-hoc-phan.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk1/comp1010.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk1/comp1802.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk1/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk2/comp1013.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk2/comp1017.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk2/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/comp1016.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/comp1018.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/comp1019.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/comp1501.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/comp1701.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk3/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/comp1011.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/comp1015.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/comp1332.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/comp1401.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/comp1829.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk4/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk5/comp1044.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk5/comp1060.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk5/comp1314.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk5/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk6/comp1502.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk6/comp1803.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk6/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk7/comp1410.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk7/comp1809.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk7/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk7/psyc2803.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/hk8/comp1411.md": [
+    "thuc-tap-nghe-nghiep-2-comp1411",
+    "🎯-muc-tieu-mon-hoc",
+    "📖-ke-hoach-hoc-tap-tai-lieu",
+    "📝-đong-gop-tai-lieu"
+  ],
+  "mon-hoc/hk8/comp1808.md": [
+    "ho-so-tot-nghiep-comp1808",
+    "🎯-muc-tieu-mon-hoc",
+    "📖-ke-hoach-hoc-tap-tai-lieu",
+    "📝-đong-gop-tai-lieu"
+  ],
+  "mon-hoc/hk8/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/index.md": [
+    "trang-đa-chuyen-vi-tri"
+  ],
+  "mon-hoc/[course]/index.md": [],
+  "roadmap.md": [
+    "🗺️-lo-trinh-on-tap-toan-dien-2-mon-toan-fit-hcmue",
+    "phan-a-co-so-toan-trong-cntt-comp1800",
+    "📅-giai-đoan-1-giai-tich-ham-mot-bien-6-buoi",
+    "📅-giai-đoan-2-đai-so-tuyen-tinh-dang-toan-phuong-6-chuyen-đe",
+    "📅-giai-đoan-3-luyen-đe-thi-co-so-toan",
+    "phan-b-toan-roi-rac-va-ung-dung-comp1801",
+    "📅-ly-thuyet-7-buoi-hoc-trong-tam",
+    "📅-luyen-đe-thi-toan-roi-rac"
+  ]
+}

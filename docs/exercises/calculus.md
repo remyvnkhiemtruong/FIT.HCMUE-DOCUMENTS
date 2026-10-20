@@ -1,17 +1,21 @@
-# 📚 Tuyển Tập Bài Tập Giải Tích (Kèm Lời Giải)
+---
+title: "Tuyển tập bài tập giải tích (kèm lời giải)"
+---
+
+# Tuyển tập bài tập giải tích (kèm lời giải) {#📚-tuyen-tap-bai-tap-giai-tich-kem-loi-giai}
 
 Dưới đây là các dạng bài tập điển hình trong phần Giải tích hàm một biến. Hãy giải ra giấy trước khi nhấp vào xem đáp án.
 
 ---
 
-## Dạng 1: Giới Hạn & Vô Cùng Bé Tương Đương
+## Dạng 1: Giới hạn và vô cùng bé tương đương {#dang-1-gioi-han-vo-cung-be-tuong-đuong}
 
 ### Bài 1.1:
 Tính giới hạn:
 $$L_1 = \lim_{x \to 0} \frac{\sqrt[3]{2x + 1} - 1}{\sqrt{x + 1} - 1}$$
 
-::: details 📖 Xem lời giải chi tiết
-**Cách 1: Dùng Vô cùng bé tương đương ($x \to 0$):**
+::: details Lời giải
+**Cách 1: Dùng vô cùng bé tương đương ($x \to 0$):**
 - $\sqrt[3]{1 + 2x} - 1 = (1 + 2x)^{1/3} - 1 \sim \frac{1}{3}(2x) = \frac{2}{3}x$
 - $\sqrt{1 + x} - 1 = (1 + x)^{1/2} - 1 \sim \frac{1}{2}x$
 
@@ -26,7 +30,7 @@ $$L_1 = \lim_{x \to 0} \frac{2x \cdot (\sqrt{x+1} + 1)}{x \cdot (\sqrt[3]{(2x+1)
 Tính giới hạn:
 $$L_2 = \lim_{x \to 0} (\cos x)^{\frac{1}{x^2}}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Dạng vô định $1^\infty$. Áp dụng công thức:
 $$L_2 = e^{\lim_{x \to 0} (\cos x - 1) \cdot \frac{1}{x^2}}$$
 Khi $x \to 0$, $1 - \cos x \sim \frac{x^2}{2} \implies \cos x - 1 \sim -\frac{x^2}{2}$.
@@ -38,13 +42,13 @@ $$L_2 = e^{-1/2} = \frac{1}{\sqrt{e}}$$
 
 ---
 
-## Dạng 2: Đạo Hàm Cấp Cao (Công Thức Leibniz)
+## Dạng 2: Đạo hàm cấp cao (công thức Leibniz) {#dang-2-đao-ham-cap-cao-cong-thuc-leibniz}
 
 ### Bài 2.1:
 Cho hàm số $y = (x^2 - 1) e^{2x}$. Hãy tính đạo hàm cấp $n$ ($n \ge 2$):
 $$y^{(n)}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Đặt $u(x) = e^{2x}$ và $v(x) = x^2 - 1$.
 Ta có:
 - $u^{(k)}(x) = 2^k e^{2x}$
@@ -61,13 +65,13 @@ $$y^{(n)} = 2^{n-2} e^{2x} \left( 4x^2 + 4nx + 2n^2 - 2n - 4 \right)$$
 
 ---
 
-## Dạng 3: Tích Phân & Tích Phân Suy Rộng
+## Dạng 3: Tích phân và tích phân suy rộng {#dang-3-tich-phan-tich-phan-suy-rong}
 
 ### Bài 3.1:
 Tính tích phân xác định:
 $$I = \int_0^1 \frac{x}{\sqrt{1 + x^2}} \, dx$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Đặt $t = \sqrt{1 + x^2} \implies t^2 = 1 + x^2 \implies t \, dt = x \, dx$.
 Đổi cận:
 - Khi $x = 0 \implies t = 1$.
@@ -81,7 +85,7 @@ $$I = \int_1^{\sqrt{2}} \frac{t \, dt}{t} = \int_1^{\sqrt{2}} dt = [t]_1^{\sqrt{
 Tính tích phân suy rộng:
 $$J = \int_0^{+\infty} \frac{dx}{x^2 + 4}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Nguyên hàm:
 $$\int \frac{dx}{x^2 + a^2} = \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C$$
 Ở đây $a = 2$:
@@ -91,13 +95,13 @@ $$= \frac{1}{2} \left( \lim_{b \to +\infty} \arctan\left(\frac{b}{2}\right) - \a
 
 ---
 
-## Dạng 4: Chuỗi Số & Bán Kính Hội Tụ
+## Dạng 4: Chuỗi số và bán kính hội tụ {#dang-4-chuoi-so-ban-kinh-hoi-tu}
 
 ### Bài 4.1:
 Xét sự hội tụ của chuỗi số:
 $$\sum_{n=1}^{\infty} \frac{n^2}{3^n}$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Chuỗi số dương có $u_n = \frac{n^2}{3^n}$.
 Áp dụng tiêu chuẩn D'Alembert:
 $$D = \lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{(n+1)^2}{3^{n+1}} \cdot \frac{3^n}{n^2} = \lim_{n \to \infty} \frac{1}{3} \left(\frac{n+1}{n}\right)^2 = \frac{1}{3}$$

@@ -1,10 +1,14 @@
-# Buổi 5: Đại Số Tổ Hợp, Bài Toán Đếm & Nguyên Lý Dirichlet
+---
+title: "Buổi 5: Đại số tổ hợp, bài toán đếm và nguyên lý Dirichlet"
+---
+
+# Buổi 5: Đại số tổ hợp, bài toán đếm và nguyên lý Dirichlet {#buoi-5-đai-so-to-hop-bai-toan-đem-nguyen-ly-dirichlet}
 
 Kỹ thuật đếm và tổ hợp là nền tảng trực tiếp để tính xác suất, phân tích độ phức tạp thời gian/bộ nhớ của thuật toán và bảo mật thông tin (mã hóa RSA, mật mã học).
 
 ---
 
-## 1. Các Quy Tắc Đếm Cơ Bản
+## 1. Các quy tắc đếm cơ bản {#_1-cac-quy-tac-đem-co-ban}
 
 - **Quy tắc cộng:** Nếu một công việc có thể hoàn thành bởi một trong hai hành động không giao nhau: hành động 1 có $m$ cách, hành động 2 có $n$ cách $\implies$ Tổng số cách là:
   $$m + n$$
@@ -13,18 +17,18 @@ Kỹ thuật đếm và tổ hợp là nền tảng trực tiếp để tính x�
 
 ---
 
-## 2. Bảng Phân Biệt Các Cấu Hình Tổ Hợp
+## 2. Bảng phân biệt các cấu hình tổ hợp {#_2-bang-phan-biet-cac-cau-hinh-to-hop}
 
 | Cấu hình | Có phân biệt thứ tự? | Cho phép lặp lại? | Công thức tính số cách |
 | :--- | :---: | :---: | :--- |
-| **Hoán vị (Permutation)** | Có | Không | $P_n = n!$ |
-| **Chỉnh hợp (Variation)** | Có | Không | $A_n^k = \frac{n!}{(n-k)!}$ |
+| **Hoán vị** | Có | Không | $P_n = n!$ |
+| **Chỉnh hợp** | Có | Không | $A_n^k = \frac{n!}{(n-k)!}$ |
 | **Chỉnh hợp lặp** | Có | Có | $n^k$ |
-| **Tổ hợp (Combination)** | **Không** | Không | $C_n^k = \frac{n!}{k!(n-k)!}$ |
+| **Tổ hợp** | **Không** | Không | $C_n^k = \frac{n!}{k!(n-k)!}$ |
 | **Tổ hợp lặp** | **Không** | Có | $\overline{C}_n^k = C_{n + k - 1}^k$ |
 | **Hoán vị lặp** | Có | Đã cho số lượng | $\frac{n!}{n_1! n_2! \dots n_k!}$ |
 
-::: tip BÀI TOÁN CHIA KẸO EULER (TỔ HỢP LẶP)
+::: tip Bài toán chia kẹo Euler (tổ hợp lặp)
 Số nghiệm nguyên không âm của phương trình:
 $$x_1 + x_2 + \dots + x_n = k \quad (x_i \ge 0)$$
 chính là số tổ hợp lặp chập $k$ của $n$ phần tử:
@@ -34,7 +38,7 @@ Nếu yêu cầu các nghiệm **nguyên dương** ($x_i \ge 1$), ta đổi bi�
 
 ---
 
-## 3. Nhị Thức Newton & Các Đẳng Thức Tổ Hợp
+## 3. Nhị thức Newton và các đẳng thức tổ hợp {#_3-nhi-thuc-newton-cac-đang-thuc-to-hop}
 
 ### 3.1. Định lý nhị thức Newton
 $$(a + b)^n = \sum_{k=0}^{n} C_n^k a^{n-k} b^k$$
@@ -48,7 +52,7 @@ $$(a + b)^n = \sum_{k=0}^{n} C_n^k a^{n-k} b^k$$
 
 ---
 
-## 4. Nguyên Lý Lồng Chim Bồ Câu (Dirichlet)
+## 4. Nguyên lý lồng chim bồ câu (Dirichlet) {#_4-nguyen-ly-long-chim-bo-cau-dirichlet}
 
 ### 4.1. Dạng cơ bản
 Nếu có $k+1$ con chim bồ câu bay vào $k$ cái lồng, thì có **ít nhất một cái lồng chứa từ 2 con chim trở lên**.
@@ -60,14 +64,14 @@ $$\left\lceil \frac{N}{k} \right\rceil \text{ đồ vật}$$
 
 ---
 
-## 5. Bài Tập Mẫu
+## 5. Bài tập mẫu {#_5-bai-tap-mau}
 
 ### Bài 1:
 Có bao nhiêu xâu nhị phân có độ dài 8:
 1. Bắt đầu bằng bit 1?
 2. Bắt đầu bằng bit 1 hoặc kết thúc bằng hai bit 00?
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 1. **Bắt đầu bằng bit 1:**
    Bit đầu tiên có 1 cách chọn (là 1), 7 bit còn lại mỗi bit có 2 cách chọn (0 hoặc 1).
    Số xâu nhị phân là: $1 \times 2^7 = 128$ xâu.
@@ -83,7 +87,7 @@ Có bao nhiêu xâu nhị phân có độ dài 8:
 ### Bài 2:
 Cần chọn ít nhất bao nhiêu sinh viên để chắc chắn có ít nhất 5 sinh viên có cùng tháng sinh?
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 - "Hộp" là 12 tháng sinh trong năm ($k = 12$).
 - "Đồ vật" là số sinh viên $N$.
 Theo nguyên lý Dirichlet dạng mở rộng, số sinh viên có cùng tháng sinh ít nhất là:

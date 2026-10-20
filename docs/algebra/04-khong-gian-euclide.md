@@ -1,10 +1,14 @@
-# Chuyên Đề 4: Không Gian Euclide & Trực Chuẩn Hóa Gram - Schmidt
+---
+title: "Chuyên đề 4: Không gian Euclide và trực chuẩn hóa Gram - Schmidt"
+---
+
+# Chuyên đề 4: Không gian Euclide và trực chuẩn hóa Gram - Schmidt {#chuyen-đe-4-khong-gian-euclide-truc-chuan-hoa-gram-schmidt}
 
 Không gian Euclide là không gian vectơ thực được trang bị thêm phép tính tích vô hướng, cho phép định nghĩa các khái niệm hình học quen thuộc: khoảng cách, độ dài và góc giữa các đối tượng.
 
 ---
 
-## 1. Tích Vô Hướng & Các Tiên Đề
+## 1. Tích vô hướng và các tiên đề {#_1-tich-vo-huong-cac-tien-đe}
 
 Một ánh xạ $\langle \cdot, \cdot \rangle: V \times V \to \mathbb{R}$ được gọi là một **tích vô hướng** trên $V$ nếu thỏa mãn 4 tiên đề với mọi $x, y, z \in V$ và mọi số thực $k$:
 
@@ -21,15 +25,15 @@ Không gian vectơ $V$ cùng với tích vô hướng $\langle \cdot, \cdot \ran
 
 ---
 
-## 2. Chuẩn (Độ Dài) & Góc Giữa Hai Vectơ
+## 2. Chuẩn (độ dài) và góc giữa hai vectơ {#_2-chuan-đo-dai-goc-giua-hai-vecto}
 
-### 2.1. Chuẩn (Độ dài) của vectơ
+### 2.1. Chuẩn (độ dài) của vectơ {#_2-1-chuan-đo-dai-cua-vecto}
 $$\|x\| = \sqrt{\langle x, x \rangle}$$
 - $\|x\| \ge 0; \; \|x\| = 0 \iff x = 0$.
 - $\|kx\| = |k| \cdot \|x\|$.
 - Bất đẳng thức tam giác: $\|x + y\| \le \|x\| + \|y\|$.
 
-### 2.2. Bất đẳng thức Cauchy - Schwarz & Góc
+### 2.2. Bất đẳng thức Cauchy - Schwarz và góc {#_2-2-bat-đang-thuc-cauchy-schwarz-goc}
 Với mọi $x, y \in V$:
 $$|\langle x, y \rangle| \le \|x\| \cdot \|y\|$$
 Dấu bằng xảy ra khi và chỉ khi $x$ và $y$ phụ thuộc tuyến tính.
@@ -41,7 +45,7 @@ $$\cos \theta = \frac{\langle x, y \rangle}{\|x\| \cdot \|y\|}$$
 
 ---
 
-## 3. Thuật Toán Trực Chuẩn Hóa Gram - Schmidt
+## 3. Thuật toán trực chuẩn hóa Gram - Schmidt {#_3-thuat-toan-truc-chuan-hoa-gram-schmidt}
 
 Cho cơ sở ban đầu $\{v_1, v_2, \dots, v_n\}$ của không gian con $W$. Để xây dựng một **cơ sở trực chuẩn** $\{e_1, e_2, \dots, e_n\}$:
 
@@ -56,9 +60,9 @@ $$e_i = \frac{u_i}{\|u_i\|} \quad (i = 1, 2, \dots, n)$$
 
 ---
 
-## 4. Ví Dụ Bài Tập Từ Đề Thi Thật
+## 4. Ví dụ trong đề thi {#_4-vi-du-bai-tap-tu-đe-thi-that}
 
-### Ví dụ (Đề thi tham khảo KTHP - FIT HCMUE):
+### Ví dụ (đề thi tham khảo KTHP - FIT HCMUE): {#vi-du-đe-thi-tham-khao-kthp-fit-hcmue}
 Trong không gian $\mathbb{R}^3$, cho quy tắc:
 $$\langle x, y \rangle = 5x_1 y_1 + 2x_1 y_2 + 2x_2 y_1 + 3x_2 y_2 + x_3 y_3$$
 với $x = (x_1, x_2, x_3)$ và $y = (y_1, y_2, y_3)$.
@@ -67,7 +71,7 @@ với $x = (x_1, x_2, x_3)$ và $y = (y_1, y_2, y_3)$.
 2. Tìm độ dài của vectơ $u = (3, 2, 1)$.
 3. Tìm góc giữa hai vectơ $u = (1, 0, 1)$ và $y = (2, 1, 0)$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Câu 1: Chứng minh $\langle x, y \rangle$ là tích vô hướng:**
 Ta kiểm tra 4 tiên đề:
 1. **Đối xứng:**

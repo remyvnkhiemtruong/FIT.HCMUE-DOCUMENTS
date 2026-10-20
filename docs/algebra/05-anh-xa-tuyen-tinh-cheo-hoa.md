@@ -1,16 +1,20 @@
-# Chuyên Đề 5: Ánh Xạ Tuyến Tính, Trị Riêng & Chéo Hóa Ma Trận
+---
+title: "Chuyên đề 5: Ánh xạ tuyến tính, trị riêng và chéo hóa ma trận"
+---
 
-Đây là phần kiến thức chiếm tỷ trọng điểm số cao nhất (từ 3 đến 4 điểm) trong các đề thi kết thúc học phần môn Cơ sở Toán CNTT.
+# Chuyên đề 5: Ánh xạ tuyến tính, trị riêng và chéo hóa ma trận {#chuyen-đe-5-anh-xa-tuyen-tinh-tri-rieng-cheo-hoa-ma-tran}
+
+Một số đề thi kết thúc học phần môn cơ sở toán trong CNTT có bài về ánh xạ tuyến tính và trị riêng (từ 3 đến 4 điểm). Cấu trúc đề có thể thay đổi theo năm học.
 
 ---
 
-## 1. Ánh Xạ Tuyến Tính, Ker(f) và Im(f)
+## 1. Ánh xạ tuyến tính, Ker(f) và Im(f) {#_1-anh-xa-tuyen-tinh-ker-f-va-im-f}
 
 ### 1.1. Định nghĩa
 Ánh xạ $f: V \to W$ được gọi là **tuyến tính** nếu với mọi $u, v \in V$ và mọi $\alpha, \beta \in \mathbb{R}$:
 $$f(\alpha u + \beta v) = \alpha f(u) + \beta f(v)$$
 
-### 1.2. Hạt nhân $\ker(f)$ và Ảnh $\text{Im}(f)$
+### 1.2. Hạt nhân $\ker(f)$ và ảnh $\text{Im}(f)$ {#_1-2-hat-nhan-va-anh}
 - **Hạt nhân (Kernel):**
   $$\ker(f) = \{u \in V \mid f(u) = 0_W\}$$
   $\ker(f)$ là không gian con của $V$. Tìm cơ sở của $\ker(f)$ bằng cách giải hệ phương trình thuần nhất $f(x) = 0$.
@@ -18,7 +22,7 @@ $$f(\alpha u + \beta v) = \alpha f(u) + \beta f(v)$$
   $$\text{Im}(f) = \{f(u) \mid u \in V\}$$
   $\text{Im}(f)$ là không gian con của $W$. Nếu $\{e_1, \dots, e_n\}$ là cơ sở của $V$ thì $\text{Im}(f) = \text{span}\{f(e_1), \dots, f(e_n)\}$.
 
-::: tip ĐỊNH LÝ VỀ SỐ CHIỀU (RANK - NULLITY THEOREM)
+::: tip Định lý về số chiều
 $$\dim(\ker f) + \dim(\text{Im} f) = \dim(V)$$
 - $f$ là **đơn cấu** $\iff \ker(f) = \{0\} \iff \dim(\ker f) = 0$.
 - $f$ là **toàn cấu** $\iff \text{Im}(f) = W \iff \dim(\text{Im} f) = \dim(W)$.
@@ -27,7 +31,7 @@ $$\dim(\ker f) + \dim(\text{Im} f) = \dim(V)$$
 
 ---
 
-## 2. Ma Trận Của Ánh Xạ Tuyến Tính
+## 2. Ma trận của ánh xạ tuyến tính {#_2-ma-tran-cua-anh-xa-tuyen-tinh}
 
 Cho $f: V \to V$ và $E = \{e_1, e_2, \dots, e_n\}$ là một cơ sở của $V$.
 Biểu diễn ảnh của các vectơ cơ sở theo chính cơ sở $E$:
@@ -42,14 +46,14 @@ $$[f]_E = \Big( [f(e_1)]_E \;\; [f(e_2)]_E \;\; \dots \;\; [f(e_n)]_E \Big)$$
 
 ---
 
-## 3. Giá Trị Riêng & Vectơ Riêng
+## 3. Giá trị riêng và vectơ riêng {#_3-gia-tri-rieng-vecto-rieng}
 
 Cho ma trận vuông $A$ cấp $n$ (hoặc toán tử tuyến tính $f$).
 - Số thực $\lambda$ được gọi là **giá trị riêng (trị riêng)** của $A$ nếu tồn tại vectơ $X \neq 0$ sao cho:
   $$AX = \lambda X \iff (A - \lambda I)X = 0$$
 - Vectơ $X \neq 0$ thỏa mãn phương trình trên được gọi là **vectơ riêng** tương ứng với trị riêng $\lambda$.
 
-### Quy trình tìm trị riêng & vectơ riêng:
+### Quy trình tìm trị riêng và vectơ riêng: {#quy-trinh-tim-tri-rieng-vecto-rieng}
 1. **Phương trình đặc trưng:** Giải phương trình:
    $$P(\lambda) = \det(A - \lambda I) = 0$$
    Nghiệm của phương trình này chính là các giá trị riêng $\lambda_i$.
@@ -59,7 +63,7 @@ Cho ma trận vuông $A$ cấp $n$ (hoặc toán tử tuyến tính $f$).
 
 ---
 
-## 4. Chéo Hóa Ma Trận
+## 4. Chéo hóa ma trận {#_4-cheo-hoa-ma-tran}
 
 Ma trận $A$ cấp $n$ **chéo hóa được** khi và chỉ khi $A$ có đủ $n$ vectơ riêng độc lập tuyến tính (tức là tổng số chiều của các không gian con riêng bằng $n$).
 
@@ -70,14 +74,14 @@ $$P^{-1} A P = D = \begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & 
 
 ---
 
-## 5. Ví Dụ Mẫu Từ Đề Thi Thật
+## 5. Ví dụ trong đề thi {#_5-vi-du-mau-tu-đe-thi-that}
 
-### Ví dụ 1 (Đề thi KTHP 2023 - 2024):
+### Ví dụ 1 (đề thi KTHP 2023 - 2024): {#vi-du-1-đe-thi-kthp-2023-2024}
 Cho ma trận:
 $$A = \begin{pmatrix} 3 & 1 & 1 \\ 2 & 4 & 2 \\ 1 & 1 & 3 \end{pmatrix}$$
 Hãy tìm các trị riêng và cơ sở của các không gian con riêng tương ứng.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Lập phương trình đặc trưng $\det(A - \lambda I) = 0$:**
 $$\det(A - \lambda I) = \begin{vmatrix} 3 - \lambda & 1 & 1 \\ 2 & 4 - \lambda & 2 \\ 1 & 1 & 3 - \lambda \end{vmatrix} = 0$$
 

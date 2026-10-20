@@ -1,10 +1,14 @@
-# Chuyên Đề 4: Tích Phân Suy Rộng (Loại 1 & Loại 2)
+---
+title: "Chuyên đề 4: Tích phân suy rộng (loại 1 và loại 2)"
+---
+
+# Chuyên đề 4: Tích phân suy rộng (loại 1 và loại 2) {#chuyen-đe-4-tich-phan-suy-rong-loai-1-loai-2}
 
 Tích phân suy rộng xuất hiện khi cận tích phân tiến ra vô cực hoặc khi hàm dưới dấu tích phân không bị chặn (có tiệm cận đứng) trong đoạn tích phân.
 
 ---
 
-## 1. Tích Phân Suy Rộng Loại 1 (Cận Vô Hạn)
+## 1. Tích phân suy rộng loại 1 (cận vô hạn) {#_1-tich-phan-suy-rong-loai-1-can-vo-han}
 
 ### 1.1. Định nghĩa
 Cho hàm số $f(x)$ khả tích trên mọi đoạn hữu hạn $[a, b]$ với $b \ge a$:
@@ -12,7 +16,7 @@ $$\int_a^{+\infty} f(x) \, dx = \lim_{b \to +\infty} \int_a^b f(x) \, dx$$
 - Nếu giới hạn tồn tại hữu hạn, ta nói tích phân suy rộng **hội tụ**.
 - Nếu giới hạn không tồn tại hoặc bằng $\pm\infty$, ta nói tích phân **phân kỳ**.
 
-### 1.2. Tích phân mẫu loại 1 (Chuẩn so sánh $\alpha$)
+### 1.2. Tích phân mẫu loại 1 (chuẩn so sánh $\alpha$) {#_1-2-tich-phan-mau-loai-1-chuan-so-sanh}
 Xét tích phân với $a > 0$:
 $$I = \int_a^{+\infty} \frac{dx}{x^\alpha} = \begin{cases} \text{Hội tụ} & \text{khi } \alpha > 1 \\ \text{Phân kỳ} & \text{khi } \alpha \le 1 \end{cases}$$
 
@@ -26,7 +30,7 @@ Giả sử $\lim_{x \to +\infty} \frac{f(x)}{g(x)} = k$ với $0 < k < +\infty$.
 
 ---
 
-## 2. Tích Phân Suy Rộng Loại 2 (Hàm Không Bị Chặn)
+## 2. Tích phân suy rộng loại 2 (hàm không bị chặn) {#_2-tich-phan-suy-rong-loai-2-ham-khong-bi-chan}
 
 ### 2.1. Định nghĩa
 Cho $f(x)$ liên tục trên $[a, b)$ và $\lim_{x \to b^-} f(x) = \infty$ ($b$ là điểm bất thường):
@@ -37,23 +41,23 @@ $$\int_a^b f(x) \, dx = \lim_{\varepsilon \to 0^+} \int_{a + \varepsilon}^b f(x)
 
 ### 2.2. Tích phân mẫu loại 2
 $$J = \int_a^b \frac{dx}{(b - x)^\alpha} = \begin{cases} \text{Hội tụ} & \text{khi } \alpha < 1 \\ \text{Phân kỳ} & \text{khi } \alpha \ge 1 \end{cases}$$
-*(Ngược lại hoàn toàn so với loại 1!)*
+*(Ngược lại hoàn toàn so với loại 1)*
 
-::: warning CHÚ Ý ĐỐI VỚI ĐIỂM BẤT THƯỜNG Ở GIỮA
+::: warning Chú ý đối với điểm bất thường ở giữa
 Nếu điểm bất thường $c \in (a, b)$, ta bắt buộc phải tách tích phân thành hai tích phân con:
 $$\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$$
-Tích phân ban đầu chỉ hội tụ khi và chỉ khi **cả hai** tích phân con đều hội tụ!
+Tích phân ban đầu chỉ hội tụ khi và chỉ khi **cả hai** tích phân con đều hội tụ.
 :::
 
 ---
 
-## 3. Các Ví Dụ Mẫu & Phương Pháp Giải
+## 3. Các ví dụ mẫu và phương pháp giải {#_3-cac-vi-du-mau-phuong-phap-giai}
 
 ### Ví dụ 1:
 Xét sự hội tụ của tích phân:
 $$I = \int_1^{+\infty} \frac{x^2 + 1}{2x^4 + 3x + 5} \, dx$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Hàm dưới dấu tích phân $f(x) = \frac{x^2 + 1}{2x^4 + 3x + 5} > 0, \; \forall x \ge 1$.
 
 Khi $x \to +\infty$, ta lấy bậc cao nhất ở tử và mẫu:
@@ -69,7 +73,7 @@ Theo tiêu chuẩn so sánh giới hạn, tích phân $I$ **hội tụ**.
 Tính giá trị của tích phân suy rộng:
 $$K = \int_0^{+\infty} x e^{-2x} \, dx$$
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 Áp dụng tích phân từng phần:
 Đặt $u = x \implies du = dx$, $dv = e^{-2x}dx \implies v = -\frac{1}{2} e^{-2x}$.
 

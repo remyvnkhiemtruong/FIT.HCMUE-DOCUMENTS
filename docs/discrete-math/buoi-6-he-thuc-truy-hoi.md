@@ -1,20 +1,24 @@
-# Buổi 6: Hệ Thức Truy Hồi & Phương Trình Sai Phân
+---
+title: "Buổi 6: Hệ thức truy hồi và phương trình sai phân"
+---
 
-Hệ thức truy hồi (Recurrence Relations) mô hình hóa các quá trình đệ quy trong khoa học máy tính như thuật toán chia để trị (Divide and Conquer), quy hoạch động (Dynamic Programming) và cây đệ quy.
+# Buổi 6: Hệ thức truy hồi và phương trình sai phân {#buoi-6-he-thuc-truy-hoi-phuong-trinh-sai-phan}
+
+Hệ thức truy hồi (Recurrence Relations) mô hình hóa các quá trình đệ quy trong khoa học máy tính như thuật toán chia để trị, quy hoạch động và cây đệ quy.
 
 ---
 
-## 1. Khái Niệm Hệ Thức Truy Hồi
+## 1. Khái niệm hệ thức truy hồi {#_1-khai-niem-he-thuc-truy-hoi}
 
 Một **hệ thức truy hồi** đối với dãy số $\{a_n\}$ là một công thức biểu diễn số hạng $a_n$ thông qua một hoặc nhiều số hạng đứng trước nó: $a_{n-1}, a_{n-2}, \dots$ kèm theo các **điều kiện đầu (Initial Conditions)**.
 
-**Ví dụ kinh điển:**
+**Ví dụ:**
 - Dãy Fibonacci: $F_n = F_{n-1} + F_{n-2}$ với $F_0 = 0, F_1 = 1$.
 - Bài toán tháp Hà Nội: $H_n = 2H_{n-1} + 1$ với $H_1 = 1 \implies H_n = 2^n - 1$.
 
 ---
 
-## 2. Giải Hệ Thức Tuyến Tính Thuần Nhất Bậc 2
+## 2. Giải hệ thức tuyến tính thuần nhất bậc 2 {#_2-giai-he-thuc-tuyen-tinh-thuan-nhat-bac-2}
 
 Hệ thức có dạng:
 $$a_n + c_1 a_{n-1} + c_2 a_{n-2} = 0 \quad (c_2 \neq 0)$$
@@ -35,7 +39,7 @@ Các hằng số $\alpha_1, \alpha_2$ được xác định duy nhất từ các
 
 ---
 
-## 3. Hệ Thức Tuyến Tính Không Thuần Nhất
+## 3. Hệ thức tuyến tính không thuần nhất {#_3-he-thuc-tuyen-tinh-khong-thuan-nhat}
 
 Hệ thức có dạng:
 $$a_n + c_1 a_{n-1} + c_2 a_{n-2} = F(n)$$
@@ -56,14 +60,14 @@ $$a_n = a_n^{(h)} + a_n^{(p)}$$
 
 ---
 
-## 4. Bài Tập Mẫu Từ Đề Thi Thật
+## 4. Bài tập trong đề thi {#_4-bai-tap-mau-tu-đe-thi-that}
 
-### Bài 1 (Đề thi KTHP Toán rời rạc):
+### Bài 1 (đề thi KTHP toán rời rạc): {#bai-1-đe-thi-kthp-toan-roi-rac}
 Giải hệ thức truy hồi sau:
 $$a_n - 7a_{n-1} + 12a_{n-2} = 0 \quad (n \ge 2)$$
 với điều kiện đầu $a_0 = 2, a_1 = 7$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Lập phương trình đặc trưng:**
 $$r^2 - 7r + 12 = 0 \iff (r - 3)(r - 4) = 0 \iff \begin{cases} r_1 = 3 \\ r_2 = 4 \end{cases}$$
 Phương trình có hai nghiệm thực phân biệt.
@@ -87,7 +91,7 @@ Giải hệ thức truy hồi không thuần nhất:
 $$a_n - 5a_{n-1} + 6a_{n-2} = 2^n \quad (n \ge 2)$$
 với điều kiện đầu $a_0 = 1, a_1 = 3$.
 
-::: details 📖 Xem lời giải chi tiết
+::: details Lời giải
 **Bước 1: Tìm nghiệm thuần nhất $a_n^{(h)}$:**
 Phương trình đặc trưng: $r^2 - 5r + 6 = 0 \iff r_1 = 2, r_2 = 3$.
 $$a_n^{(h)} = \alpha_1 2^n + \alpha_2 3^n$$
