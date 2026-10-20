@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "question": "Tính giới hạn $L = \\lim_{x \\to 0} \\frac{\\ln(1 + 3x)}{\\sin 2x}$:",
+    "options": [
+      {
+        "id": "A",
+        "text": "L = 0"
+      },
+      {
+        "id": "B",
+        "text": "L = 1"
+      },
+      {
+        "id": "C",
+        "text": "L = 3/2"
+      },
+      {
+        "id": "D",
+        "text": "L = 2/3"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Khi $x \\to 0$, theo VCB tương đương: $\\ln(1+3x) \\sim 3x$ và $\\sin 2x \\sim 2x$. Do đó $L = \\lim_{x \\to 0} \\frac{3x}{2x} = \\frac{3}{2}$."
+  },
+  {
+    "id": 2,
+    "question": "Tính giới hạn $I = \\lim_{x \\to \\infty} \\left(1 + \\frac{2}{x}\\right)^x$:",
+    "options": [
+      {
+        "id": "A",
+        "text": "I = 1"
+      },
+      {
+        "id": "B",
+        "text": "I = e"
+      },
+      {
+        "id": "C",
+        "text": "I = e^2"
+      },
+      {
+        "id": "D",
+        "text": "I = +\\infty"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Dạng $1^\\infty$: Áp dụng công thức $\\lim [u(x)]^{v(x)} = e^{\\lim (u-1)v} = e^{\\lim \\frac{2}{x} \\cdot x} = e^2$."
+  },
+  {
+    "id": 3,
+    "question": "Đạo hàm của hàm số $y = x^x$ với $x > 0$ là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "y' = x \\cdot x^{x-1}"
+      },
+      {
+        "id": "B",
+        "text": "y' = x^x \\ln x"
+      },
+      {
+        "id": "C",
+        "text": "y' = x^x (\\ln x + 1)"
+      },
+      {
+        "id": "D",
+        "text": "y' = x^x"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Lấy logarit tự nhiên: $\\ln y = x \\ln x \\implies \\frac{y'}{y} = \\ln x + x \\cdot \\frac{1}{x} = \\ln x + 1 \\implies y' = x^x(\\ln x + 1)$."
+  },
+  {
+    "id": 4,
+    "question": "Tính định thức $D = \\begin{vmatrix} 3 & -1 \\\\ 2 & 4 \\end{vmatrix}$:",
+    "options": [
+      {
+        "id": "A",
+        "text": "D = 10"
+      },
+      {
+        "id": "B",
+        "text": "D = 14"
+      },
+      {
+        "id": "C",
+        "text": "D = 12"
+      },
+      {
+        "id": "D",
+        "text": "D = -14"
+      }
+    ],
+    "answer": "B",
+    "explanation": "$D = 3 \\cdot 4 - (-1) \\cdot 2 = 12 + 2 = 14$."
+  },
+  {
+    "id": 5,
+    "question": "Cho ma trận vuông $A$ cấp 3 có $\\det(A) = 2$. Tính $\\det(2A)$:",
+    "options": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "8"
+      },
+      {
+        "id": "C",
+        "text": "16"
+      },
+      {
+        "id": "D",
+        "text": "32"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Với ma trận vuông cấp $n$, ta có tính chất $\\det(kA) = k^n \\det(A)$. Ở đây $n = 3, k = 2 \\implies \\det(2A) = 2^3 \\cdot 2 = 8 \\cdot 2 = 16$."
+  },
+  {
+    "id": 6,
+    "question": "Điều kiện cần và đủ để ma trận vuông $A$ có ma trận nghịch đảo $A^{-1}$ là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "det(A) > 0"
+      },
+      {
+        "id": "B",
+        "text": "det(A) ≠ 0"
+      },
+      {
+        "id": "C",
+        "text": "rank(A) < n"
+      },
+      {
+        "id": "D",
+        "text": "A là ma trận đối xứng"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Ma trận vuông khả nghịch khi và chỉ khi $\\det(A) \\neq 0$ (tức ma trận không suy biến, $\\text{rank}(A) = n$)."
+  },
+  {
+    "id": 7,
+    "question": "Khai triển Maclaurin của hàm số $f(x) = \\cos x$ đến cấp 2 là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 - x + o(x)"
+      },
+      {
+        "id": "B",
+        "text": "1 - x^2/2 + o(x^2)"
+      },
+      {
+        "id": "C",
+        "text": "1 + x^2/2 + o(x^2)"
+      },
+      {
+        "id": "D",
+        "text": "x - x^3/6 + o(x^3)"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Theo công thức Maclaurin: $\\cos x = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\dots = 1 - \\frac{x^2}{2} + o(x^2)$."
+  },
+  {
+    "id": 8,
+    "question": "Tích phân xác định $\\int_0^1 x e^x dx$ có giá trị bằng:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "e"
+      },
+      {
+        "id": "C",
+        "text": "e - 1"
+      },
+      {
+        "id": "D",
+        "text": "2"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Tích phân từng phần: $\\int_0^1 x e^x dx = [x e^x]_0^1 - \\int_0^1 e^x dx = (1 \\cdot e - 0) - [e^x]_0^1 = e - (e - 1) = 1$."
+  },
+  {
+    "id": 9,
+    "question": "Trong $\\mathbb{R}^2$, tích vô hướng chính tắc của $u = (1, 2)$ và $v = (-2, 1)$ bằng:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0 (hai vectơ trực giao)"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "-4"
+      },
+      {
+        "id": "D",
+        "text": "1"
+      }
+    ],
+    "answer": "A",
+    "explanation": "$\\langle u, v \\rangle = 1(-2) + 2(1) = -2 + 2 = 0$. Vì tích vô hướng bằng 0 nên hai vectơ trực giao."
+  },
+  {
+    "id": 10,
+    "question": "Hệ phương trình thuần nhất $AX = 0$ có nghiệm không tầm thường khi và chỉ khi:",
+    "options": [
+      {
+        "id": "A",
+        "text": "rank(A) = n"
+      },
+      {
+        "id": "B",
+        "text": "rank(A) < n"
+      },
+      {
+        "id": "C",
+        "text": "det(A) ≠ 0"
+      },
+      {
+        "id": "D",
+        "text": "Hệ vô nghiệm"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Hệ thuần nhất luôn có nghiệm tầm thường $X = 0$. Để có thêm nghiệm khác 0 thì số ẩn tự do $n - \\text{rank}(A) > 0 \\iff \\text{rank}(A) < n$."
+  }
+]

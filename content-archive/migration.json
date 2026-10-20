@@ -1,0 +1,464 @@
+[
+  {
+    "path": "index.md",
+    "sha256": "edba118fbb1fe431cf584a439652df5d55326fb57798c14f836d42a38b3c4cfd",
+    "action": "new-home",
+    "target": null
+  },
+  {
+    "path": "roadmap.md",
+    "sha256": "4dee45aa6d0dd41dfd34ebb3e0567fa8434abbd1c7d2c500563689fb32304442",
+    "action": "corrected",
+    "target": null
+  },
+  {
+    "path": "algebra/01-ma-tran-va-dinh-thuc.md",
+    "sha256": "e5962f31c2b0564e461383947f0729f6316bb3c38e317dec446c3c75e7dd04d6",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "algebra/02-he-phuong-trinh-tuyen-tinh.md",
+    "sha256": "59a174754bd02cda2bae943112770886c3120e1df21e779d21fd791bb2832d6b",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "algebra/03-khong-gian-vecto.md",
+    "sha256": "a7294e51520a6b63346e6fd939ac09e2767b03879404fd00e9b9ac4c9423ab1a",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "algebra/04-khong-gian-euclide.md",
+    "sha256": "20b1981a1280532008ce82cac4f671aa58862228307860484e11c2b8defa2a9a",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "algebra/05-anh-xa-tuyen-tinh-cheo-hoa.md",
+    "sha256": "bcd7124126b7fa560093cefb192e9574b9f43361c0a6797d378ad43cf430467b",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "algebra/06-dang-toan-phuong.md",
+    "sha256": "9bdde7347f6b716db28412f1b36b989d6b380bc830dcf00079aa802fa456c0ca",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "calculus/01-gioi-han-day-va-ham.md",
+    "sha256": "3999135c1046f10c39202135294a68a57cf3d1ca8a57f0c1d9c27bba1b956aa7",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "calculus/02-dao-ham-vi-phan-taylor.md",
+    "sha256": "f6a9fe5abad92a21d35e816968224b35ee907eca1b28614dd686b1b4b042cd84",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "calculus/03-tich-phan-va-ung-dung.md",
+    "sha256": "28143412b53f222ea4bd157f5030d0c5243cbea76fba01efb1de83c35ad928c8",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "calculus/04-tich-phan-suy-rong.md",
+    "sha256": "82983369fca6ed5b78ddd2807b501685c87e2b0ac961d48b3b8bbe78d4d1cafd",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "calculus/05-ly-thuyet-chuoi.md",
+    "sha256": "b90240917ed4b7da6cf9c845a50c00c2ef2b9affffcfe31e0b396dadb68ccdd9",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "cheatsheet/cong-thuc-nhanh.md",
+    "sha256": "58f1c4e760375f5a636010e69471974e8a7b1686efc873b2be5e252a6a30b06e",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "cheatsheet/kien-thuc-thpt.md",
+    "sha256": "950a15aca449c20e690f2fa6a73d3b4e0a97951835115921a9e2c83c34d6aca5",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-1-logic-menh-de.md",
+    "sha256": "6d39985c30e5f3a35e646a980a575e63a44b8e85369f724e46a2fb8172021c1d",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-2-vi-tu-quy-nap.md",
+    "sha256": "a88ea7c204a8f9d95c21423d82b14945744e66bd4cc44f9337c71d067e516b94",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-3-tap-hop-anh-xa.md",
+    "sha256": "6e16d3f136c2248fba9806ce281849b6d08ddecff18315ec6d48f64e705d3487",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-4-quan-he-dai-so-boole.md",
+    "sha256": "98ea0138bc39342c94b8b643f2ae8e364aae8e4dd2f4a98c6522d040d1d31c7b",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-5-to-hop-dem.md",
+    "sha256": "87f98376b11371d403728f63cdb9b91323acec7829cdf979a027ebb55841f818",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-6-he-thuc-truy-hoi.md",
+    "sha256": "261a51e8c9125fa3dd83c5eabf73d4a0bc433f73a9244f8c5ee6b00c4020eef0",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "discrete-math/buoi-7-ly-thuyet-do-thi.md",
+    "sha256": "8925ddb7c47b09d1e8cf73820111bbecaaf0152c8063e266c08e99ce581a11ec",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams/de-2022-2023.md",
+    "sha256": "7fac403d7accfd9a695072bb5e4a9e77fe04f7fd7655fa5bfb1dbc856709b647",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams/de-2023-2024.md",
+    "sha256": "9d7cdf185ea1442ac921d9dbe99a6bc8f7c8dc0766ec101890e84d6adeba7414",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams/de-2024-2025.md",
+    "sha256": "fd32b73b79556ef374ccad9a99eb48c8e9934879144a4f03fab38c3bab250a7b",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams/de-tham-khao-co-dap-an.md",
+    "sha256": "c1716f393eeeb3d5ddeba30ee8e78deecc2b3e7eb17313377973b156ed8ac6d2",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams/quiz-giua-ky.md",
+    "sha256": "4bf540753c22bcf7cfd10cc6159146a7d58150f2a5fc6ec4bed2b486e8dc6a56",
+    "action": "quiz-component",
+    "target": null
+  },
+  {
+    "path": "exams-discrete/gk-2022-2023.md",
+    "sha256": "23feb76d820ce11bf716b85fcaa4107b5c23ffa670aa47cab03c5e0832f409ff",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams-discrete/gk-2023-2024.md",
+    "sha256": "767db717249b087bb7398e804917605d5e5144be1f4483713a18461ad2826305",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams-discrete/kthp-2022-2023.md",
+    "sha256": "40ec99677e6f7f849d252d639cedbed320f0899daac9f9ef688e098cba85cecb",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams-discrete/kthp-2023-2024.md",
+    "sha256": "9b1e11911b4025b475a3bfb8fa3469d6c8c339a3fa57d43cfd59a0a4f0573a38",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exams-discrete/kthp-2024-2025.md",
+    "sha256": "41d639be81b62aaa7c22669a394d4dc1ec3cc0a9f7a26045427e9a9bac400678",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exercises/algebra.md",
+    "sha256": "c2d7d971b5c6e855100f2567b3dc9beae3616ce0101408f0777ad6a054cac851",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exercises/calculus.md",
+    "sha256": "5b9db0f5bbf736ea101193f3634d0cb76250e0f593c8bbf358af05de560a8ea8",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "exercises/index.md",
+    "sha256": "18dc4471dc5b9e8ca45be8acec8803053c703a03be82cd425d769ef6ecf5b9e8",
+    "action": "retained",
+    "target": null
+  },
+  {
+    "path": "khoa/index.md",
+    "sha256": "bca2416e6c8e1eed4cf7b0c95a30bfb4947796b8195f402e853687b5fb32db52",
+    "action": "redirect",
+    "target": "/chuong-trinh/"
+  },
+  {
+    "path": "khoa/khoa-49.md",
+    "sha256": "fb6e554eb52a2155c467c462af7d013a5fe070be9d91697ebb3c53cf21dec230",
+    "action": "cohort-overview",
+    "target": null
+  },
+  {
+    "path": "khoa/khoa-50.md",
+    "sha256": "756a297f56c9def0b6336e457dfa36ea8a1040bbdf55d418f933e7b98edb0e8d",
+    "action": "cohort-overview",
+    "target": null
+  },
+  {
+    "path": "khoa/khoa-51.md",
+    "sha256": "64f79cff7e44f1b69b8dc47270bd5be893f9d876a0665039fb15e27131e830bd",
+    "action": "cohort-overview",
+    "target": null
+  },
+  {
+    "path": "khoa/khoa-52.md",
+    "sha256": "a0d642f5ee315010f1c9a8ba5ae83044e3d6abb3451f5f715e8e0bb4319111d4",
+    "action": "cohort-overview",
+    "target": null
+  },
+  {
+    "path": "khoa/nganh-cngd.md",
+    "sha256": "a95817593ee03c8d0376d08b882882bd51d7020d8f609cad7353d5774f856e4b",
+    "action": "redirect",
+    "target": "/chuong-trinh/cngd/"
+  },
+  {
+    "path": "khoa/nganh-cntt.md",
+    "sha256": "d64b0c9579150b976ca8265036250bece9c1396bfe5dab8548223b698979fec0",
+    "action": "redirect",
+    "target": "/chuong-trinh/cntt/"
+  },
+  {
+    "path": "khoa/nganh-sp-tin.md",
+    "sha256": "35de76bb9f11280c1e7ed2e9f340917754dec01af149c4800960e2119d78d5e3",
+    "action": "redirect",
+    "target": "/chuong-trinh/sp-tin/"
+  },
+  {
+    "path": "khoa/tra-cuu-hoc-phan.md",
+    "sha256": "72cdf4f9efd7a69631fca1e3e4cd63fcffa140c59210fe5078a2f0adc1d51d1d",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu"
+  },
+  {
+    "path": "mon-hoc/index.md",
+    "sha256": "c65ec00b6b2990fed23b6be40624f23fd2302222335d0d9dabe8b78fcad91f65",
+    "action": "redirect",
+    "target": "/chuong-trinh/"
+  },
+  {
+    "path": "mon-hoc/hk1/comp1010.md",
+    "sha256": "5a1e1b0aa5b09b09e8255c89a967459653c8961af6f5be3efd3be412b8515f6e",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1010/"
+  },
+  {
+    "path": "mon-hoc/hk1/comp1802.md",
+    "sha256": "6fcb8c3f94908dbd958665d9bf034c948de86f9c19ab4085b25c0efa675bd629",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1802/"
+  },
+  {
+    "path": "mon-hoc/hk1/index.md",
+    "sha256": "fb2b6f42295647d909dc40c1956949ede32bb93a6b70d529f1497e003dc04969",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=1"
+  },
+  {
+    "path": "mon-hoc/hk2/comp1013.md",
+    "sha256": "32dd0867c5a5cc3e8e63440e409056cbdb7302c15a4eeaf93808472f154a7bc3",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1013/"
+  },
+  {
+    "path": "mon-hoc/hk2/comp1017.md",
+    "sha256": "e26091573b3c54171421f6d37b7368cb6c7cc7398c418bb1a0cc0d50d70c0720",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1017/"
+  },
+  {
+    "path": "mon-hoc/hk2/index.md",
+    "sha256": "db4fd02454875e8f253cfe6ff4336b54bebc36e0a9532b63d0fe1d7e869368b0",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=2"
+  },
+  {
+    "path": "mon-hoc/hk3/comp1016.md",
+    "sha256": "549174ca31106f1f81abcffec9d6c34f16045522b79832dd29e37e5fce21d4fd",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1016/"
+  },
+  {
+    "path": "mon-hoc/hk3/comp1018.md",
+    "sha256": "7131baa2e290fb7bcaea15c670e56ee69517d20b4b7f9a8c9d53a7279890d5e6",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1018/"
+  },
+  {
+    "path": "mon-hoc/hk3/comp1019.md",
+    "sha256": "b2fc4aad5b7349bcfc54c77febc0fe38ac48d91b9bc73901f48691e2e02657ca",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1019/"
+  },
+  {
+    "path": "mon-hoc/hk3/comp1501.md",
+    "sha256": "b56e7a961c073bff371681ba4f367a804328a2486de9ba77ef74f0dccbd5b6d0",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1501/"
+  },
+  {
+    "path": "mon-hoc/hk3/comp1701.md",
+    "sha256": "2415af75f3d3a8213b76578e586965a58801f943cc50d4f60005ccb5aec65eb9",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1701/"
+  },
+  {
+    "path": "mon-hoc/hk3/index.md",
+    "sha256": "97fda77e7a08538b67c52685fe9a0bd56e9e3ba3070771257183730f4721ddce",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=3"
+  },
+  {
+    "path": "mon-hoc/hk4/comp1011.md",
+    "sha256": "678525621d20a41208dd00b866004c44e66020128858cb403c5b48e85b658c9c",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1011/"
+  },
+  {
+    "path": "mon-hoc/hk4/comp1015.md",
+    "sha256": "cd289488d1bfc33d583d6f27dbd0f0b17638a752fa288cb9b6b893ed49814d9c",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1015/"
+  },
+  {
+    "path": "mon-hoc/hk4/comp1332.md",
+    "sha256": "04a1de62d0c6e9b5001f6fa23f55a0dec1bac24fe4f8d143631fc77cfe0829c6",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1332/"
+  },
+  {
+    "path": "mon-hoc/hk4/comp1401.md",
+    "sha256": "483f5b4ad649faaa3b606af1d770f4ad3d1a9c3687de27fc61ade3f823f268b9",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1401/"
+  },
+  {
+    "path": "mon-hoc/hk4/comp1829.md",
+    "sha256": "f89b0a130cd40e24a947cd139d2c2d5c60f79d52dfc78a44cfb78da361e845d8",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1829/"
+  },
+  {
+    "path": "mon-hoc/hk4/index.md",
+    "sha256": "35e222e7e470d1cb04802d607d8b8c423feee2b474cd2de3fd4573af059097c9",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=4"
+  },
+  {
+    "path": "mon-hoc/hk5/comp1044.md",
+    "sha256": "e9516b1fc092bfac84e34f4a17a2a9194bdaf0e83f8770d4f649cba6c4bd38f5",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1044/"
+  },
+  {
+    "path": "mon-hoc/hk5/comp1060.md",
+    "sha256": "4e0c60b8886cd716e1900d5d7e8bbb60c6cc7104759f53135c5539ea899f8c05",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1060/"
+  },
+  {
+    "path": "mon-hoc/hk5/comp1314.md",
+    "sha256": "fb4b979a5c82310376f6128e79919aafd752f20bebdb5c2edc287832824e7512",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1314/"
+  },
+  {
+    "path": "mon-hoc/hk5/index.md",
+    "sha256": "c7d87a1d61520d8c468eb817a661aa7ac4224583362d21f115bcb11fa5123b82",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=5"
+  },
+  {
+    "path": "mon-hoc/hk6/comp1502.md",
+    "sha256": "1d88b51441fe5da5a61117d8d849a111a1c2287f88c3d73e6c62fa91ec5da9b6",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1502/"
+  },
+  {
+    "path": "mon-hoc/hk6/comp1803.md",
+    "sha256": "05e69275402c20893e771f08605b6bdbe86d489477e46dce47f328205d11efc6",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1803/"
+  },
+  {
+    "path": "mon-hoc/hk6/index.md",
+    "sha256": "200ea9c16b80d639982862b637bc10e43b6fe0ef6ed6395abaf3aa79194c9277",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=6"
+  },
+  {
+    "path": "mon-hoc/hk7/comp1410.md",
+    "sha256": "2e0cf3810b01fddbcc540d4c26ecfd0d64be0d3f246bca2600c022f7ead4bffa",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1410/"
+  },
+  {
+    "path": "mon-hoc/hk7/comp1809.md",
+    "sha256": "cddb805c848f5fa9f9321de3a5b00905c9374eb293eb004c6a507e1bc43706af",
+    "action": "redirect",
+    "target": "/mon-hoc/comp1809/"
+  },
+  {
+    "path": "mon-hoc/hk7/index.md",
+    "sha256": "1bbc109933de222f4283395bdaa86176164d53876438e6ef55cdf1ebec223a03",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=7"
+  },
+  {
+    "path": "mon-hoc/hk7/psyc2803.md",
+    "sha256": "1cba819d90b0f799bbbf16d2df68253cbc0d9ab1dac1a36cc186b5192269e2b0",
+    "action": "redirect",
+    "target": "/mon-hoc/psyc2803/"
+  },
+  {
+    "path": "mon-hoc/hk8/comp1411.md",
+    "sha256": "0f83e1eb5a979c8581ad125fca5fa45c58415c0b9f1fd47bfbe87153cafd4410",
+    "action": "retained-with-warning",
+    "target": null
+  },
+  {
+    "path": "mon-hoc/hk8/comp1808.md",
+    "sha256": "2fe1ac4b007201fc06b8cb3948e3e0cb5a2b6b28944ae86e7200530ade3c10bc",
+    "action": "retained-with-warning",
+    "target": null
+  },
+  {
+    "path": "mon-hoc/hk8/index.md",
+    "sha256": "7e57d94b6c6d953d1ca736b7bc39a514f1c30a5adc777bbac423172ede2da263",
+    "action": "redirect",
+    "target": "/chuong-trinh/tra-cuu?term=8"
+  }
+]

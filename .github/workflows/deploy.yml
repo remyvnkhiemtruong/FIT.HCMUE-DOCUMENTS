@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
@@ -35,6 +35,24 @@ jobs:
 
       - name: Build VitePress
         run: npm run build
+
+      - name: Check published links and preserved routes
+        run: npm run check:links
+
+      - name: Install browser for verification
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify learning flows and responsive layouts
+        run: npm run test:browser
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+
+      - name: Save browser diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-diagnostics
+          path: test-results/
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

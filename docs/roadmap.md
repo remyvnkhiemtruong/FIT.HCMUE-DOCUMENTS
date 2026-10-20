@@ -1,6 +1,6 @@
 # 🗺️ Lộ Trình Ôn Tập Toàn Diện 2 Môn Toán FIT HCMUE
 
-Hệ thống checklist thông minh giúp bạn theo dõi tiến độ ôn thi học kỳ I năm nhất cho cả hai môn: **Cơ Sở Toán trong CNTT (COMP1800)** và **Toán Rời Rạc và Ứng Dụng (COMP1802)**.
+Hệ thống checklist thông minh giúp bạn theo dõi tiến độ ôn thi học kỳ I năm nhất cho cả hai môn: **Cơ Sở Toán trong CNTT (COMP1800)** và **Toán Rời Rạc và Ứng Dụng (COMP1801)**.
 
 ---
 
@@ -30,7 +30,7 @@ Hệ thống checklist thông minh giúp bạn theo dõi tiến độ ôn thi h�
 
 ---
 
-# PHẦN B: TOÁN RỜI RẠC VÀ ỨNG DỤNG (COMP1802)
+# PHẦN B: TOÁN RỜI RẠC VÀ ỨNG DỤNG (COMP1801)
 
 ## 📅 Lý thuyết 7 Buổi học trọng tâm
 - [ ] **[Buổi 1: Logic Mệnh đề & Bảng Chân Trị](/discrete-math/buoi-1-logic-menh-de)**: Các phép toán logic, phép kéo theo $p \to q$, luật De Morgan, luật phân phối, dạng chuẩn tắc DNF/CNF.

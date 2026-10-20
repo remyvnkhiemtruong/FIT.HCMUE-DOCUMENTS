@@ -1,83 +1,51 @@
-// docs/.vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import { onMounted } from 'vue'
+import type { EnhanceAppContext } from 'vitepress'
+import { defineAsyncComponent, defineComponent, h, onMounted } from 'vue'
+import HomePortal from './components/HomePortal.vue'
+import MajorDirectory from './components/MajorDirectory.vue'
+import CohortSelector from './components/CohortSelector.vue'
+import LessonContext from './components/LessonContext.vue'
+import LearningChecklist from './components/LearningChecklist.vue'
+import LegacyRedirect from './components/LegacyRedirect.vue'
+import CohortOverview from './components/CohortOverview.vue'
+import BrandIdentity from './components/BrandIdentity.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 import './custom.css'
+
+// VitePress hydrates the initial page from a lean module. Navigating before
+// that mount can hydrate a new route against the previous page's static DOM.
+// Queue early client navigation until the initial layout has mounted.
+let hydrated=false
+let markHydrated:()=>void=()=>{}
+const mounted=new Promise<void>(resolve=>{markHydrated=()=>{hydrated=true;resolve()}})
 
 export default {
   extends: DefaultTheme,
-  setup() {
-    onMounted(() => {
-      // ─── Chống chuột phải ─────────────────────────────────────────────────
-      document.addEventListener('contextmenu', (e) => {
-        e.preventDefault()
-        return false
+  Layout: defineComponent({
+    setup() {
+      onMounted(markHydrated)
+      return () => h(DefaultTheme.Layout, null, {
+        'nav-bar-title-before': () => h(BrandIdentity),
+        'nav-bar-content-after': () => h(ThemeToggle),
+        'doc-before': () => h(LessonContext),
+        'doc-after': () => h(LearningChecklist)
       })
-
-      // ─── Chống Ctrl+C / Ctrl+U / Ctrl+S / Ctrl+P / Ctrl+A / F12 ─────────
-      document.addEventListener('keydown', (e) => {
-        const key = e.key.toLowerCase()
-        const ctrl = e.ctrlKey || e.metaKey
-
-        // Ctrl+C, Ctrl+X, Ctrl+A, Ctrl+U, Ctrl+S, Ctrl+P
-        if (ctrl && ['c', 'x', 'a', 'u', 's', 'p'].includes(key)) {
-          e.preventDefault()
-          return false
-        }
-
-        // F12 (DevTools)
-        if (e.key === 'F12') {
-          e.preventDefault()
-          return false
-        }
-
-        // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C (DevTools)
-        if (ctrl && e.shiftKey && ['i', 'j', 'c'].includes(key)) {
-          e.preventDefault()
-          return false
-        }
-      })
-
-      // ─── Chống kéo thả chọn text ──────────────────────────────────────────
-      document.addEventListener('selectstart', (e) => {
-        // Cho phép chọn trong input / textarea
-        const tag = (e.target as HTMLElement).tagName
-        if (tag === 'INPUT' || tag === 'TEXTAREA') return
-        e.preventDefault()
-        return false
-      })
-
-      // ─── Chống kéo-thả (drag) ────────────────────────────────────────────
-      document.addEventListener('dragstart', (e) => {
-        e.preventDefault()
-        return false
-      })
-
-      // ─── Chống PrintScreen (hiển thị cảnh báo) ───────────────────────────
-      document.addEventListener('keyup', (e) => {
-        if (e.key === 'PrintScreen') {
-          navigator.clipboard.writeText('').catch(() => {})
-        }
-      })
-
-      // ─── Anti-DevTools: detect bằng debugger timing (không false positive) ─
-      let devToolsOpen = false
-      const devToolsCheck = () => {
-        const start = performance.now()
-        // eslint-disable-next-line no-debugger
-        debugger
-        const elapsed = performance.now() - start
-        // Nếu debugger bị pause (DevTools đang mở), elapsed sẽ > 100ms
-        if (elapsed > 100 && !devToolsOpen) {
-          devToolsOpen = true
-          document.body.innerHTML =
-            '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;flex-direction:column;gap:16px;background:#1e1e2e;color:#cdd6f4;">' +
-            '<span style="font-size:48px;">🚫</span>' +
-            '<h2 style="margin:0">Trang web không hỗ trợ DevTools</h2>' +
-            '<p style="margin:0;opacity:.7">Vui lòng đóng Developer Tools để tiếp tục.</p>' +
-            '</div>'
-        }
+    }
+  }),
+  enhanceApp({ app, router }: EnhanceAppContext) {
+    if (typeof window!=='undefined') {
+      let initialNavigation=true
+      router.onBeforeRouteChange=async ()=>{
+        if (initialNavigation) {initialNavigation=false;return}
+        if (!hydrated) await mounted
       }
-      setInterval(devToolsCheck, 3000)
-    })
+    }
+    app.component('HomePortal',HomePortal)
+    app.component('MajorDirectory',MajorDirectory)
+    app.component('CohortSelector',CohortSelector)
+    app.component('LegacyRedirect',LegacyRedirect)
+    app.component('CohortOverview',CohortOverview)
+    app.component('CatalogBrowser',defineAsyncComponent(()=>import('./components/CatalogBrowser.vue')))
+    app.component('Quiz',defineAsyncComponent(()=>import('./components/Quiz.vue')))
   }
 }

@@ -1,6 +1,7 @@
 node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+docs/.vitepress/.temp/
 .vitepress/dist/
 .vitepress/cache/
 dist/
@@ -12,3 +13,7 @@ Thumbs.db
 # Không đẩy file PDF lên GitHub — chỉ lưu trên máy
 *.pdf
 *.PDF
+
+# Browser verification artifacts
+test-results/
+playwright-report/

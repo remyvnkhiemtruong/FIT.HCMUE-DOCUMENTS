@@ -1,0 +1,109 @@
+[
+  {
+    "course": "PHYL2401",
+    "major": "cntt",
+    "note": "Khác biệt giữa bảng ngành và tra cứu; ưu tiên bảng ngành, chưa xác minh với đề cương chính thức.",
+    "lookup": {
+      "credits": 1,
+      "requirement": "Bắt buộc/Tự chọn"
+    },
+    "selected": {
+      "major": "cntt",
+      "version": "du-lieu-hien-co",
+      "course": "PHYL2401",
+      "term": 1,
+      "credits": 1,
+      "requirement": "Tự chọn",
+      "source": "khoa/nganh-cntt.md",
+      "verified": false
+    }
+  },
+  {
+    "course": "PHYL2401",
+    "major": "sp-tin",
+    "note": "Khác biệt giữa bảng ngành và tra cứu; ưu tiên bảng ngành, chưa xác minh với đề cương chính thức.",
+    "lookup": {
+      "credits": 1,
+      "requirement": "Bắt buộc/Tự chọn"
+    },
+    "selected": {
+      "major": "sp-tin",
+      "version": "du-lieu-hien-co",
+      "course": "PHYL2401",
+      "term": 1,
+      "credits": 1,
+      "requirement": "Tự chọn",
+      "source": "khoa/nganh-sp-tin.md",
+      "verified": false
+    }
+  },
+  {
+    "course": "PHYL2401",
+    "major": "cngd",
+    "note": "Khác biệt giữa bảng ngành và tra cứu; ưu tiên bảng ngành, chưa xác minh với đề cương chính thức.",
+    "lookup": {
+      "credits": 1,
+      "requirement": "Bắt buộc/Tự chọn"
+    },
+    "selected": {
+      "major": "cngd",
+      "version": "du-lieu-hien-co",
+      "course": "PHYL2401",
+      "term": 1,
+      "credits": 1,
+      "requirement": "Bắt buộc",
+      "source": "khoa/nganh-cngd.md",
+      "verified": false
+    }
+  },
+  {
+    "course": "COMP1712",
+    "major": "cntt",
+    "note": "Khác biệt giữa bảng ngành và tra cứu; ưu tiên bảng ngành, chưa xác minh với đề cương chính thức.",
+    "lookup": {
+      "credits": 3,
+      "requirement": "Tự chọn/Bắt buộc"
+    },
+    "selected": {
+      "major": "cntt",
+      "version": "du-lieu-hien-co",
+      "course": "COMP1712",
+      "term": 5,
+      "credits": 3,
+      "requirement": "Tự chọn",
+      "source": "khoa/nganh-cntt.md",
+      "verified": false
+    }
+  },
+  {
+    "course": "COMP1032",
+    "major": "sp-tin",
+    "note": "Khác biệt giữa bảng ngành và tra cứu; ưu tiên bảng ngành, chưa xác minh với đề cương chính thức.",
+    "lookup": {
+      "credits": 3,
+      "requirement": "Bắt buộc/Tự chọn"
+    },
+    "selected": {
+      "major": "sp-tin",
+      "version": "du-lieu-hien-co",
+      "course": "COMP1032",
+      "term": 6,
+      "credits": 3,
+      "requirement": "Bắt buộc",
+      "source": "khoa/nganh-sp-tin.md",
+      "verified": false
+    }
+  },
+  {
+    "course": "COMP1801",
+    "note": "roadmap.md ghi COMP1802 cho Toán rời rạc; chuẩn hóa theo bảng ngành và tra cứu thành COMP1801. Chưa đối chiếu đề cương chính thức."
+  },
+  {
+    "course": "COMP1808",
+    "note": "Trang hk8/comp1808 ghi Hồ sơ tốt nghiệp, trong khi bảng ngành SP Tin ghi Thực hành dạy học môn Tin học tại HK7. Giữ trang cũ thành thông báo cần đối chiếu; không tự gộp sang môn khác."
+  },
+  {
+    "course": "COMP1411",
+    "note": "Trang HK8 ghi Thực tập nghề nghiệp 2 với mã COMP1411, bảng ngành ghi COMP1811. Chưa xác minh tương đương; giữ cảnh báo ở đường dẫn cũ."
+  }
+]
