@@ -4,9 +4,22 @@ export default defineConfig({
   title: "Cổng Tài Liệu Khoa CNTT - HCMUE",
   description: "Kho tài liệu học tập, giáo trình, bài tập & đề thi phân loại theo từng Khóa (K52, K51, K50, K49) & 3 Ngành đào tạo - FIT HCMUE",
   lang: 'vi-VN',
+  // Base URL cho GitHub Pages: https://remyvnkhiemtruong.github.io/FIT.HCMUE-DOCUMENTS/
+  base: '/FIT.HCMUE-DOCUMENTS/',
+  // Xóa .html khỏi URL
+  cleanUrls: true,
+  // Bật math + tắt copy button trên code block (chống copy code)
   markdown: {
-    math: true
+    math: true,
+    codeTransformers: []
   },
+  // Head: chống cache + thêm meta bảo vệ
+  head: [
+    ['meta', { name: 'robots', content: 'noindex, nofollow' }],
+    ['meta', { name: 'copyright', content: 'FIT HCMUE — Trịnh Minh Huy. All rights reserved.' }],
+    ['meta', { 'http-equiv': 'Cache-Control', content: 'no-store' }],
+    ['link', { rel: 'icon', href: '/FIT.HCMUE-DOCUMENTS/favicon.ico' }]
+  ],
   themeConfig: {
     logo: '🏛️',
     siteTitle: 'Kho Tài Liệu FIT HCMUE',

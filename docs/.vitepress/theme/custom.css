@@ -1,0 +1,121 @@
+/* ════════════════════════════════════════════════════════════════════
+   custom.css — FIT HCMUE Documents Portal
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Màu thương hiệu HCMUE (đỏ rượu) ─────────────────────────────── */
+:root {
+  --vp-c-brand-1: #8e1728;
+  --vp-c-brand-2: #a01e30;
+  --vp-c-brand-3: #c22a3f;
+  --vp-c-brand-soft: rgba(142, 23, 40, 0.12);
+}
+
+/* ── Chống chọn văn bản toàn trang ───────────────────────────────── */
+body,
+.vp-doc,
+.vp-doc p,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc li,
+.vp-doc table,
+.content {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* ── Cho phép chọn text trong ô input / tìm kiếm ─────────────────── */
+input,
+textarea,
+.search-box input,
+[contenteditable] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* ── Tắt con trỏ text trên nội dung bài học ──────────────────────── */
+.vp-doc * {
+  cursor: default !important;
+}
+a,
+button,
+[role="button"],
+.nav-item,
+.sidebar-link {
+  cursor: pointer !important;
+}
+
+/* ── Header logo + màu HCMUE ─────────────────────────────────────── */
+.VPNav .VPNavBar {
+  border-bottom: 2px solid var(--vp-c-brand-1);
+}
+
+/* ── Nút "Khóa 52 Hiện tại" badge ────────────────────────────────── */
+.current-badge {
+  display: inline-block;
+  background: var(--vp-c-brand-1);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.03em;
+}
+
+/* ── Watermark chìm trên nền trang ───────────────────────────────── */
+.VPContent::before {
+  content: "FIT HCMUE — Trịnh Minh Huy";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(1.2rem, 4vw, 2.8rem);
+  color: rgba(142, 23, 40, 0.04);
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 9999;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+/* ── Dark mode watermark ─────────────────────────────────────────── */
+.dark .VPContent::before {
+  color: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Math (KaTeX) — chống chọn công thức ─────────────────────────── */
+.math,
+.katex,
+.katex-display,
+mjx-container {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  pointer-events: none;
+}
+
+/* ── Card style cho các trang học phần ───────────────────────────── */
+.subject-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 12px 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.subject-card:hover {
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 4px 20px rgba(142, 23, 40, 0.1);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .VPContent::before {
+    font-size: 1rem;
+  }
+}
