@@ -16,7 +16,7 @@ Hợp số $n$ có thể vẫn thỏa $b^{n-1}\equiv1\pmod n$ với $\gcd(b,n)=1
 
 ## Phép thử mạnh Miller–Rabin
 
-Với $n>2$ lẻ, viết $n-1=2^st$, $t$ lẻ. Với cơ sở $2\le b\le n-2$, tính $x=b^t\bmod n$. Cơ sở này vượt qua kiểm tra nếu $x=1$, $x=n-1$, hoặc một trong $s-1$ lần bình phương tiếp theo cho $n-1$.
+Xử lý trước $n<2$ không nguyên tố, $2$ và $3$ nguyên tố, các số chẵn lớn hơn $2$ là hợp số. Với $n>3$ lẻ, viết $n-1=2^st$, $t$ lẻ. Với cơ sở $2\le b\le n-2$, tính $x=b^t\bmod n$. Cơ sở này vượt qua kiểm tra nếu $x=1$, $x=n-1$, hoặc một trong $s-1$ lần bình phương tiếp theo cho $n-1$.
 
 Nếu không đạt, $b$ là chứng cứ hợp số. Nếu đạt, mới chỉ kết luận “chưa phát hiện hợp số với cơ sở này”. Số $2047=23\cdot89$ trong nguồn minh họa giới hạn của một cơ sở.
 
