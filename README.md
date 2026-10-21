@@ -19,6 +19,8 @@ npm run preview
 
 `test:browser` dùng Chrome đã cài trên máy và tự mở máy chủ xem trước ở cổng 4173. Chạy sau `build`. Để dùng Chromium trên CI, đặt `PLAYWRIGHT_CHANNEL=chromium` và cài bằng `npx playwright install --with-deps chromium`.
 
+Nếu cổng xem trước đang có dịch vụ khác, đặt `PORTAL_TEST_PORT` thành một cổng trống trước khi chạy kiểm tra; không cần dừng dịch vụ đang dùng.
+
 ## Cấu trúc chính
 
 - `docs/.vitepress/data/catalog.mts`: môn học, ngành, phiên bản chương trình, vị trí môn, khóa và học liệu. Đây là nguồn dữ liệu dùng chung cho điều hướng, bảng chương trình và bộ lọc.
@@ -44,6 +46,14 @@ npm run preview
 5. Trang môn, bộ lọc và sidebar tự cập nhật. `order` xác định thứ tự đọc và liên kết trước/sau trong cùng môn.
 
 `quiz.json` giữ nguyên câu hỏi, lựa chọn và đáp án. Có thể biên tập lời giải nhưng phải giữ công thức, dữ kiện và ý nghĩa chuyên môn. `quiz.data.ts` chuyển công thức thành HTML toán học trong lúc dựng trang; trình duyệt chỉ tải quiz khi cần.
+
+## Tài liệu bổ sung theo chủ đề
+
+`docs/bo-sung/` chứa các bài Markdown và LaTeX biên soạn từ bộ `drive-download-20261020T172414Z-1-001` do người dùng cung cấp. Danh mục nằm trong `docs/.vitepress/data/imported-resources.json` và được hợp nhất vào `resources`; không tạo một trang tra cứu độc lập. Mỗi bài có nguồn, chủ đề và mã định danh ổn định. Các bài luyện được ghi là tuyển chọn, không coi tóm lược là bản chép đầy đủ PDF.
+
+`course` là tùy chọn cho tài liệu chưa xác nhận thuộc học phần nào. Trường hợp đó phải có `topic`, hiển thị như tài liệu tham khảo; bộ lọc ngành/học kỳ không tự gán nó vào chương trình. Mã môn trong danh mục vẫn chỉ được tạo từ dữ liệu chương trình có sẵn.
+
+Hồ sơ 55 nguồn và văn bản trích của 1.288 trang nằm trong `content-archive/drive-20261020/`, không được xuất bản vào thư mục web. Chỉ dùng bản trích để đối chiếu; công thức phải được kiểm tra do các phông cũ và bố cục PDF có thể làm sai ký hiệu.
 
 ## Khóa và năm học
 

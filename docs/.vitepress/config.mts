@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { majors, courses, resources, resourceKinds } from './data/catalog.mts'
+import { majors, courses, resources, resourceKinds, topics } from './data/catalog.mts'
 
 const programs = [{ text: 'Chọn ngành', link: '/chuong-trinh/' }, { text: 'Tra cứu học phần', link: '/chuong-trinh/tra-cuu' }, ...majors.map(m => ({ text: m.name, link: `/chuong-trinh/${m.id}/`, collapsed: true, items: Array.from({length:8},(_,i)=>({text:`Học kỳ ${i+1}`,link:`/chuong-trinh/${m.id}/hk-${i+1}/`})) }))]
 const sidebar: Record<string, any> = { '/chuong-trinh/': [{ text: 'Chương trình học', items: programs }], '/mon-hoc/': [{ text: 'Khám phá học phần', items: programs }], '/khoa/': [{ text: 'Chương trình học', items: programs }] }
@@ -12,7 +12,12 @@ for (const course of courses) {
   })]
   const context=[{text:course.name,items}]
   sidebar[course.path]=context
-  for (const folder of new Set(materials.map(r=>'/' + r.path.split('/')[1] + '/'))) sidebar[folder]=context
+  for (const folder of new Set(materials.filter(r=>!r.topic).map(r=>'/' + r.path.split('/')[1] + '/'))) sidebar[folder]=context
+  for (const r of materials) sidebar[r.path]=context
+}
+for(const topic of topics){
+  const context=[{text:topic.name,items:[{text:'Nội dung chủ đề',link:`/bo-sung/${topic.id}/`},...resources.filter(r=>r.topic===topic.id).map(r=>({text:r.title,link:r.path}))]}]
+  sidebar[`/bo-sung/${topic.id}/`]=context
 }
 
 export default defineConfig({
@@ -32,9 +37,10 @@ export default defineConfig({
       page.frontmatter.resourceId=resource.id
       page.frontmatter.course=resource.course
       page.frontmatter.title=resource.title
-      const sequence=resources.filter(r=>r.course===resource.course).sort((a,b)=>a.order-b.order)
+      page.frontmatter.topic=resource.topic
+      const sequence=resources.filter(r=>resource.topic ? r.topic===resource.topic : r.course===resource.course && !r.topic).sort((a,b)=>a.order-b.order)
       const idx=sequence.findIndex(r=>r.id===resource.id)
-      page.frontmatter.prev=idx>0 ? {text:sequence[idx-1].title,link:sequence[idx-1].path} : {text:'Tổng quan môn học',link:courses.find(c=>c.code===resource.course)!.path}
+      page.frontmatter.prev=idx>0 ? {text:sequence[idx-1].title,link:sequence[idx-1].path} : resource.topic ? {text:'Nội dung chủ đề',link:`/bo-sung/${resource.topic}/`} : {text:'Tổng quan môn học',link:courses.find(c=>c.code===resource.course)!.path}
       page.frontmatter.next=idx<sequence.length-1 ? {text:sequence[idx+1].title,link:sequence[idx+1].path} : false
     }
   },

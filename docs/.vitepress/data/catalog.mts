@@ -1,10 +1,18 @@
 // Single source of truth. Curriculum data is provisional, not an official program.
+import importedResources from './imported-resources.json' with { type: 'json' }
 export interface Major { id: string; short: string; name: string; code: string; version: string; verified: boolean }
 export interface Course { code: string; name: string; description: string; path: string }
 export interface Placement { major: string; version: string; course: string; term: number; credits: number; requirement: string; source: string; verified: boolean }
-export interface Resource { id: string; course: string; kind: string; section: string; title: string; order: number; path: string; source: string; status: string; verified: boolean; year?: string }
+export interface Resource { id: string; course?: string; topic?: string; kind: string; section: string; title: string; order: number; path: string; source: string; status: string; verified: boolean; year?: string; sourceIds?: string[] }
 export interface Cohort { id: string; startYear: number; programs: Record<string, string>; verified: boolean }
 export const academicYear = 2026
+export const topics = [
+  {id:'dai-so-tuyen-tinh',name:'Đại số tuyến tính'},
+  {id:'ly-thuyet-so',name:'Lý thuyết số'},
+  {id:'ly-thuyet-nhom',name:'Lý thuyết nhóm'},
+  {id:'toan-roi-rac',name:'Toán rời rạc'},
+  {id:'toan-to-hop',name:'Toán tổ hợp'}
+]
 export const repository = 'https://github.com/remyvnkhiemtruong/FIT.HCMUE-DOCUMENTS'
 export const majors: Major[] = [
   {
@@ -3530,6 +3538,7 @@ export const resources: Resource[] = [
     "verified": false
   }
 ]
+resources.push(...importedResources)
 export const cohorts: Cohort[] = [
   {
     "id": "K52",

@@ -13,6 +13,7 @@ async function existing(path) {return fileSet.has(path)}
 async function html(path) {if(!cache.has(path))cache.set(path,await readFile(path,'utf8'));return cache.get(path)}
 for(const file of files) {
   const content=await html(file)
+  if(/data-mml-node="merror"|<mjx-merror/.test(content))errors.push(`${relative(root,file)}: math rendering error`)
   const pathname=base+relative(root,file).split(sep).join('/').replace(/index\.html$/,'').replace(/\.html$/,'')
   for(const match of content.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const value=decode(match[1])

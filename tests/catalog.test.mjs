@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
-import { courses, majors, placements, resources, normalize, cohorts, cohortYear, academicYear } from '../docs/.vitepress/data/catalog.mts'
+import { courses, majors, placements, resources, topics, normalize, cohorts, cohortYear, academicYear } from '../docs/.vitepress/data/catalog.mts'
 import { filterCourses, filterResources } from '../docs/.vitepress/data/filtering.mts'
 import { courseContent, programContent } from '../docs/.vitepress/page-content.mts'
 import { protectedContent, numericData, examQuestions } from '../scripts/content-preservation.mjs'
@@ -20,7 +20,7 @@ test('catalog references and curriculum keys are valid',()=>{
     assert.ok(p.source && typeof p.verified==='boolean')
   }
   for(const c of courses) {assert.ok(placements.some(p=>p.course===c.code));assert.equal(c.path,`/mon-hoc/${c.code.toLowerCase()}/`)}
-  for(const r of resources) {assert.ok(courses.some(c=>c.code===r.course));assert.ok(existsSync('docs'+r.path+'.md'));assert.ok(r.source);assert.equal(r.status,'available')}
+  for(const r of resources) {if(r.course)assert.ok(courses.some(c=>c.code===r.course));else assert.ok(topics.some(t=>t.id===r.topic));assert.ok(existsSync('docs'+r.path+'.md'));assert.ok(r.source);assert.equal(r.status,'available')}
 })
 test('all three majors expose eight semesters',()=>{
   assert.equal(majors.length,3)
@@ -51,7 +51,7 @@ test('combined filters must match the same curriculum placement',()=>{
   }
   assert.equal(filterCourses({major:'unknown'}).length,0)
   assert.equal(filterCourses({term:'9'}).length,0)
-  assert.equal(filterCourses({status:'available'}).length,2)
+  assert.deepEqual(filterCourses({status:'available'}).map(c=>c.code).sort(),['COMP1701','COMP1800','COMP1801'])
 })
 test('credits and requirements retain per-major differences',()=>{
   const groups=Map.groupBy(placements,p=>p.course)
@@ -108,8 +108,43 @@ test('resource titles match page headings in every catalog-driven view',()=>{
   for(const r of resources){
     const heading=readFileSync('docs'+r.path+'.md','utf8').match(/^# (.+?)(?: \{#[^}]+\})?\r?$/m)?.[1]
     assert.equal(r.title,heading,r.path)
-    assert.ok(courseContent(r.course).includes(`[${r.title}](${r.path})`))
+    if(r.course)assert.ok(courseContent(r.course).includes(`[${r.title}](${r.path})`))
   }
+})
+
+test('all 55 supplied PDFs have archived pages and a substantive native web adaptation',()=>{
+  const sources=JSON.parse(readFileSync('content-archive/drive-20261020/sources.json','utf8'))
+  const pages=JSON.parse(readFileSync('content-archive/drive-20261020/extracted-pages.json','utf8'))
+  assert.equal(sources.length,55)
+  assert.equal(sources.reduce((n,s)=>n+s.pages,0),1288)
+  unique(sources.map(s=>s.sha256));unique(sources.map(s=>s.id))
+  for(const source of sources){
+    assert.match(source.sha256,/^[a-f0-9]{64}$/)
+    assert.equal(pages[source.id].length,source.pages)
+    const resource=resources.find(r=>r.id===source.resource)
+    assert.ok(resource)
+    assert.deepEqual(resource.sourceIds,[source.id])
+    const body=readFileSync('docs'+resource.path+'.md','utf8')
+    assert.ok(body.includes(source.path.split('/').at(-1)))
+    assert.ok(body.includes('## Nguồn tài liệu'))
+    assert.ok(body.length>1300,resource.path)
+    assert.doesNotMatch(body,/<iframe|<embed|<object|!\[[^\]]*\]\([^)]*\.(?:png|jpg|svg)/i)
+    assert.doesNotMatch(body,/[\uE000-\uF8FF\uFFFD]/u)
+  }
+})
+
+test('unassigned topics remain searchable without invented curriculum placements',()=>{
+  for(const topic of topics){
+    const found=filterResources({topic:topic.id})
+    assert.ok(found.length)
+    assert.ok(found.every(r=>r.topic===topic.id))
+  }
+  const group=filterResources({topic:'ly-thuyet-nhom'})
+  assert.equal(group.length,5)
+  assert.ok(group.every(r=>!r.course))
+  assert.equal(filterResources({topic:'ly-thuyet-nhom',major:'cntt'}).length,0)
+  assert.ok(filterResources({q:'stirling'}).length)
+  assert.ok(filterResources({topic:'toan-to-hop',course:'COMP1701'}).length)
 })
 
 test('roadmap keeps its formulas and stable keys for existing saved progress',()=>{

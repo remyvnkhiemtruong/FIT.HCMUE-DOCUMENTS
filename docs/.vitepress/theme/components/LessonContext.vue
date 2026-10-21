@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
-import { courses, resources } from '../../data/catalog.mts'
+import { courses, resources, topics } from '../../data/catalog.mts'
 const {frontmatter}=useData()
 const course=computed(()=>courses.find(c=>c.code===frontmatter.value.course))
 const resource=computed(()=>resources.find(r=>r.id===frontmatter.value.resourceId))
+const topic=computed(()=>topics.find(t=>t.id===resource.value?.topic))
 </script>
-<template><div v-if="course" class="lesson-context"><nav aria-label="Đường dẫn phân cấp"><a :href="withBase('/chuong-trinh/')">Chương trình học</a><span aria-hidden="true"> / </span><a :href="withBase(course.path)">{{course.code}} · {{course.name}}</a><template v-if="resource"><span aria-hidden="true"> / </span><span>{{resource.section}}</span></template></nav><p v-if="course.code==='COMP1801'" class="muted-note">Mã môn cần đối chiếu: một số bản gốc ghi COMP1802; danh mục hiện dùng COMP1801.</p><details v-if="resource" class="source-note"><summary>Nguồn tài liệu</summary><p>{{resource.source}} <a :href="withBase('/huong-dan#nguon-tai-lieu')">Hướng dẫn sử dụng</a></p></details></div></template>
+<template>
+  <div v-if="course || resource" class="lesson-context">
+    <nav aria-label="Đường dẫn phân cấp">
+      <template v-if="course"><a :href="withBase('/chuong-trinh/')">Chương trình học</a><span aria-hidden="true"> / </span><a :href="withBase(course.path)">{{course.code}} · {{course.name}}</a></template>
+      <template v-else><a :href="withBase('/hoc-lieu/')">Kho học liệu</a></template>
+      <template v-if="topic"><span aria-hidden="true"> / </span><a :href="withBase('/bo-sung/'+topic.id+'/')">{{topic.name}}</a></template>
+      <template v-else-if="resource"><span aria-hidden="true"> / </span><span>{{resource.section}}</span></template>
+    </nav>
+    <p v-if="course?.code==='COMP1801' && !topic" class="muted-note">Mã môn cần đối chiếu: một số bản gốc ghi COMP1802; danh mục hiện dùng COMP1801.</p>
+    <details v-if="resource" class="source-note"><summary>Nguồn tài liệu</summary><p>{{resource.source}} <a :href="withBase('/huong-dan#nguon-tai-lieu')">Hướng dẫn sử dụng</a></p></details>
+  </div>
+</template>

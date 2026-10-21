@@ -1,0 +1,867 @@
+[
+  {
+    "id": "drive-20261020-01",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "ly-thuyet",
+    "section": "Đại số tuyến tính",
+    "title": "Ma trận và hệ phương trình tuyến tính",
+    "order": 101,
+    "path": "/bo-sung/dai-so-tuyen-tinh/01-ma-tran-va-he-phuong-trinh-tuyen-tinh",
+    "source": "Chuong 1_Ma tran va he phuong trinh tuyen tinh.pdf (104 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-01"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-02",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "ly-thuyet",
+    "section": "Đại số tuyến tính",
+    "title": "Định thức và quy tắc Cramer",
+    "order": 102,
+    "path": "/bo-sung/dai-so-tuyen-tinh/02-dinh-thuc-va-quy-tac-cramer",
+    "source": "Chuong 2_Dinh thuc.pdf (41 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-02"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-03",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "ly-thuyet",
+    "section": "Đại số tuyến tính",
+    "title": "Không gian vectơ và đổi cơ sở",
+    "order": 103,
+    "path": "/bo-sung/dai-so-tuyen-tinh/03-khong-gian-vecto-va-doi-co-so",
+    "source": "Chuong 3_Khong gian vecto.pdf (100 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-03"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-04",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "ly-thuyet",
+    "section": "Đại số tuyến tính",
+    "title": "Ánh xạ tuyến tính và ma trận biểu diễn",
+    "order": 104,
+    "path": "/bo-sung/dai-so-tuyen-tinh/04-anh-xa-tuyen-tinh-va-ma-tran-bieu-dien",
+    "source": "Chuong 4_Anh xa tuyen tinh.pdf (32 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-04"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-05",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "ly-thuyet",
+    "section": "Đại số tuyến tính",
+    "title": "Trị riêng và chéo hóa ma trận",
+    "order": 105,
+    "path": "/bo-sung/dai-so-tuyen-tinh/05-tri-rieng-va-cheo-hoa-ma-tran",
+    "source": "Chuong 5_Cheo hoa ma tran.pdf (28 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-05"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-06",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Lệnh Maple cơ bản",
+    "order": 106,
+    "path": "/bo-sung/dai-so-tuyen-tinh/06-lenh-maple-co-ban",
+    "source": "THDSTT__Mot so lenh co ban trong Maple.pdf (3 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-06"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-07",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Thực hành ma trận và hệ tuyến tính",
+    "order": 107,
+    "path": "/bo-sung/dai-so-tuyen-tinh/07-thuc-hanh-ma-tran-va-he-tuyen-tinh",
+    "source": "THDSTT_Chuong 1_Ma tran va he PTTT.pdf (14 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-07"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-08",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Thực hành định thức",
+    "order": 108,
+    "path": "/bo-sung/dai-so-tuyen-tinh/08-thuc-hanh-dinh-thuc",
+    "source": "THDSTT_Chuong 2_Dinh thuc.pdf (5 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-08"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-09",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Thực hành không gian vectơ",
+    "order": 109,
+    "path": "/bo-sung/dai-so-tuyen-tinh/09-thuc-hanh-khong-gian-vecto",
+    "source": "THDSTT_Chuong 3_Khong gian vecto.pdf (14 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-09"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-10",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Thực hành ánh xạ tuyến tính",
+    "order": 110,
+    "path": "/bo-sung/dai-so-tuyen-tinh/10-thuc-hanh-anh-xa-tuyen-tinh",
+    "source": "THDSTT_Chuong 4_Anh xa tuyen tinh.pdf (6 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-10"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-11",
+    "topic": "dai-so-tuyen-tinh",
+    "kind": "bai-tap",
+    "section": "Đại số tuyến tính",
+    "title": "Thực hành chéo hóa ma trận",
+    "order": 111,
+    "path": "/bo-sung/dai-so-tuyen-tinh/11-thuc-hanh-cheo-hoa-ma-tran",
+    "source": "THDSTTChuong 5_Cheo hoa ma tran.pdf (3 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-11"
+    ],
+    "course": "COMP1800"
+  },
+  {
+    "id": "drive-20261020-15",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Chia hết, hệ cơ số và số nguyên tố",
+    "order": 101,
+    "path": "/bo-sung/ly-thuyet-so/15-chia-het-he-co-so-va-so-nguyen-to",
+    "source": "Lý Thuyết số-C1.pdf (28 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-15"
+    ]
+  },
+  {
+    "id": "drive-20261020-16",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Quan hệ, vành đồng dư và các định lý số học",
+    "order": 102,
+    "path": "/bo-sung/ly-thuyet-so/16-quan-he-vanh-dong-du-va-cac-dinh-ly-so-hoc",
+    "source": "Lý Thuyết số-C2.1.pdf (42 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-16"
+    ]
+  },
+  {
+    "id": "drive-20261020-17",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Định lý Euler và hàm phi",
+    "order": 103,
+    "path": "/bo-sung/ly-thuyet-so/17-dinh-ly-euler-va-ham-phi",
+    "source": "Lý Thuyết số-C2.2.pdf (27 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-17"
+    ]
+  },
+  {
+    "id": "drive-20261020-18",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Hàm số học, cấp và thặng dư bình phương",
+    "order": 104,
+    "path": "/bo-sung/ly-thuyet-so/18-ham-so-hoc-cap-va-thang-du-binh-phuong",
+    "source": "Lý Thuyết số-C2.3.pdf (29 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-18"
+    ]
+  },
+  {
+    "id": "drive-20261020-19",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Thuận nghịch bình phương, Jacobi và mật mã",
+    "order": 105,
+    "path": "/bo-sung/ly-thuyet-so/19-thuan-nghich-binh-phuong-jacobi-va-mat-ma",
+    "source": "Lý Thuyết số-C2.4.pdf (27 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-19"
+    ]
+  },
+  {
+    "id": "drive-20261020-20",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Tính toán trên số nguyên lớn",
+    "order": 106,
+    "path": "/bo-sung/ly-thuyet-so/20-tinh-toan-tren-so-nguyen-lon",
+    "source": "Lý Thuyết số-C3.pdf (20 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-20"
+    ]
+  },
+  {
+    "id": "drive-20261020-21",
+    "topic": "ly-thuyet-so",
+    "kind": "ly-thuyet",
+    "section": "Lý thuyết số",
+    "title": "Phân bố và kiểm tra số nguyên tố",
+    "order": 107,
+    "path": "/bo-sung/ly-thuyet-so/21-phan-bo-va-kiem-tra-so-nguyen-to",
+    "source": "Lý Thuyết số-C4.pdf (30 trang). Metadata PDF ghi tác giả Nguyen Thin; chưa xác nhận chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-21"
+    ]
+  },
+  {
+    "id": "drive-20261020-12",
+    "topic": "ly-thuyet-so",
+    "kind": "bai-tap",
+    "section": "Lý thuyết số",
+    "title": "Bài tập chia hết và đồng dư",
+    "order": 108,
+    "path": "/bo-sung/ly-thuyet-so/12-bai-tap-chia-het-va-dong-du",
+    "source": "bai tap chuong 1.pdf (3 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-12"
+    ]
+  },
+  {
+    "id": "drive-20261020-14",
+    "topic": "ly-thuyet-so",
+    "kind": "bai-tap",
+    "section": "Lý thuyết số",
+    "title": "Bài tập vành đồng dư và hàm số học",
+    "order": 109,
+    "path": "/bo-sung/ly-thuyet-so/14-bai-tap-vanh-dong-du-va-ham-so-hoc",
+    "source": "Baitapchuong2_(capnhat16052020).pdf.pdf (16 trang). Đầu tài liệu ghi giảng viên lý thuyết Nguyễn Văn Thìn và hướng dẫn thực hành Phan Thành Nhân.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-14"
+    ]
+  },
+  {
+    "id": "drive-20261020-13",
+    "topic": "ly-thuyet-so",
+    "kind": "bai-tap",
+    "section": "Lý thuyết số",
+    "title": "Bài tập thuật toán số và kiểm tra nguyên tố",
+    "order": 110,
+    "path": "/bo-sung/ly-thuyet-so/13-bai-tap-thuat-toan-so-va-kiem-tra-nguyen-to",
+    "source": "bai tap chuong 3-4 Ly thuyet so.pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-13"
+    ]
+  },
+  {
+    "id": "drive-20261020-26",
+    "topic": "ly-thuyet-nhom",
+    "kind": "bai-tap",
+    "section": "Lý thuyết nhóm",
+    "title": "Phép toán và tiên đề nhóm",
+    "order": 101,
+    "path": "/bo-sung/ly-thuyet-nhom/26-phep-toan-va-tien-de-nhom",
+    "source": "GroupTheory_Exercises_Chapter1.pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-26"
+    ]
+  },
+  {
+    "id": "drive-20261020-22",
+    "topic": "ly-thuyet-nhom",
+    "kind": "bai-tap",
+    "section": "Lý thuyết nhóm",
+    "title": "Nhóm con và tâm của nhóm",
+    "order": 102,
+    "path": "/bo-sung/ly-thuyet-nhom/22-nhom-con-va-tam-cua-nhom",
+    "source": "execises chapter 2.(P1).pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-22"
+    ]
+  },
+  {
+    "id": "drive-20261020-24",
+    "topic": "ly-thuyet-nhom",
+    "kind": "bai-tap",
+    "section": "Lý thuyết nhóm",
+    "title": "Cấp phần tử và nhóm cyclic",
+    "order": 103,
+    "path": "/bo-sung/ly-thuyet-nhom/24-cap-phan-tu-va-nhom-cyclic",
+    "source": "exercises chapter 2(part2).pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-24"
+    ]
+  },
+  {
+    "id": "drive-20261020-23",
+    "topic": "ly-thuyet-nhom",
+    "kind": "bai-tap",
+    "section": "Lý thuyết nhóm",
+    "title": "Nhóm con chuẩn tắc và nhóm thương",
+    "order": 104,
+    "path": "/bo-sung/ly-thuyet-nhom/23-nhom-con-chuan-tac-va-nhom-thuong",
+    "source": "exercises chapter 2(part 3).pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-23"
+    ]
+  },
+  {
+    "id": "drive-20261020-25",
+    "topic": "ly-thuyet-nhom",
+    "kind": "bai-tap",
+    "section": "Lý thuyết nhóm",
+    "title": "Nhóm dihedral",
+    "order": 105,
+    "path": "/bo-sung/ly-thuyet-nhom/25-nhom-dihedral",
+    "source": "exercises chapter 3 (part1).pdf (1 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-25"
+    ]
+  },
+  {
+    "id": "drive-20261020-34",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Cơ sở logic và phương pháp chứng minh",
+    "order": 101,
+    "path": "/bo-sung/toan-roi-rac/34-co-so-logic-va-phuong-phap-chung-minh",
+    "source": "Chuong 1_Co so logic.pdf (68 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-34"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-35",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Tập hợp và ánh xạ",
+    "order": 102,
+    "path": "/bo-sung/toan-roi-rac/35-tap-hop-va-anh-xa",
+    "source": "Chuong 2_Tap hop va anh xa.pdf (35 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-35"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-36",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Các phương pháp đếm",
+    "order": 103,
+    "path": "/bo-sung/toan-roi-rac/36-cac-phuong-phap-dem",
+    "source": "Chuong 3_Phuong phap dem.pdf (37 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-36"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-37",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Hệ thức đệ quy tuyến tính",
+    "order": 104,
+    "path": "/bo-sung/toan-roi-rac/37-he-thuc-de-quy-tuyen-tinh",
+    "source": "Chuong 4_He thuc de quy.pdf (33 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-37"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-38",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Số nguyên và thuật toán Euclid",
+    "order": 105,
+    "path": "/bo-sung/toan-roi-rac/38-so-nguyen-va-thuat-toan-euclid",
+    "source": "Chuong 5_So nguyen.pdf (21 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-38"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-39",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Quan hệ tương đương và thứ tự",
+    "order": 106,
+    "path": "/bo-sung/toan-roi-rac/39-quan-he-tuong-duong-va-thu-tu",
+    "source": "Chuong 6_Quan he.pdf (43 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-39"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-40",
+    "topic": "toan-roi-rac",
+    "kind": "ly-thuyet",
+    "section": "Toán rời rạc",
+    "title": "Hàm Boole và mạng logic",
+    "order": 107,
+    "path": "/bo-sung/toan-roi-rac/40-ham-boole-va-mang-logic",
+    "source": "Chuong 7_Ham Boole.pdf (46 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-40"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-27",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập cơ sở logic",
+    "order": 108,
+    "path": "/bo-sung/toan-roi-rac/27-bai-tap-co-so-logic",
+    "source": "BT_Chuong 1_Co so logic.pdf (9 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-27"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-28",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập tập hợp và ánh xạ",
+    "order": 109,
+    "path": "/bo-sung/toan-roi-rac/28-bai-tap-tap-hop-va-anh-xa",
+    "source": "BT_Chuong 2_Tap hop va anh xa.pdf (6 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-28"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-29",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập phương pháp đếm",
+    "order": 110,
+    "path": "/bo-sung/toan-roi-rac/29-bai-tap-phuong-phap-dem",
+    "source": "BT_Chuong 3_Phuong phap dem.pdf (8 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-29"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-30",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập hệ thức đệ quy",
+    "order": 111,
+    "path": "/bo-sung/toan-roi-rac/30-bai-tap-he-thuc-de-quy",
+    "source": "BT_Chuong 4_He thuc de quy.pdf (3 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-30"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-31",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập số nguyên",
+    "order": 112,
+    "path": "/bo-sung/toan-roi-rac/31-bai-tap-so-nguyen",
+    "source": "BT_Chuong 5_So nguyen.pdf (4 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-31"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-32",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập quan hệ",
+    "order": 113,
+    "path": "/bo-sung/toan-roi-rac/32-bai-tap-quan-he",
+    "source": "BT_Chuong 6_Quan he.pdf (4 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-32"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-33",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Bài tập hàm Boole",
+    "order": 114,
+    "path": "/bo-sung/toan-roi-rac/33-bai-tap-ham-boole",
+    "source": "BT_Chuong 7_Ham Boole.pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-33"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-41",
+    "topic": "toan-roi-rac",
+    "kind": "bai-tap",
+    "section": "Toán rời rạc",
+    "title": "Ôn tập logic, tập hợp và ánh xạ",
+    "order": 115,
+    "path": "/bo-sung/toan-roi-rac/41-on-tap-logic-tap-hop-va-anh-xa",
+    "source": "TRR-on tap chuong 1,2.pdf (2 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-41"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-48",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Đại cương đồ thị",
+    "order": 101,
+    "path": "/bo-sung/toan-to-hop/48-dai-cuong-do-thi",
+    "source": "Chuong 1. Dai cuong ve do thi.pdf (72 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-48"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-49",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Cây, cây khung và phép duyệt",
+    "order": 102,
+    "path": "/bo-sung/toan-to-hop/49-cay-cay-khung-va-phep-duyet",
+    "source": "Chuong 2. Cay.pdf (64 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-49"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-50",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Đường đi ngắn nhất, Euler và Hamilton",
+    "order": 103,
+    "path": "/bo-sung/toan-to-hop/50-duong-di-ngan-nhat-euler-va-hamilton",
+    "source": "Chuong 3. Cac bai toan ve duong di.pdf (57 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-50"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-51",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Tổ hợp cơ bản và tổ hợp lặp",
+    "order": 104,
+    "path": "/bo-sung/toan-to-hop/51-to-hop-co-ban-va-to-hop-lap",
+    "source": "Chuong 4. To hop co ban.pdf (39 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-51"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-52",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Hàm sinh thường và hàm sinh mũ",
+    "order": 105,
+    "path": "/bo-sung/toan-to-hop/52-ham-sinh-thuong-va-ham-sinh-mu",
+    "source": "Chuong 5. Ham sinh.pdf (44 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-52"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-53",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Nguyên lý bù trừ và đa thức quân xe",
+    "order": 106,
+    "path": "/bo-sung/toan-to-hop/53-nguyen-ly-bu-tru-va-da-thuc-quan-xe",
+    "source": "Chuong 6. Nguyen ly bu tru.pdf (37 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-53"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-54",
+    "topic": "toan-to-hop",
+    "kind": "ly-thuyet",
+    "section": "Toán tổ hợp",
+    "title": "Số Catalan, Stirling và Bell",
+    "order": 107,
+    "path": "/bo-sung/toan-to-hop/54-so-catalan-stirling-va-bell",
+    "source": "Chuong 7. So dem nang cao.pdf (26 trang). Trang bìa ghi Đại học Khoa học Tự nhiên TP. Hồ Chí Minh.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-54"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-42",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Thực hành đại cương đồ thị",
+    "order": 108,
+    "path": "/bo-sung/toan-to-hop/42-thuc-hanh-dai-cuong-do-thi",
+    "source": "_BT_Chuong 1_Dai cuong ve do thi.pdf (10 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-42"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-43",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Thực hành cây và cây khung",
+    "order": 109,
+    "path": "/bo-sung/toan-to-hop/43-thuc-hanh-cay-va-cay-khung",
+    "source": "_BT_Chuong 2. Cay.pdf (8 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-43"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-44",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Bài tập đường đi, Euler và Hamilton",
+    "order": 110,
+    "path": "/bo-sung/toan-to-hop/44-bai-tap-duong-di-euler-va-hamilton",
+    "source": "_BT_Chuong 3. Cac bai toan ve duong di.pdf (4 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-44"
+    ],
+    "course": "COMP1701"
+  },
+  {
+    "id": "drive-20261020-45",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Bài tập tổ hợp cơ bản",
+    "order": 111,
+    "path": "/bo-sung/toan-to-hop/45-bai-tap-to-hop-co-ban",
+    "source": "_BT_Chuong 4. To hop co ban.pdf (7 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-45"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-46",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Bài tập hàm sinh",
+    "order": 112,
+    "path": "/bo-sung/toan-to-hop/46-bai-tap-ham-sinh",
+    "source": "_BT_Chuong 5. Ham sinh.pdf (7 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-46"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-47",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Bài tập nguyên lý bù trừ",
+    "order": 113,
+    "path": "/bo-sung/toan-to-hop/47-bai-tap-nguyen-ly-bu-tru",
+    "source": "_BT_Chuong 6. Nguyen ly bu tru.pdf (4 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-47"
+    ],
+    "course": "COMP1801"
+  },
+  {
+    "id": "drive-20261020-55",
+    "topic": "toan-to-hop",
+    "kind": "bai-tap",
+    "section": "Toán tổ hợp",
+    "title": "Bài tập số đếm nâng cao và đệ quy hàm mũ",
+    "order": 114,
+    "path": "/bo-sung/toan-to-hop/55-bai-tap-so-dem-nang-cao-va-de-quy-ham-mu",
+    "source": "tham khao chuong7 va de quy ham mu.pdf (5 trang). Nguồn tham khảo; chưa xác nhận đơn vị biên soạn hoặc chương trình áp dụng.",
+    "status": "available",
+    "verified": false,
+    "sourceIds": [
+      "drive-20261020-55"
+    ],
+    "course": "COMP1801"
+  }
+]

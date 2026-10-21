@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test'
 import { readFileSync } from 'node:fs'
 const questions=JSON.parse(readFileSync('docs/.vitepress/data/quiz.json','utf8'))
 const checklistKeys=JSON.parse(readFileSync('docs/.vitepress/data/checklist-keys.json','utf8'))
+const imported=JSON.parse(readFileSync('docs/.vitepress/data/imported-resources.json','utf8'))
 
 test('three majors lead through a semester to the shared course and lesson',async({page})=>{
   for(const major of ['cntt','sp-tin','cngd']) {
@@ -42,7 +43,7 @@ test('URL filters support Vietnamese search, restore and empty state',async({pag
   await page.locator('.empty-state button').click()
   await expect(page.locator('.course-result')).toHaveCount(15)
   await page.locator('#catalog-status').selectOption('available')
-  await expect(page.locator('.course-result')).toHaveCount(2)
+  await expect(page.locator('.course-result')).toHaveCount(3)
 })
 
 test('resource filters combine type, year and major',async({page})=>{
@@ -117,7 +118,7 @@ for (const width of [360,768,1280,1440]) for (const mode of ['light','dark']) te
   await page.emulateMedia({colorScheme:'light'})
   const errors:string[]=[]
   page.on('pageerror',error=>errors.push(error.message))
-  page.on('response',response=>{if(response.status()>=400 && response.url().startsWith('http://127.0.0.1:4173/')) errors.push(`${response.status()} ${response.url()}`)})
+  page.on('response',response=>{if(response.status()>=400 && response.url().startsWith('http://127.0.0.1:')) errors.push(`${response.status()} ${response.url()}`)})
   await page.goto('')
   await expect(page.locator('.theme-toggle')).toBeEnabled()
   if(mode==='dark') await page.locator('.theme-toggle').click()
@@ -255,4 +256,44 @@ test('existing saved checklist progress survives editorial changes',async({page}
   await expect(boxes.nth(0)).toBeChecked()
   await expect(boxes.nth(7)).toBeChecked()
   expect(await boxes.evaluateAll(inputs=>inputs.map(input=>(input as HTMLInputElement).dataset.checklistKey))).toEqual(checklistKeys)
+})
+
+test('new topic materials support URL filters, unassigned subjects and native math',async({page})=>{
+  await page.goto('hoc-lieu/?topic=ly-thuyet-nhom')
+  await expect(page.locator('.resource-result')).toHaveCount(5)
+  await expect(page.locator('#catalog-topic')).toHaveValue('ly-thuyet-nhom')
+  await page.reload()
+  await expect(page.locator('.resource-result')).toHaveCount(5)
+  await page.locator('.resource-result a').first().click()
+  await expect(page.locator('.vp-doc h1')).toBeVisible()
+  await expect(page.locator('.lesson-context')).toContainText('Lý thuyết nhóm')
+  await expect(page.locator('.lesson-context')).not.toContainText('COMP')
+  await expect(page.locator('mjx-container').first()).toBeVisible()
+  await expect(page.locator('iframe,embed,object')).toHaveCount(0)
+  await expect(page.locator('.vp-doc')).toContainText('Nguồn tài liệu')
+})
+
+test('all five topic indexes open a real lesson and retain subject navigation',async({page})=>{
+  for(const topic of ['dai-so-tuyen-tinh','ly-thuyet-so','ly-thuyet-nhom','toan-roi-rac','toan-to-hop']){
+    await page.goto('bo-sung/'+topic+'/')
+    await page.locator('.vp-doc a[href*="/bo-sung/"]').first().click()
+    await expect(page.locator('.vp-doc h1')).toHaveText(imported.find(r=>r.topic===topic).title)
+    await expect(page.locator('mjx-container').first()).toBeVisible()
+    await expect(page.locator('[data-mml-node="merror"],mjx-merror')).toHaveCount(0)
+    await expect(page.locator('.VPDocFooter .next')).toBeVisible()
+  }
+})
+
+test('new long formulas and code remain readable on mobile in both themes',async({page})=>{
+  await page.setViewportSize({width:360,height:900})
+  for(const r of [imported.find(r=>r.id==='drive-20261020-20'),imported.find(r=>r.id==='drive-20261020-53')]){
+    await page.goto(r.path.slice(1))
+    await expect(page.locator('.theme-toggle')).toBeEnabled()
+    for(let mode=0;mode<2;mode++){
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true)
+      await expect(page.locator('[data-mml-node="merror"],mjx-merror')).toHaveCount(0)
+      await page.screenshot({path:`test-results/import-${r.id}-${mode}.png`})
+      await page.locator('.theme-toggle').click()
+    }
+  }
 })
