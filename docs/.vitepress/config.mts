@@ -61,7 +61,7 @@ export default defineConfig({
     docFooter:{prev:'Trang trước',next:'Trang tiếp theo'},
     darkModeSwitchLabel:'Giao diện',lightModeSwitchTitle:'Chuyển sang nền sáng',darkModeSwitchTitle:'Chuyển sang nền tối',
     sidebarMenuLabel:'Danh mục',returnToTopLabel:'Lên đầu trang',
-    footer:{message:'Khoa Công nghệ Thông tin · Trường Đại học Sư phạm TP. Hồ Chí Minh',copyright:'Tài liệu tham khảo phục vụ học tập. <a href="/FIT.HCMUE-DOCUMENTS/huong-dan#nguon-tai-lieu">Nguồn và hướng dẫn sử dụng</a>'}
+    footer:{message:'Tác giả: Trương Minh Khiêm',copyright:'MSSV: 52.01.104.040 · Ngành: Công nghệ thông tin · Lớp: 52.01.CNTT.B'}
   },
   vite:{build:{rollupOptions:{output:{manualChunks(id) { if (id.includes('node_modules') && (id.includes('mathjax') || id.includes('mj-context'))) return 'math-renderer' }}}}}
 })
