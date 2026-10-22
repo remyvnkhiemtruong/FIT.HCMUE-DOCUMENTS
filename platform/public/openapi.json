@@ -1,0 +1,2143 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FIT HCMUE Platform API",
+    "version": "1.0.0",
+    "description": "API cùng origin với frontend. Mọi mutation yêu cầu Origin đúng BETTER_AUTH_URL. Vai trò biên tập/quản trị yêu cầu MFA. API xác thực Better Auth ở /api/auth; xem docs/API.md."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/v1/catalog": {
+      "get": {
+        "summary": "Danh mục ngành, môn, chương trình và chủ đề",
+        "operationId": "get_catalog",
+        "parameters": [],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/resources": {
+      "get": {
+        "summary": "Tìm tiêu đề tài liệu và lọc theo chương trình",
+        "operationId": "get_resources",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "course",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "major",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "term",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "topic",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/resolve": {
+      "get": {
+        "summary": "Giải quyết đường dẫn cũ",
+        "operationId": "get_resolve",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/resources/{id}": {
+      "get": {
+        "summary": "Đọc bản học liệu đã xuất bản",
+        "operationId": "get_resources_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/roadmap": {
+      "get": {
+        "summary": "Lộ trình và các mục checklist ổn định",
+        "operationId": "get_roadmap",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/quiz": {
+      "get": {
+        "summary": "Câu hỏi luyện tập, không trả đáp án trước nộp",
+        "operationId": "get_quiz",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/quiz/attempts": {
+      "post": {
+        "summary": "Chấm và lưu lượt luyện tập theo phiên bản",
+        "operationId": "post_quiz_attempts",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizAttempt"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/me": {
+      "get": {
+        "summary": "Người dùng hiện tại hoặc null",
+        "operationId": "get_me",
+        "parameters": [],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/me/state": {
+      "get": {
+        "summary": "Hồ sơ và dữ liệu học tập của chính mình",
+        "operationId": "get_me_state",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/me/export": {
+      "get": {
+        "summary": "Xuất dữ liệu học tập JSON",
+        "operationId": "get_me_export",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/me/import": {
+      "post": {
+        "summary": "Xem trước hoặc nhập tiến độ không ghi đè",
+        "operationId": "post_me_import",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportProgress"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/progress/{key}": {
+      "put": {
+        "summary": "Lưu tiến độ với kiểm tra phiên bản",
+        "operationId": "put_progress_key",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Progress"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bookmarks/{id}": {
+      "put": {
+        "summary": "Lưu tài liệu",
+        "operationId": "put_bookmarks_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Bỏ lưu tài liệu",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Đã bỏ lưu"
+          }
+        }
+      }
+    },
+    "/api/v1/contributions": {
+      "get": {
+        "summary": "Danh sách đóng góp của chính mình",
+        "operationId": "get_contributions",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      },
+      "post": {
+        "summary": "Tạo bản nháp",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contribution"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ID và version của bản nháp"
+          }
+        }
+      }
+    },
+    "/api/v1/contributions/{id}": {
+      "put": {
+        "summary": "Sửa bản nháp với kiểm tra phiên bản",
+        "operationId": "put_contributions_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contribution"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/contributions/{id}/submit": {
+      "post": {
+        "summary": "Gửi bản nháp chờ duyệt",
+        "operationId": "post_contributions_id_submit",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/preview": {
+      "post": {
+        "summary": "Dựng Markdown an toàn để xem trước",
+        "operationId": "post_preview",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Preview"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/files": {
+      "post": {
+        "summary": "Nhận tệp nhị phân vào khu cách ly",
+        "operationId": "post_files",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "contribution",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-File-Name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/files/{id}": {
+      "get": {
+        "summary": "Tải tệp có kiểm tra quyền và HTTP Range",
+        "operationId": "get_files_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Range",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          },
+          "206": {
+            "description": "Một phần tệp"
+          },
+          "416": {
+            "description": "Khoảng tải không hợp lệ"
+          }
+        }
+      }
+    },
+    "/api/v1/reports": {
+      "post": {
+        "summary": "Báo lỗi tài liệu",
+        "operationId": "post_reports",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Report"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/dashboard": {
+      "get": {
+        "summary": "Số liệu hàng đợi quản trị",
+        "operationId": "get_admin_dashboard",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/revisions": {
+      "get": {
+        "summary": "Phiên bản nội dung dành cho biên tập",
+        "operationId": "get_admin_revisions",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/review": {
+      "post": {
+        "summary": "Duyệt, yêu cầu sửa hoặc lưu trữ phiên bản",
+        "operationId": "post_admin_review",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Review"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/roster": {
+      "post": {
+        "summary": "Kiểm tra hoặc nhập CSV sinh viên",
+        "operationId": "post_admin_roster",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Roster"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Danh sách sinh viên đã đối chiếu",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "items, total, page, pageSize"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/users": {
+      "get": {
+        "summary": "Danh sách tài khoản dành cho quản trị",
+        "operationId": "get_admin_users",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/users/{id}": {
+      "patch": {
+        "summary": "Thay đổi vai trò và thu hồi phiên",
+        "operationId": "patch_admin_users_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountUpdate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/invite": {
+      "post": {
+        "summary": "Mời biên tập viên hoặc quản trị",
+        "operationId": "post_admin_invite",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Invite"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/curriculum": {
+      "put": {
+        "summary": "Cập nhật phân bổ môn theo phiên bản",
+        "operationId": "put_admin_curriculum",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Curriculum"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/resources": {
+      "put": {
+        "summary": "Cập nhật phân loại tài liệu",
+        "operationId": "put_admin_resources",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceMetadata"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/reports": {
+      "get": {
+        "summary": "Danh sách báo lỗi",
+        "operationId": "get_admin_reports",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/reports/{id}": {
+      "patch": {
+        "summary": "Đóng báo lỗi",
+        "operationId": "patch_admin_reports_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/audit": {
+      "get": {
+        "summary": "Nhật ký quản trị",
+        "operationId": "get_admin_audit",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/jobs": {
+      "get": {
+        "summary": "Tác vụ nền; không trả payload email",
+        "operationId": "get_admin_jobs",
+        "parameters": [],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Thành công"
+          },
+          "400": {
+            "description": "Dữ liệu không hợp lệ"
+          },
+          "401": {
+            "description": "Chưa đăng nhập"
+          },
+          "403": {
+            "description": "Không có quyền hoặc chưa bật MFA"
+          },
+          "404": {
+            "description": "Không tồn tại hoặc chưa được phép đọc"
+          },
+          "409": {
+            "description": "Xung đột phiên bản hoặc trạng thái"
+          },
+          "413": {
+            "description": "Dữ liệu hoặc tệp quá lớn"
+          },
+          "503": {
+            "description": "Dịch vụ chưa sẵn sàng"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/profile": {
+      "put": {
+        "summary": "Quản trị sửa hồ sơ, thu hồi phiên và xác thực email mới",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IdentityCorrection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Đã cập nhật; emailVerificationRequired nếu cần xác thực lại"
+          },
+          "400": {
+            "description": "Dữ liệu trùng hoặc không hợp lệ"
+          },
+          "403": {
+            "description": "Cần quyền quản trị và MFA"
+          }
+        }
+      }
+    },
+    "/api/v1/anchors": {
+      "get": {
+        "summary": "Anchor tương thích, chỉ trả ID",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ids"
+          }
+        }
+      }
+    },
+    "/api/v1/support": {
+      "get": {
+        "summary": "Trang hỗ trợ được bảo vệ",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "html"
+          },
+          "401": {
+            "description": "Cần đăng nhập"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/jobs/{id}": {
+      "patch": {
+        "summary": "Thử lại tác vụ đã thất bại",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Đã đưa về hàng đợi"
+          },
+          "409": {
+            "description": "Tác vụ chưa ở trạng thái failed"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "__Secure-better-auth.session_token",
+        "description": "Cookie do Better Auth cấp; HTTP local dùng better-auth.session_token."
+      }
+    },
+    "schemas": {
+      "Progress": {
+        "type": "object",
+        "properties": {
+          "complete": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "complete",
+          "version"
+        ],
+        "additionalProperties": false
+      },
+      "Contribution": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          },
+          "resource": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "title",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "Preview": {
+        "type": "object",
+        "properties": {
+          "markdown": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "markdown"
+        ],
+        "additionalProperties": false
+      },
+      "QuizAttempt": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "revision",
+          "answers"
+        ],
+        "additionalProperties": false
+      },
+      "Roster": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string"
+          },
+          "commit": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "csv",
+          "commit"
+        ],
+        "additionalProperties": false
+      },
+      "ImportProgress": {
+        "type": "object",
+        "properties": {
+          "schema": {
+            "const": 1
+          },
+          "progress": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "complete": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "key",
+                "complete"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "commit": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "schema",
+          "progress"
+        ],
+        "additionalProperties": false
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "published",
+              "changes_requested",
+              "archived"
+            ]
+          },
+          "note": {
+            "type": "string"
+          },
+          "rights": {
+            "enum": [
+              "unreviewed",
+              "permitted",
+              "restricted"
+            ]
+          },
+          "academicVerified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "note",
+          "rights",
+          "academicVerified"
+        ],
+        "additionalProperties": false
+      },
+      "AccountUpdate": {
+        "type": "object",
+        "properties": {
+          "disabled": {
+            "type": "boolean"
+          },
+          "role": {
+            "enum": [
+              "student",
+              "editor",
+              "admin"
+            ]
+          }
+        },
+        "required": [
+          "disabled",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "Invite": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "editor",
+              "admin"
+            ]
+          }
+        },
+        "required": [
+          "email",
+          "name",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "Curriculum": {
+        "type": "object",
+        "properties": {
+          "major": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "course": {
+            "type": "string"
+          },
+          "term": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "credits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "major",
+          "version",
+          "course",
+          "term",
+          "credits",
+          "requirement",
+          "source",
+          "verified"
+        ],
+        "additionalProperties": false
+      },
+      "ResourceMetadata": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "course": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "topic": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "year": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "course",
+          "topic",
+          "kind",
+          "year"
+        ],
+        "additionalProperties": false
+      },
+      "Report": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "resource",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "statusMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "ResourceSummary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "course": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "topic": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "year": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "available": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "course",
+          "topic",
+          "title",
+          "path",
+          "kind",
+          "year",
+          "available"
+        ],
+        "additionalProperties": false
+      },
+      "IdentityCorrection": {
+        "type": "object",
+        "properties": {
+          "currentId": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "major": {
+            "type": "string"
+          },
+          "className": {
+            "type": "string"
+          },
+          "cohort": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currentId",
+          "studentId",
+          "email",
+          "name",
+          "major",
+          "className",
+          "cohort"
+        ]
+      }
+    }
+  }
+}
