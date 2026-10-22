@@ -93,7 +93,7 @@ try {
       '-l',
       resolve(runDirectory, 'postgres.log'),
       '-o',
-      `-h 127.0.0.1 -p ${port}`,
+      `-h 127.0.0.1 -p ${port}${process.platform === 'win32' ? '' : ' -c unix_socket_directories='}`,
       '-w',
       'start',
     ])

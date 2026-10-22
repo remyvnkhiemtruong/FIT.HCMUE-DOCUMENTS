@@ -105,7 +105,7 @@ if (!databaseRunning)
     '-l',
     resolve(directory, 'postgres-runtime.log'),
     '-o',
-    `-h 127.0.0.1 -p ${config.port}`,
+    `-h 127.0.0.1 -p ${config.port}${process.platform === 'win32' ? '' : ' -c unix_socket_directories='}`,
     '-w',
     'start',
   ])

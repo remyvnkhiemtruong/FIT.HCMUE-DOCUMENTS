@@ -3,6 +3,7 @@ import { randomBytes, randomUUID, createHmac, createHash } from 'node:crypto'
 import { spawn, spawnSync } from 'node:child_process'
 import {
   closeSync,
+  existsSync,
   mkdirSync,
   openSync,
   writeFileSync,
@@ -44,7 +45,15 @@ function binary(command: string, args: string[]) {
       stdio: ['ignore', fd, fd],
       timeout: 60000,
     })
-    if (r.status !== 0) throw new Error('Isolated PostgreSQL command failed')
+    if (r.status !== 0) {
+      const log = resolve(directory, 'postgres.log')
+      const details = existsSync(log)
+        ? readFileSync(log, 'utf8')
+            .slice(-3000)
+            .replaceAll(password, '[redacted]')
+        : ''
+      throw new Error('Isolated PostgreSQL command failed: ' + details)
+    }
   }
   finally {
     closeSync(fd)
@@ -189,7 +198,7 @@ try {
     '-l',
     resolve(directory, 'postgres.log'),
     '-o',
-    `-h 127.0.0.1 -p ${dbPort}`,
+    `-h 127.0.0.1 -p ${dbPort}${process.platform === 'win32' ? '' : ' -c unix_socket_directories='}`,
     '-w',
     'start',
   ])
