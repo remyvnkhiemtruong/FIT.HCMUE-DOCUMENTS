@@ -1,0 +1,72 @@
+name: fit-hcmue
+services:
+  postgres:
+    image: postgres:16-bookworm
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?required}
+      POSTGRES_USER: ${POSTGRES_USER:?required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?required}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  app:
+    image: ${APP_IMAGE:?required}
+    env_file: .env.production
+    environment:
+      FILE_STORAGE_PATH: /storage/uploads
+    volumes: [uploads:/storage/uploads]
+    depends_on:
+      postgres: { condition: service_healthy }
+    read_only: true
+    tmpfs: [/tmp]
+    restart: unless-stopped
+  worker:
+    image: ${OPS_IMAGE:?required}
+    env_file: .env.production
+    environment:
+      FILE_STORAGE_PATH: /storage/uploads
+      CLAMD_HOST: scanner
+    command: [node, --import, tsx, scripts/worker.ts]
+    volumes: [uploads:/storage/uploads]
+    depends_on:
+      postgres: { condition: service_healthy }
+      scanner: { condition: service_started }
+    read_only: true
+    tmpfs: [/tmp]
+    restart: unless-stopped
+  scanner:
+    image: clamav/clamav:stable
+    volumes: [clamav_signatures:/var/lib/clamav]
+    restart: unless-stopped
+  proxy:
+    image: caddy:2
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?required}
+    ports: [80:80, 443:443, 443:443/udp]
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [app]
+    restart: unless-stopped
+  ops:
+    profiles: [ops]
+    image: ${OPS_IMAGE:?required}
+    env_file: .env.production
+    environment:
+      FILE_STORAGE_PATH: /storage/uploads
+      BACKUP_WORK_PATH: /backup
+    volumes: [uploads:/storage/uploads:ro, backup_work:/backup]
+    command: [node, --import, tsx, scripts/migrate.ts]
+volumes:
+  postgres_data:
+  uploads:
+  clamav_signatures:
+  caddy_data:
+  caddy_config:
+  backup_work:

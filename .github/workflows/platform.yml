@@ -1,0 +1,69 @@
+name: Platform checks
+on:
+  pull_request:
+    paths: ['platform/**', 'docs/**', '.github/workflows/platform.yml']
+  push:
+    branches: [main]
+    paths: ['platform/**', 'docs/**', '.github/workflows/platform.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: platform
+    env:
+      PLAYWRIGHT_CHANNEL: chromium
+      PG_BIN: /usr/lib/postgresql/16/bin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: platform/package-lock.json
+      - run: npm ci
+      - run: sudo apt-get update && sudo apt-get install -y postgresql-16
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint && npm run typecheck && npm run content:check
+      - run: npm run test:integration && npm run test:browser && npm run test:business
+      - name: Verify container images
+        run: |
+          docker build --target production -t fit-hcmue-app:check .
+          docker build --target operations -t fit-hcmue-ops:check .
+          docker run --rm --entrypoint node fit-hcmue-ops:check --version
+          docker run --rm --entrypoint pg_dump fit-hcmue-ops:check --version
+          docker run --rm -e APP_DOMAIN=localhost -v "$PWD/deploy/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2 caddy validate --config /etc/caddy/Caddyfile
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: platform-diagnostics
+          path: platform/test-results/
+  image:
+    if: github.event_name == 'workflow_dispatch'
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: platform
+          target: production
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/fit-hcmue-app:${{ github.sha }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: platform
+          target: operations
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/fit-hcmue-ops:${{ github.sha }}

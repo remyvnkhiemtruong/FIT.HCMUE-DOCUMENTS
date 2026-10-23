@@ -1,0 +1,16 @@
+{$APP_DOMAIN} {
+  encode zstd gzip
+  @upload path /api/v1/files
+  request_body @upload {
+    max_size 50MB
+  }
+  @other not path /api/v1/files
+  request_body @other {
+    max_size 2100KB
+  }
+  header {
+    Strict-Transport-Security "max-age=31536000"
+    -Server
+  }
+  reverse_proxy app:3000
+}

@@ -1,0 +1,7 @@
+[Unit]
+Description=Check FIT HCMUE availability and backups
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=5min
+[Install]
+WantedBy=timers.target

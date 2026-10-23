@@ -1,0 +1,16 @@
+node_modules/
+.nuxt/
+.output/
+.data/
+.local-tools/
+dist/
+coverage/
+test-results/
+playwright-report/
+*.log
+.env
+.env.*
+!.env.example
+!.env.production.example
+.DS_Store
+Thumbs.db

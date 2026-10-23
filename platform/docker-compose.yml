@@ -1,0 +1,53 @@
+name: ${COMPOSE_PROJECT_NAME:-fit-hcmue-dev}
+
+services:
+  postgres:
+    image: postgres:16-bookworm
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Run npm run env:init first}
+      POSTGRES_USER: ${POSTGRES_USER:?Run npm run env:init first}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run npm run env:init first}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 15s
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - hub
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Run npm run env:init first}
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: '3000'
+      NUXT_PUBLIC_LEGACY_URL: ${NUXT_PUBLIC_LEGACY_URL:-https://remyvnkhiemtruong.github.io/FIT.HCMUE-DOCUMENTS/}
+    ports:
+      - '127.0.0.1:${APP_PORT:-3001}:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - hub
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+networks:
+  hub:
+    driver: bridge
+
+volumes:
+  postgres_data:
