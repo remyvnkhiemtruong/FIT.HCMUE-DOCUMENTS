@@ -11,14 +11,19 @@ export function courseContent(code: string) {
   if (!materials.length) {
     content += '\nChưa có bài giảng, bài tập hoặc đề thi cho môn này. [Đóng góp tài liệu](https://github.com/remyvnkhiemtruong/FIT.HCMUE-DOCUMENTS/issues).\n'
   }
+  if (materials.length) content += `
+<CourseMaterials course="${code}">
+
+`
   for (const [kind, label] of Object.entries(resourceKinds)) {
     const list = materials.filter(r => r.kind === kind)
     if (!list.length) continue
-    content += `\n## ${label}\n\n` + list.map(r => {
+    content += `\n<section data-material-kind="${kind}">\n\n## ${label}\n\n` + list.map(r => {
       const yearAlreadyInTitle = r.year?.split('-').every(part => r.title.includes(part))
       return `- [${r.title}](${r.path})${r.year && !yearAlreadyInTitle ? ' · ' + r.year : ''}`
-    }).join('\n') + '\n'
+    }).join('\n') + '\n\n</section>\n'
   }
+  if (materials.length) content += '\n</CourseMaterials>\n'
 
   const goals: Record<string, string> = {
     COMP1800: 'Ôn tập giải tích hàm một biến, đại số tuyến tính và dạng toàn phương; vận dụng qua bài tập và đề thi.',
