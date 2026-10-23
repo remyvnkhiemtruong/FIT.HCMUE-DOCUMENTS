@@ -23,6 +23,7 @@ button:not(:disabled):active { transform: translateY(1px); }
 .resource-result:hover, .course-result:hover { background: var(--vp-c-brand-soft); }
 .vp-doc tbody tr:hover { background: var(--vp-c-brand-soft); }
 .vp-doc h2, .vp-doc h3 { scroll-margin-top: 108px; }
+.vp-doc mjx-container { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }
 .VPDocAsideOutline .outline-link:hover { color: var(--vp-c-brand-1); }
 .quiz-option:hover { background: var(--vp-c-brand-soft); border-color: var(--vp-c-brand-1); }
 .quiz-question:disabled .quiz-option:hover { background: inherit; border-color: var(--fit-control-border); }
