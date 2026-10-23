@@ -65,7 +65,11 @@ test('student pages fit all four widths in both persisted themes', async ({ page
         await expect(page.locator('h1').first()).toBeVisible()
         for (const sample of await page.evaluate(contrastSamples)) expect(sample.ratio, sample.name).toBeGreaterThanOrEqual(sample.minimum)
         await expect(page.getByRole('switch')).toHaveAttribute('aria-checked', String(theme === 'dark'))
-        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+        const dimensions = await page.evaluate(() => ({
+          viewport: innerWidth, width: document.documentElement.scrollWidth,
+          outside: [...document.querySelectorAll('.vp-doc *, .VPNav *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1).slice(0, 8).map(e => ({ tag: e.tagName, class: e.className?.toString(), width: e.getBoundingClientRect().width })),
+        }))
+        expect(dimensions.width, JSON.stringify({ name, theme, width, dimensions })).toBeLessThanOrEqual(dimensions.viewport)
         expect(await page.locator('.brand-lockup img').evaluateAll(images => images.every(image => (image as HTMLImageElement).naturalWidth > 0))).toBe(true)
         await page.screenshot({ path: `test-results/static-${name}-${width}-${theme}.png`, animations: 'disabled' })
       }
