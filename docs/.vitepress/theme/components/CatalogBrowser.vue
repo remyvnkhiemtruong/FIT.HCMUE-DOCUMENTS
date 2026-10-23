@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 import { majors, courses, resources, resourceKinds, topics, statusFor, placements, cohorts, cohortYear, academicYear, type Course, type Resource } from '../../data/catalog.mts'
 import { filterCourses, filterResources } from '../../data/filtering.mts'
 import { useFilters } from '../useFilters'
+const advanced=ref<HTMLDetailsElement>()
+onMounted(()=>{if(window.innerWidth<768 && advanced.value) advanced.value.open=false})
 const props=defineProps<{mode:'courses'|'resources'}>()
 const {filters,reset}=useFilters({q:'',major:'',term:'',cohort:'',course:'',topic:'',kind:'',year:'',status:'',page:'1'})
 const results=computed(()=>props.mode==='courses' ? filterCourses(filters) : filterResources(filters))
@@ -24,6 +26,8 @@ function placementLabel(code:string) {
   <form class="catalog-filters" @submit.prevent="change" @input="change" @change="change" role="search" :aria-label="mode==='courses' ? 'Lọc học phần' : 'Lọc học liệu'">
     <div class="filter-wide"><label for="catalog-q">Từ khóa</label><input id="catalog-q" v-model="filters.q" type="search" placeholder="Ví dụ: co so toan hoặc COMP1800"></div>
     <div><label for="catalog-major">Ngành học</label><select id="catalog-major" v-model="filters.major"><option value="">Tất cả các ngành</option><option v-for="m in majors" :key="m.id" :value="m.id">{{m.name}}</option></select></div>
+    <details ref="advanced" class="filter-options" open><summary>Bộ lọc bổ sung</summary>
+    <div class="filter-options-grid">
     <template v-if="mode==='courses'">
       <div><label for="catalog-term">Học kỳ</label><select id="catalog-term" v-model="filters.term"><option value="">Tất cả học kỳ</option><option v-for="t in 8" :key="t" :value="String(t)">Học kỳ {{t}}</option></select></div>
       <div><label for="catalog-status">Học liệu</label><select id="catalog-status" v-model="filters.status"><option value="">Tất cả trạng thái</option><option value="available">Có tài liệu</option><option value="empty">Chưa có tài liệu</option></select></div>
@@ -35,6 +39,7 @@ function placementLabel(code:string) {
       <div><label for="catalog-kind">Loại tài liệu</label><select id="catalog-kind" v-model="filters.kind"><option value="">Tất cả loại</option><option v-for="(label,id) in resourceKinds" :key="id" :value="id">{{label}}</option></select></div>
       <div><label for="catalog-year">Năm đề thi</label><select id="catalog-year" v-model="filters.year"><option value="">Tất cả năm</option><option v-for="year in years" :key="year" :value="year">{{year}}</option></select></div>
     </template>
+    </div></details>
     <button type="button" class="secondary-button" @click="reset">Xóa bộ lọc</button>
     <p v-if="selectedCohort" class="filter-wide muted-note">{{selectedCohort.id}}: năm thứ {{cohortYear(selectedCohort.startYear)}} trong năm học {{academicYear}}–{{academicYear+1}}. Đối chiếu học phần với kế hoạch của trường.</p>
   </form>
