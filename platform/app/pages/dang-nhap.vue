@@ -3,9 +3,23 @@ import { safeReturn } from '#shared/utils/identity'
 
 const route = useRoute(),
   { refresh } = await useViewer()
-const mode = ref(
-  route.query.invite ? 'signup' : route.query.token ? 'reset' : 'login',
-)
+const authTabs = [{ id: 'login', name: 'Đăng nhập' }, { id: 'signup', name: 'Đăng ký' }]
+const authTab = useSectionTab(authTabs, 'login')
+const mode = ref(route.query.token ? 'reset' : route.query.invite ? 'signup' : authTab.value)
+const showPassword = ref(false)
+watch(authTab, (value) => {
+  mode.value = value
+  message.value = ''
+  password.value = ''
+  showPassword.value = false
+})
+function setMode(value: string) {
+  mode.value = value
+  message.value = ''
+  showPassword.value = false
+  if (value === 'login' || value === 'signup') authTab.value = value
+}
+const heading = computed(() => ({ login: 'Đăng nhập', signup: 'Đăng ký tài khoản', forgot: 'Quên mật khẩu', reset: 'Đặt lại mật khẩu', totp: 'Xác thực hai bước', backup: 'Nhập mã dự phòng' }[mode.value] || 'Đăng nhập'))
 const email = ref(String(route.query.email || '')),
   studentId = ref(String(route.query.invite || '')),
   password = ref(''),
@@ -107,90 +121,171 @@ async function resend() {
 </script>
 
 <template>
-  <section class="narrow">
-    <h1>
-      {{
-        {
-          login: "Đăng nhập",
-          signup: "Đăng ký tài khoản",
-          forgot: "Quên mật khẩu",
-          reset: "Đặt lại mật khẩu",
-          totp: "Xác thực hai bước",
-        }[mode]
-      }}
-    </h1>
-    <p>
-      Tài khoản sinh viên cần khớp danh sách email và MSSV do quản trị cung cấp.
-    </p>
-    <form
-      class="stack"
-      @submit.prevent="submit"
-    >
-      <label v-if="['login', 'signup', 'forgot'].includes(mode)">{{ mode === "login" ? "Email hoặc MSSV" : "Email trường"
-      }}<input
-        v-model="email"
-        :type="mode === 'login' ? 'text' : 'email'"
-        autocomplete="username"
-        required
-      ></label>
-      <label v-if="mode === 'signup'">MSSV<input
-        v-model="studentId"
-        required
-        autocomplete="off"
-      ></label>
-      <label v-if="['login', 'signup', 'reset'].includes(mode)">Mật khẩu<input
-        v-model="password"
-        type="password"
-        :minlength="mode === 'login' ? 1 : 12"
-        :autocomplete="mode === 'login' ? 'current-password' : 'new-password'"
-        required
-      ></label>
-      <label v-if="['totp', 'backup'].includes(mode)">{{ mode === "backup" ? "Mã dự phòng" : "Mã từ ứng dụng xác thực"
-      }}<input
-        v-model="code"
-        :inputmode="mode === 'backup' ? 'text' : 'numeric'"
-        autocomplete="one-time-code"
-        required
-      ></label>
-      <button :disabled="busy">
-        {{ busy ? "Đang xử lý…" : "Tiếp tục" }}
-      </button>
-      <p role="status">
-        {{ message }}
-      </p>
-    </form>
-    <button
-      v-if="['totp', 'backup'].includes(mode)"
-      class="quiet"
-      @click="mode = mode === 'totp' ? 'backup' : 'totp'"
-    >
-      {{ mode === "totp" ? "Dùng mã dự phòng" : "Dùng ứng dụng xác thực" }}
-    </button>
-    <button
-      v-if="['login', 'signup'].includes(mode)"
-      class="quiet"
-      :disabled="busy"
-      @click="resend"
-    >
-      Gửi lại email xác thực
-    </button>
-    <div class="actions">
-      <button
-        class="quiet"
-        @click="mode = 'login'"
+  <section class="auth-page">
+    <div class="auth-card">
+      <AppIdentity />
+      <SectionTabs
+        v-if="['login', 'signup'].includes(mode)"
+        id="auth"
+        :model-value="mode"
+        label="Tài khoản sinh viên"
+        :options="authTabs"
+        @update:model-value="setMode"
+      />
+      <section
+        id="auth-panel"
+        :role="['login', 'signup'].includes(mode) ? 'tabpanel' : undefined"
+        :aria-labelledby="['login', 'signup'].includes(mode) ? `auth-tab-${mode}` : 'auth-heading'"
+        class="auth-panel"
       >
-        Đăng nhập
-      </button><button
-        class="quiet"
-        @click="mode = 'signup'"
-      >
-        Đăng ký
-      </button><button
-        class="quiet"
-        @click="mode = 'forgot'"
-      >
-        Quên mật khẩu
-      </button>
+        <h1 id="auth-heading">
+          {{ heading }}
+        </h1>
+        <p
+          v-if="mode === 'signup'"
+          class="muted"
+        >
+          Dùng email trường và MSSV có trong danh sách sinh viên do quản trị nhập.
+        </p>
+        <p
+          v-else-if="mode === 'login'"
+          class="muted"
+        >
+          Đọc học liệu, luyện tập và lưu tiến độ của bạn.
+        </p>
+        <p
+          v-else-if="mode === 'forgot'"
+          class="muted"
+        >
+          Nhập email đã đăng ký để nhận hướng dẫn đặt lại mật khẩu.
+        </p>
+        <p
+          v-else-if="mode === 'totp'"
+          class="muted"
+        >
+          Nhập mã hiện tại từ ứng dụng xác thực.
+        </p>
+        <p
+          v-else-if="mode === 'backup'"
+          class="muted"
+        >
+          Mỗi mã dự phòng chỉ sử dụng được một lần.
+        </p>
+        <form
+          class="stack"
+          :aria-busy="busy"
+          @submit.prevent="submit"
+        >
+          <label v-if="['login', 'signup', 'forgot'].includes(mode)"> {{ mode === 'login' ? 'Email hoặc MSSV' : 'Email trường' }}
+            <input
+              v-model="email"
+              :type="mode === 'login' ? 'text' : 'email'"
+              autocomplete="username"
+              required
+              :disabled="busy"
+              autocapitalize="none"
+              spellcheck="false"
+            >
+          </label>
+          <label v-if="mode === 'signup'">MSSV
+            <input
+              v-model="studentId"
+              required
+              autocomplete="off"
+              :disabled="busy"
+              placeholder="52.01.104.040"
+            >
+          </label>
+          <div v-if="['login', 'signup', 'reset'].includes(mode)">
+            <label for="auth-password">{{ mode === 'reset' ? 'Mật khẩu mới' : 'Mật khẩu' }}</label>
+            <div class="password-field">
+              <input
+                id="auth-password"
+                v-model="password"
+                :type="showPassword ? 'text' : 'password'"
+                :minlength="mode === 'login' ? 1 : 12"
+                :autocomplete="mode === 'login' ? 'current-password' : 'new-password'"
+                :aria-describedby="mode !== 'login' ? 'password-help' : undefined"
+                required
+                :disabled="busy"
+              >
+              <button
+                type="button"
+                class="password-toggle"
+                :aria-pressed="showPassword"
+                aria-controls="auth-password"
+                @click="showPassword = !showPassword"
+              >
+                {{ showPassword ? 'Ẩn' : 'Hiện' }}
+              </button>
+            </div>
+            <small
+              v-if="mode !== 'login'"
+              id="password-help"
+            >Dùng ít nhất 12 ký tự.</small>
+          </div>
+          <label v-if="['totp', 'backup'].includes(mode)">{{ mode === 'backup' ? 'Mã dự phòng' : 'Mã xác thực' }}
+            <input
+              v-model="code"
+              :inputmode="mode === 'backup' ? 'text' : 'numeric'"
+              autocomplete="one-time-code"
+              required
+              :disabled="busy"
+            >
+          </label>
+          <button
+            type="submit"
+            :disabled="busy"
+          >
+            {{ busy ? 'Đang xử lý…' : mode === 'login' ? 'Đăng nhập' : mode === 'signup' ? 'Đăng ký' : 'Tiếp tục' }}
+          </button>
+          <p
+            v-if="message"
+            class="form-message"
+            role="status"
+          >
+            {{ message }}
+          </p>
+        </form>
+        <div class="auth-links">
+          <button
+            v-if="mode === 'login'"
+            class="link-button"
+            :disabled="busy"
+            @click="setMode('forgot')"
+          >
+            Quên mật khẩu?
+          </button>
+          <button
+            v-if="['totp', 'backup'].includes(mode)"
+            class="link-button"
+            :disabled="busy"
+            @click="setMode(mode === 'totp' ? 'backup' : 'totp')"
+          >
+            {{ mode === 'totp' ? 'Dùng mã dự phòng' : 'Dùng ứng dụng xác thực' }}
+          </button>
+          <button
+            v-if="['login', 'signup'].includes(mode)"
+            class="link-button"
+            :disabled="busy"
+            @click="resend"
+          >
+            Gửi lại email xác thực
+          </button>
+          <button
+            v-if="!['login', 'signup', 'totp', 'backup'].includes(mode)"
+            class="link-button"
+            :disabled="busy"
+            @click="setMode('login')"
+          >
+            Về đăng nhập
+          </button>
+        </div>
+      </section>
     </div>
+    <NuxtLink
+      class="auth-back"
+      to="/"
+    >Về kho học liệu</NuxtLink>
   </section>
 </template>

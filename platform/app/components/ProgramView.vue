@@ -41,16 +41,29 @@ const placements = computed(
           || p.course.toLowerCase() === props.course.toLowerCase()),
     ) || [],
 )
-const { data: resources } = await useFetch<PageResult<ResourceSummary>>(
-  '/api/v1/resources',
-  {
-    query: computed(() => ({
-      course: selectedCourse.value?.code || '',
-      page: 1,
-    })),
-    immediate: !!props.course,
+const fetcher = useRequestFetch()
+const { data: resources, error: resourceError, status: resourceStatus, refresh: reloadResources } = await useAsyncData(
+  `course-materials-${props.course || 'none'}`,
+  async () => {
+    if (!props.course) return null
+    const first = await fetcher<PageResult<ResourceSummary>>('/api/v1/resources', { query: { course: props.course.toUpperCase(), page: 1 } })
+    const items = [...first.items]
+    for (let page = 2; items.length < first.total; page++) {
+      const next = await fetcher<PageResult<ResourceSummary>>('/api/v1/resources', { query: { course: props.course.toUpperCase(), page } })
+      if (!next.items.length) break
+      items.push(...next.items)
+    }
+    return { ...first, items }
   },
 )
+const materialTabs = computed(() => [
+  { id: 'all', name: 'Tất cả' },
+  ...['ly-thuyet', 'bai-tap', 'de-thi', 'cong-thuc', 'trac-nghiem']
+    .filter(kind => resources.value?.items.some(r => r.kind === kind))
+    .map(kind => ({ id: kind, name: resourceKindName(kind) })),
+])
+const materialTab = useSectionTab(materialTabs, 'all')
+const visibleResources = computed(() => resources.value?.items.filter(r => materialTab.value === 'all' || r.kind === materialTab.value) || [])
 function cohortChange() {
   navigateTo({
     query: { ...route.query, cohort: selectedCohort.value || undefined },
@@ -77,22 +90,53 @@ function cohortChange() {
       {{ selectedCourse.code }}
     </p>
     <h2>Học liệu</h2>
-    <ul class="resource-list">
-      <li
-        v-for="r in resources?.items"
-        :key="r.id"
+    <SectionTabs
+      v-if="resources?.items.length"
+      id="course-materials"
+      v-model="materialTab"
+      label="Loại học liệu"
+      :options="materialTabs"
+    />
+    <div
+      id="course-materials-panel"
+      :role="resources?.items.length ? 'tabpanel' : undefined"
+      :aria-labelledby="resources?.items.length ? `course-materials-tab-${materialTab}` : undefined"
+      class="tab-panel"
+    >
+      <p
+        v-if="resourceStatus === 'pending'"
+        role="status"
       >
-        <NuxtLink :to="r.path">{{ r.title }}</NuxtLink><small>{{ r.available ? "Đã xuất bản" : "Chờ biên tập" }}</small>
-      </li>
-    </ul>
-    <p v-if="!resources?.total">
-      Chưa có tài liệu.
-      <NuxtLink to="/dong-gop">Đóng góp tài liệu cho môn</NuxtLink>.
-    </p>
-    <NuxtLink
-      v-if="resources && resources.total > 15"
-      :to="{ path: '/hoc-lieu/', query: { course: selectedCourse.code } }"
-    >Xem toàn bộ {{ resources.total }} tài liệu</NuxtLink>
+        Đang tải học liệu…
+      </p>
+      <div
+        v-else-if="resourceError"
+        role="alert"
+        class="notice"
+      >
+        Chưa tải được học liệu. <button
+          class="quiet"
+          @click="reloadResources()"
+        >
+          Thử lại
+        </button>
+      </div>
+      <ul
+        v-else
+        class="resource-list"
+      >
+        <li
+          v-for="r in visibleResources"
+          :key="r.id"
+        >
+          <NuxtLink :to="r.path">{{ r.title }}</NuxtLink><small>{{ r.available ? "Đã xuất bản" : "Chờ biên tập" }}</small>
+        </li>
+      </ul>
+      <p v-if="!resourceError && resourceStatus !== 'pending' && !resources?.total">
+        Chưa có tài liệu.
+        <NuxtLink to="/dong-gop">Đóng góp tài liệu cho môn</NuxtLink>.
+      </p>
+    </div>
     <h2>Trong chương trình học</h2>
     <ul>
       <li

@@ -6,9 +6,14 @@ import type {
 } from '../../shared/types/platform'
 
 defineProps<{ home?: boolean }>()
+const advanced = ref<HTMLDetailsElement>()
+onMounted(() => {
+  if (window.innerWidth < 768 && advanced.value) advanced.value.open = false
+})
+const { user } = await useViewer()
 const route = useRoute(),
   router = useRouter()
-const { data: catalog, error: catalogError }
+const { data: catalog, error: catalogError, refresh: reloadCatalog }
   = await useFetch<Catalog>('/api/v1/catalog')
 const keys = ['q', 'major', 'term', 'course', 'topic', 'kind', 'year'] as const
 const filters = reactive(
@@ -36,6 +41,7 @@ const {
   data: results,
   status,
   error,
+  refresh: reloadResults,
 } = await useFetch<PageResult<ResourceSummary>>('/api/v1/resources', {
   query: computed(() => ({
     ...route.query,
@@ -88,40 +94,47 @@ function page(offset: number) {
         Học kỳ {{ n }}
       </option>
     </select></label>
-    <template v-if="!home">
-      <label>Môn<select v-model="filters.course">
-        <option value="">Tất cả môn</option>
-        <option
-          v-for="c in catalog?.courses"
-          :key="c.code"
-          :value="c.code"
-        >
-          {{ c.code }} · {{ c.name }}
-        </option>
-      </select></label>
-      <label>Chủ đề<select v-model="filters.topic">
-        <option value="">Tất cả chủ đề</option>
-        <option
-          v-for="t in catalog?.topics"
-          :key="t.id"
-          :value="t.id"
-        >
-          {{ t.name }}
-        </option>
-      </select></label>
-      <label>Loại<select v-model="filters.kind">
-        <option value="">Tất cả loại</option>
-        <option value="ly-thuyet">Bài học</option>
-        <option value="bai-tap">Bài tập</option>
-        <option value="de-thi">Đề thi</option>
-        <option value="cong-thuc">Công thức</option>
-        <option value="trac-nghiem">Trắc nghiệm</option>
-      </select></label>
-      <label>Năm đề thi<input
-        v-model="filters.year"
-        placeholder="2024-2025"
-      ></label>
-    </template>
+    <details
+      v-if="!home"
+      ref="advanced"
+      class="filter-options"
+      open
+    >
+      <summary>Bộ lọc bổ sung</summary><div class="filter-options-grid">
+        <label>Môn<select v-model="filters.course">
+          <option value="">Tất cả môn</option>
+          <option
+            v-for="c in catalog?.courses"
+            :key="c.code"
+            :value="c.code"
+          >
+            {{ c.code }} · {{ c.name }}
+          </option>
+        </select></label>
+        <label>Chủ đề<select v-model="filters.topic">
+          <option value="">Tất cả chủ đề</option>
+          <option
+            v-for="t in catalog?.topics"
+            :key="t.id"
+            :value="t.id"
+          >
+            {{ t.name }}
+          </option>
+        </select></label>
+        <label>Loại<select v-model="filters.kind">
+          <option value="">Tất cả loại</option>
+          <option value="ly-thuyet">Bài học</option>
+          <option value="bai-tap">Bài tập</option>
+          <option value="de-thi">Đề thi</option>
+          <option value="cong-thuc">Công thức</option>
+          <option value="trac-nghiem">Trắc nghiệm</option>
+        </select></label>
+        <label>Năm đề thi<input
+          v-model="filters.year"
+          placeholder="2024-2025"
+        ></label>
+      </div>
+    </details>
     <button type="submit">
       Tìm môn
     </button><NuxtLink
@@ -133,7 +146,13 @@ function page(offset: number) {
     v-if="catalogError || error"
     role="alert"
   >
-    Chưa tải được danh mục. Kiểm tra kết nối và thử tải lại trang.
+    Chưa tải được danh mục. <button
+      type="button"
+      class="quiet"
+      @click="reloadCatalog(); reloadResults()"
+    >
+      Thử lại
+    </button>
   </p>
   <template v-else-if="home">
     <h2>Chọn ngành</h2>
@@ -159,7 +178,10 @@ function page(offset: number) {
     <p v-if="!catalog?.materialCourses.length">
       Học liệu đang chờ duyệt xuất bản.
     </p>
-    <p class="muted">
+    <p
+      v-if="!user"
+      class="muted"
+    >
       Đăng nhập bằng tài khoản đã xác thực để đọc bài, luyện tập và lưu tiến độ.
     </p>
   </template>

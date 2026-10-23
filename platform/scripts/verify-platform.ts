@@ -711,13 +711,23 @@ try {
     const page = await browser.newPage()
     const errors: string[] = []
     page.on('pageerror', e => errors.push(e.message))
-    await page.context().addCookies(
-      [...(jars.get('student1') || [])].map(([name, value]) => ({
-        name,
-        value,
-        url: base,
-      })),
-    )
+    // Exercise the actual form against the isolated database, including return navigation.
+    await db.query('DELETE FROM rate_limit')
+    await page.goto(base + '/dang-nhap?return=' + encodeURIComponent(first.path))
+    await page.getByLabel('Email hoặc MSSV', { exact: true }).fill('student1')
+    await page.getByLabel('Mật khẩu', { exact: true }).fill(secretPassword)
+    await page.locator('form').getByRole('button', { name: 'Đăng nhập', exact: true }).click()
+    await page.waitForSelector('.article h1')
+    assert.equal(new URL(page.url()).pathname, first.path)
+    await page.goto(base + '/tai-khoan?tab=saved')
+    await page.getByRole('tab', { name: 'Đã lưu', exact: true }).waitFor()
+    assert.equal(await page.getByRole('tab', { name: 'Đã lưu', exact: true }).getAttribute('aria-selected'), 'true')
+    await page.getByRole('tab', { name: 'Bảo mật', exact: true }).click()
+    await page.getByLabel('Mật khẩu hiện tại', { exact: true }).waitFor()
+    await page.reload()
+    assert.equal(await page.getByRole('tab', { name: 'Bảo mật', exact: true }).getAttribute('aria-selected'), 'true')
+    await page.goBack()
+    await page.getByRole('heading', { name: 'Tài liệu đã lưu', exact: true }).waitFor()
     for (const width of [360, 768, 1280, 1440]) {
       await page.setViewportSize({ width, height: 900 })
       for (const mode of ['light', 'dark']) {
@@ -739,10 +749,8 @@ try {
           await toggle.getAttribute('aria-checked'),
           String(mode === 'dark'),
         )
-        await page.screenshot({
-          path: `test-results/platform-reading-${width}-${mode}.png`,
-          fullPage: true,
-        })
+        if (width < 768) await page.getByRole('button', { name: 'Menu', exact: true }).click()
+        await page.screenshot({ path: `test-results/platform-reading-${width}-${mode}.png`, animations: 'disabled' })
         const mathFill = await page
           .locator('.article svg g[fill]')
           .first()
@@ -770,13 +778,24 @@ try {
           false,
           JSON.stringify({ width, mode, overflow }),
         )
-        await page.screenshot({
-          path: `test-results/platform-reading-${width}-${mode}.png`,
-          fullPage: true,
-        })
+        for (const [name, path] of [['home', '/'], ['course', '/mon-hoc/comp1800/']]) {
+          await page.goto(base + path)
+          await page.waitForSelector('h1')
+          assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+          await page.screenshot({ path: `test-results/platform-${name}-${width}-${mode}.png`, animations: 'disabled' })
+        }
       }
     }
     assert.deepEqual(errors, [])
+    await page.goto(base + '/mon-hoc/comp1800/?cohort=K52')
+    await page.getByRole('tab', { name: 'Đề thi', exact: true }).click()
+    await page.waitForURL(/tab=de-thi/)
+    assert.ok(page.url().includes('tab=de-thi'))
+    assert.ok(page.url().includes('cohort=K52'))
+    await page.reload()
+    assert.equal(await page.getByRole('tab', { name: 'Đề thi', exact: true }).getAttribute('aria-selected'), 'true')
+    const expectedExams = (await json('/api/v1/resources?course=COMP1800&kind=de-thi')).total
+    assert.equal(await page.locator('#course-materials-panel li').count(), expectedExams)
     await page.goto(base + '/roadmap')
     await page.waitForSelector('.task-list input')
     const checkbox = page.locator('.task-list input').first()
@@ -788,12 +807,14 @@ try {
     await page.screenshot({
       path: 'test-results/platform-roadmap-viewport.png',
       fullPage: false,
+      animations: 'disabled',
     })
     await page.setViewportSize({ width: 1440, height: 900 })
     await page.goto(base + first.path)
     await page.screenshot({
       path: 'test-results/platform-reading-viewport-dark.png',
       fullPage: false,
+      animations: 'disabled',
     })
     await page.goto(base + '/quiz')
     await page.waitForSelector('fieldset')
@@ -815,9 +836,30 @@ try {
       'dai so',
     )
 
-    pass(
-      'authenticated SSR/browser, eight screen/theme combinations, reload persistence, checklist and quiz UI',
-    )
+    await page.goto(base + first.path)
+    await page.getByRole('button', { name: 'Báo lỗi', exact: true }).click()
+    await page.getByLabel('Phần cần kiểm tra', { exact: true }).fill('Kiểm tra cách trình bày trong bản thử nghiệm.')
+    await page.getByRole('button', { name: 'Gửi báo lỗi', exact: true }).click()
+    await page.getByText('Đã gửi báo lỗi.', { exact: true }).waitFor()
+    const staff = await browser.newPage()
+    await staff.goto(base + '/dang-nhap?return=' + encodeURIComponent('/quan-tri?tab=jobs'))
+    await staff.getByLabel('Email hoặc MSSV', { exact: true }).fill('admin1')
+    await staff.getByLabel('Mật khẩu', { exact: true }).fill(secretPassword)
+    await staff.locator('form').getByRole('button', { name: 'Đăng nhập', exact: true }).click()
+    await staff.getByRole('heading', { name: 'Xác thực hai bước', exact: true }).waitFor()
+    await staff.getByRole('button', { name: 'Dùng mã dự phòng', exact: true }).click()
+    await staff.getByRole('heading', { name: 'Nhập mã dự phòng', exact: true }).waitFor()
+    await staff.getByRole('button', { name: 'Dùng ứng dụng xác thực', exact: true }).click()
+    await staff.getByLabel('Mã xác thực', { exact: true }).fill(totp(mfaSecrets.get('admin1')!))
+    await staff.getByRole('button', { name: 'Tiếp tục', exact: true }).click()
+    await staff.getByRole('heading', { name: 'Quản trị học liệu', exact: true }).waitFor()
+    assert.equal(await staff.getByRole('tab', { name: 'Tác vụ nền', exact: true }).getAttribute('aria-selected'), 'true')
+    await staff.getByRole('tab', { name: 'Danh mục tài liệu', exact: true }).click()
+    await staff.waitForURL(/tab=resources/)
+    await staff.getByRole('heading', { name: 'Phân loại tài liệu', exact: true }).waitFor()
+    await staff.screenshot({ path: 'test-results/platform-admin-tabs.png', animations: 'disabled' })
+    await staff.close()
+    pass('authenticated form login, MFA and admin tabs; eight screen/theme combinations; course/account URL tabs, report form, checklist and quiz UI')
   }
   finally {
     await browser.close()

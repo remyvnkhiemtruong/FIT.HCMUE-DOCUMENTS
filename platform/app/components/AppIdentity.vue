@@ -20,6 +20,6 @@
         alt="Khoa Công nghệ Thông tin"
       >
     </span>
-    <span class="identity__name">Kho học liệu<small>Khoa Công nghệ Thông tin</small></span>
+    <span class="identity__name">Kho học liệu<small>FIT HCMUE</small></span>
   </NuxtLink>
 </template>

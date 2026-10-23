@@ -7,16 +7,24 @@ interface State {
     class_name: string
     cohort: string
   }
+  progress: { key: string, complete: boolean, version: number }[]
   bookmarks: { id: string, title: string, path: string }[]
   attempts: { id: string, score: number, total: number, created_at: string }[]
 }
+const accountTabs = [
+  { id: 'profile', name: 'Hồ sơ' }, { id: 'saved', name: 'Đã lưu' },
+  { id: 'progress', name: 'Tiến độ' }, { id: 'practice', name: 'Lịch sử luyện tập' },
+  { id: 'security', name: 'Bảo mật' },
+]
+const accountTab = useSectionTab(accountTabs, 'profile')
 const { user, refresh: refreshUser } = await useViewer(),
   fetcher = useRequestFetch()
-const { data } = await useAsyncData(
+const { data, error: stateError, refresh: reloadState } = await useAsyncData(
   `account-state-${user.value?.id || 'guest'}`,
   () =>
     user.value ? fetcher<State>('/api/v1/me/state') : Promise.resolve(null),
 )
+const busy = ref(false)
 const password = ref(''),
   nextPassword = ref(''),
   code = ref(''),
@@ -28,6 +36,8 @@ const sessions = ref<{ token: string, userAgent: string, createdAt: string }[]>(
 const importText = ref(''),
   preview = ref<{ added: number, kept: number } | null>(null)
 async function action(fn: () => Promise<unknown>) {
+  if (busy.value) return
+  busy.value = true
   try {
     await fn()
     message.value = 'Đã thực hiện.'
@@ -35,6 +45,7 @@ async function action(fn: () => Promise<unknown>) {
   catch {
     message.value = 'Chưa thể thực hiện. Kiểm tra thông tin và thử lại.'
   }
+  finally { busy.value = false }
 }
 async function listSessions() {
   sessions.value = await $fetch<
@@ -71,180 +82,231 @@ async function logout() {
   <section>
     <h1>Tài khoản</h1>
     <LoginNotice v-if="!user" /><template v-else>
-      <p>{{ user.name }} · {{ user.email }}</p>
-      <p v-if="data?.profile">
-        MSSV: {{ data.profile.display_id }} · {{ data.profile.class_name }} ·
-        {{ data.profile.cohort }}
-      </p>
-      <p>Liên hệ quản trị để sửa email hoặc MSSV.</p>
-      <h2>Tài liệu đã lưu</h2>
-      <ul>
-        <li
-          v-for="r in data?.bookmarks"
-          :key="r.id"
-        >
-          <NuxtLink :to="r.path">{{ r.title }}</NuxtLink>
-        </li>
-      </ul>
-      <p v-if="!data?.bookmarks.length">
-        Bạn chưa lưu tài liệu nào.
-      </p>
-      <h2>Lịch sử luyện tập</h2>
-      <ul>
-        <li
-          v-for="a in data?.attempts"
-          :key="a.id"
-        >
-          {{ new Date(a.created_at).toLocaleDateString("vi-VN") }}:
-          {{ a.score }}/{{ a.total }}
-        </li>
-      </ul>
-      <h2>Bảo mật</h2>
-      <form
-        class="stack narrow"
-        @submit.prevent="
-          action(() =>
-            $fetch('/api/auth/change-password', {
-              method: 'POST',
-              body: {
-                currentPassword: password,
-                newPassword: nextPassword,
-                revokeOtherSessions: true,
-              },
-            }),
-          )
-        "
-      >
-        <label>Mật khẩu hiện tại<input
-          v-model="password"
-          type="password"
-          autocomplete="current-password"
-          required
-        ></label><label>Mật khẩu mới<input
-          v-model="nextPassword"
-          type="password"
-          minlength="12"
-          autocomplete="new-password"
-          required
-        ></label><button>Đổi mật khẩu</button>
-      </form>
-      <h3>Xác thực hai bước</h3>
-      <p>
-        {{
-          user.twoFactorEnabled
-            ? "Đang bật."
-            : "Chưa bật. Bắt buộc với quản trị và biên tập viên."
-        }}
-      </p>
-      <button
-        v-if="!user.twoFactorEnabled"
-        @click="
-          action(async () => {
-            setup = await $fetch('/api/auth/two-factor/enable', {
-              method: 'POST',
-              body: { password },
-            });
-          })
-        "
-      >
-        Thiết lập bằng mật khẩu hiện tại
-      </button>
-      <div
-        v-if="setup"
+      <p
+        v-if="stateError"
         class="notice"
+        role="alert"
       >
-        <p>
-          Thêm URI này vào ứng dụng xác thực. Lưu mã dự phòng ở nơi riêng tư.
-        </p>
-        <code class="wrap">{{ setup.totpURI }}</code>
-        <ul>
-          <li
-            v-for="backup in setup.backupCodes"
-            :key="backup"
+        Chưa tải được dữ liệu tài khoản. <button
+          class="quiet"
+          @click="reloadState()"
+        >
+          Thử lại
+        </button>
+      </p>
+      <SectionTabs
+        id="account"
+        v-model="accountTab"
+        label="Tài khoản"
+        :options="accountTabs"
+      />
+      <div
+        id="account-panel"
+        role="tabpanel"
+        :aria-labelledby="`account-tab-${accountTab}`"
+        class="tab-panel"
+        tabindex="0"
+      >
+        <section v-show="accountTab === 'profile'">
+          <h2>Hồ sơ sinh viên</h2>
+          <p>{{ user.name }} · {{ user.email }}</p>
+          <p v-if="data?.profile">
+            MSSV: {{ data.profile.display_id }} · {{ data.profile.class_name }} ·
+            {{ data.profile.cohort }}
+          </p>
+          <p>Liên hệ quản trị để sửa email hoặc MSSV.</p>
+          <p><NuxtLink to="/dong-gop">Đóng góp của bạn</NuxtLink></p>
+        </section><section v-show="accountTab === 'saved'">
+          <h2>Tài liệu đã lưu</h2>
+          <ul>
+            <li
+              v-for="r in data?.bookmarks"
+              :key="r.id"
+            >
+              <NuxtLink :to="r.path">{{ r.title }}</NuxtLink>
+            </li>
+          </ul>
+          <p v-if="!data?.bookmarks.length">
+            Bạn chưa lưu tài liệu nào.
+          </p>
+        </section><section v-show="accountTab === 'practice'">
+          <h2>Lịch sử luyện tập</h2>
+          <p
+            v-if="!data?.attempts.length"
+            class="muted"
           >
-            <code>{{ backup }}</code>
-          </li>
-        </ul>
-        <form
-          class="stack narrow"
-          @submit.prevent="
-            action(async () => {
-              await $fetch('/api/auth/two-factor/verify-totp', {
-                method: 'POST',
-                body: { code },
-              });
-              setup = null;
-              await refreshUser();
-            })
-          "
-        >
-          <label>Mã xác thực<input
-            v-model="code"
-            inputmode="numeric"
-            autocomplete="one-time-code"
-            required
-          ></label><button>Xác nhận</button>
-        </form>
-      </div>
-      <h3>Phiên đăng nhập</h3>
-      <button
-        class="quiet"
-        @click="action(listSessions)"
-      >
-        Xem các phiên
-      </button>
-      <ul>
-        <li
-          v-for="s in sessions"
-          :key="s.token"
-        >
-          {{ s.userAgent || "Thiết bị" }}
+            Chưa có lượt luyện tập nào được lưu.
+          </p>
+          <ul>
+            <li
+              v-for="a in data?.attempts"
+              :key="a.id"
+            >
+              {{ new Date(a.created_at).toLocaleDateString("vi-VN") }}:
+              {{ a.score }}/{{ a.total }}
+            </li>
+          </ul>
+        </section><section v-show="accountTab === 'security'">
+          <h2>Bảo mật</h2>
+          <form
+            class="stack narrow"
+            @submit.prevent="
+              action(() =>
+                $fetch('/api/auth/change-password', {
+                  method: 'POST',
+                  body: {
+                    currentPassword: password,
+                    newPassword: nextPassword,
+                    revokeOtherSessions: true,
+                  },
+                }),
+              )
+            "
+          >
+            <label>Mật khẩu hiện tại<input
+              v-model="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            ></label><label>Mật khẩu mới<input
+              v-model="nextPassword"
+              type="password"
+              minlength="12"
+              autocomplete="new-password"
+              required
+            ></label><button :disabled="busy">
+              {{ busy ? "Đang xử lý…" : "Đổi mật khẩu" }}
+            </button>
+          </form>
+          <h3>Xác thực hai bước</h3>
+          <p>
+            {{
+              user.twoFactorEnabled
+                ? "Đang bật."
+                : "Chưa bật. Bắt buộc với quản trị và biên tập viên."
+            }}
+          </p>
           <button
-            class="quiet"
+            v-if="!user.twoFactorEnabled"
+            :disabled="busy"
             @click="
               action(async () => {
-                await $fetch('/api/auth/revoke-session', {
+                setup = await $fetch('/api/auth/two-factor/enable', {
                   method: 'POST',
-                  body: { token: s.token },
+                  body: { password },
                 });
-                await listSessions();
               })
             "
           >
-            Thu hồi
+            Thiết lập bằng mật khẩu hiện tại
           </button>
-        </li>
-      </ul>
-      <h2>Tiến độ cá nhân</h2>
-      <a
-        href="/api/v1/me/export"
-        download
-      >Xuất dữ liệu học tập</a>
-      <p>Nhập tệp tiến độ đã xuất. Mục hiện có được giữ nguyên.</p>
-      <label>Chọn tệp JSON<input
-        type="file"
-        accept="application/json,.json"
-        @change="loadFile"
-      ></label>
-      <div class="actions">
-        <button
-          class="quiet"
-          :disabled="!importText"
-          @click="action(() => importProgress(false))"
-        >
-          Xem trước
-        </button><button
-          v-if="preview"
-          @click="action(() => importProgress(true))"
-        >
-          Nhập {{ preview.added }} mục mới
-        </button>
+          <div
+            v-if="setup"
+            class="notice"
+          >
+            <p>
+              Thêm URI này vào ứng dụng xác thực. Lưu mã dự phòng ở nơi riêng tư.
+            </p>
+            <code class="wrap">{{ setup.totpURI }}</code>
+            <ul>
+              <li
+                v-for="backup in setup.backupCodes"
+                :key="backup"
+              >
+                <code>{{ backup }}</code>
+              </li>
+            </ul>
+            <form
+              class="stack narrow"
+              @submit.prevent="
+                action(async () => {
+                  await $fetch('/api/auth/two-factor/verify-totp', {
+                    method: 'POST',
+                    body: { code },
+                  });
+                  setup = null;
+                  await refreshUser();
+                })
+              "
+            >
+              <label>Mã xác thực<input
+                v-model="code"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                required
+              ></label><button :disabled="busy">
+                Xác nhận
+              </button>
+            </form>
+          </div>
+          <h3>Phiên đăng nhập</h3>
+          <button
+            :disabled="busy"
+            class="quiet"
+            @click="action(listSessions)"
+          >
+            Xem các phiên
+          </button>
+          <ul>
+            <li
+              v-for="s in sessions"
+              :key="s.token"
+            >
+              {{ s.userAgent || "Thiết bị" }}
+              <button
+                :disabled="busy"
+                class="quiet"
+                @click="
+                  action(async () => {
+                    await $fetch('/api/auth/revoke-session', {
+                      method: 'POST',
+                      body: { token: s.token },
+                    });
+                    await listSessions();
+                  })
+                "
+              >
+                Thu hồi
+              </button>
+            </li>
+          </ul>
+        </section><section v-show="accountTab === 'progress'">
+          <h2>Tiến độ cá nhân</h2>
+          <p v-if="data">
+            {{ data.progress.filter(item => item.complete).length }} mục đã đánh dấu hoàn thành.
+          </p>
+          <a
+            href="/api/v1/me/export"
+            download
+          >Xuất dữ liệu học tập</a>
+          <p>Nhập tệp tiến độ đã xuất. Mục hiện có được giữ nguyên.</p>
+          <label>Chọn tệp JSON<input
+            type="file"
+            accept="application/json,.json"
+            @change="loadFile"
+          ></label>
+          <div class="actions">
+            <button
+              class="quiet"
+              :disabled="!importText || busy"
+              @click="action(() => importProgress(false))"
+            >
+              Xem trước
+            </button><button
+              v-if="preview"
+              :disabled="busy"
+              @click="action(() => importProgress(true))"
+            >
+              Nhập {{ preview.added }} mục mới
+            </button>
+          </div>
+          <p v-if="preview">
+            Giữ nguyên {{ preview.kept }} mục đã có.
+          </p>
+        </section>
       </div>
-      <p v-if="preview">
-        Giữ nguyên {{ preview.kept }} mục đã có.
-      </p>
-      <p><NuxtLink to="/dong-gop">Đóng góp của bạn</NuxtLink></p>
       <button
+        :disabled="busy"
         class="quiet"
         @click="action(logout)"
       >

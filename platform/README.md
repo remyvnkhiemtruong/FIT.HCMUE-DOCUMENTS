@@ -82,3 +82,5 @@ npm run test:business
 - [Báo cáo triển khai hiện tại](docs/IMPLEMENTATION_REPORT.md).
 
 Không chạy script migrate.py cũ. Không phục vụ content-archive, source Markdown hoặc .data qua thư mục public. Không đổi repository/Pages trước khi có hệ thống thay thế đã nghiệm thu.
+
+Giao diện, các tab và cách kiểm tra sáng/tối: [INTERFACE.md](docs/INTERFACE.md).

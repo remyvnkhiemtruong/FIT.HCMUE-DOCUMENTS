@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/interface.css'],
   runtimeConfig: {
     databaseUrl: '',
     public: {

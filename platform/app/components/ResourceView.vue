@@ -26,6 +26,7 @@ const neighbours = computed(() => {
   const index = list.findIndex(r => r.id === props.id)
   return list.filter((_, i) => Math.abs(i - index) === 1)
 })
+const busy = ref(false), reportOpen = ref(false), reportText = ref('')
 const message = ref(''),
   toc = ref<{ id: string, title: string }[]>([])
 const complete = computed(() =>
@@ -54,21 +55,31 @@ async function mark() {
     message.value = 'Tiến độ đã thay đổi hoặc chưa lưu được. Vui lòng tải lại.'
   }
 }
+async function feedback(fn: () => Promise<void>) {
+  if (busy.value) return
+  busy.value = true
+  message.value = ''
+  try {
+    await fn()
+  }
+  catch { message.value = 'Chưa lưu được thay đổi. Kiểm tra kết nối và thử lại.' }
+  finally { busy.value = false }
+}
 async function bookmark() {
-  await $fetch(`/api/v1/bookmarks/${props.id}`, {
-    method: saved.value ? 'DELETE' : 'PUT',
+  await feedback(async () => {
+    const wasSaved = saved.value
+    await $fetch(`/api/v1/bookmarks/${props.id}`, { method: wasSaved ? 'DELETE' : 'PUT' })
+    await refresh()
+    message.value = wasSaved ? 'Đã bỏ lưu tài liệu.' : 'Đã lưu tài liệu.'
   })
-  await refresh()
 }
 async function report() {
-  const body = prompt('Mô tả phần cần kiểm tra')
-  if (body) {
-    await $fetch('/api/v1/reports', {
-      method: 'POST',
-      body: { resource: props.id, body },
-    })
+  await feedback(async () => {
+    await $fetch('/api/v1/reports', { method: 'POST', body: { resource: props.id, body: reportText.value } })
+    reportOpen.value = false
+    reportText.value = ''
     message.value = 'Đã gửi báo lỗi.'
-  }
+  })
 }
 </script>
 
@@ -125,13 +136,20 @@ async function report() {
         <summary>Nguồn tài liệu</summary>
         <p>{{ data.source }}</p>
       </details>
-      <div class="actions">
+      <div
+        class="actions reading-actions"
+        :aria-busy="busy"
+      >
         <button
           class="quiet"
+          :disabled="busy"
           @click="bookmark"
         >
           {{ saved ? "Bỏ lưu tài liệu" : "Lưu tài liệu" }}
-        </button><button @click="mark">
+        </button><button
+          :disabled="busy"
+          @click="feedback(mark)"
+        >
           {{
             complete?.complete
               ? "Bỏ đánh dấu hoàn thành"
@@ -139,11 +157,39 @@ async function report() {
           }}
         </button><button
           class="quiet"
-          @click="report"
+          :aria-expanded="reportOpen"
+          aria-controls="report-form"
+          @click="reportOpen = !reportOpen"
         >
           Báo lỗi
         </button><NuxtLink :to="{ path: '/dong-gop', query: { resource: id } }">Đề xuất sửa</NuxtLink>
       </div>
+      <form
+        v-if="reportOpen"
+        id="report-form"
+        class="stack report-form"
+        @submit.prevent="report"
+      >
+        <label>Phần cần kiểm tra<textarea
+          v-model="reportText"
+          required
+          maxlength="1000"
+          rows="3"
+          placeholder="Nêu vị trí và vấn đề bạn gặp trong bài."
+        /></label>
+        <div class="actions">
+          <button :disabled="busy">
+            {{ busy ? 'Đang gửi…' : 'Gửi báo lỗi' }}
+          </button><button
+            type="button"
+            class="quiet"
+            :disabled="busy"
+            @click="reportOpen = false"
+          >
+            Hủy
+          </button>
+        </div>
+      </form>
       <p role="status">
         {{ message }}
       </p>
